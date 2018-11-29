@@ -1,0 +1,168 @@
+//  This CSS has been cherry picked from the Datavic CKAN 2.2 theme:
+//  https://github.com/salsadigitalauorg/datavic_ckan_2.2/blob/develop/default/src/ckanext-datavic/ckanext/datavic/fanstatic/styles/new.css
+
+.user-block-holder {
+	color:#767676;
+	font-size:18px;
+	margin:0 0 20px;
+	line-height:20px;
+	padding:0 0 10px;
+	border-bottom:1px solid #e6e6e6;
+
+    .info {
+        margin:0 20px 0 0;
+        width:220px;
+
+        p {
+            margin-bottom:6px;
+        }
+
+        .format {
+            text-transform:uppercase;
+            vertical-align:top;
+            background:#004dff;
+            text-align:center;
+            line-height:18px;
+            margin:0 6px 0 0;
+            font-size:12px;
+            width:40px;
+            color:#fff;
+        }
+    }
+
+    .frame {
+        position:relative;
+        padding:0 0 23px;
+
+        &:after {
+            display:block;
+            content:'';
+            clear:both;
+        }
+
+        &:hover {
+            z-index:2;
+        }
+
+        .info {
+            width: 100%;
+
+            ul {
+            }
+        }
+    }
+
+    .btn-holder {
+        margin:0;
+        font-size:19px;
+        list-style:none;
+        padding:0 20px 0 0;
+        float: right;
+
+        &:after {
+            display:block;
+            content:'';
+            clear:both;
+        }
+
+        a {
+            &:active,
+            &:focus {
+                text-decoration:none;
+            }
+
+            .eye {
+                background:url(/ico-eye.png) no-repeat;
+                vertical-align:middle;
+                display:inline-block;
+                height:12px;
+                width:20px;
+            }
+        }
+
+        li {
+            float: left;
+            position:relative;
+            margin:0 0 0 23px;
+            line-height:32px;
+            width:176px;
+            z-index: 1;
+
+            &:first-child {
+                margin: 0;
+            }
+
+            &:hover {
+                .drop {
+                    display:block;
+                }
+            }
+
+            &:hover > a {
+                text-decoration:none;
+                background:#008fff;
+            }
+
+            & > a {
+                color:#fff;
+                display:block;
+                padding:0 10px;
+                text-align:center;
+                background:#004dff;
+                border:1px solid #60b9ff;
+                text-transform:uppercase;
+            }
+
+            .drop {
+                position:absolute;
+                top:100%;
+                left:0;
+                right:0;
+                padding:10px;
+                display:none;
+                color:#767676;
+                font-size:12px;
+                background:#fff;
+                line-height:18px;
+                text-align:center;
+                border:1px solid #008fff;
+                border-width:0 1px 1px;
+
+                label {
+                    display:inline-block;
+
+                    &:after {
+                        content: ""
+                    }
+                }
+
+                p {
+                    text-align:left;
+                }
+            }
+        }
+    }
+}
+
+.custom-check {
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    margin:0 5px 0 0;
+    top:-.15em;
+    width:31px;
+    height:31px;
+	background:url(/bg-checkboxes.png) no-repeat;
+}
+
+.custom-check.focus,
+label:hover .custom-check {background-position:-62px 0;}
+.custom-check.checked,
+label.custom-label:hover .custom-check.checked {background-position:-62px 0;}
+
+label:not(.chk-label-active):hover .custom-check {
+	background-position: -62px 0;
+}
+.chk-label-active .custom-check{
+	background-position: -62px;
+}

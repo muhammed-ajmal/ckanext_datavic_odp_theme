@@ -1,0 +1,49 @@
+#orderEmail{
+	height: 0px;
+	width: 0px;
+	position: absolute;
+	margin-right: auto;
+	background: white;
+	border: 1px solid #767676;
+	opacity: 0;
+	box-shadow: 2px 2px 6px gray;
+	transition: height 1s, width 1s, opacity 1s;
+	overflow: hidden;
+	z-index: 99;
+}
+#orderEmail.shown{
+	opacity: 1;
+	border: 1px solid #767676;
+	height: 360px;
+	width: 500px;
+}
+#orderEmail div{
+	margin: auto;
+	text-align: center;
+}
+#orderEmailForm{
+	padding: 40px 40px;
+}
+#orderEmailForm input{
+	width: 280px;
+}
+#orderEmailButtons{
+	width: 310px;
+}
+#orderEmailForm button{
+	color: white;
+	background: #004dff;
+	text-transform: uppercase;
+	padding: 10px 20px;
+	text-align: center;
+	border: 1px solid #60b9ff;
+}
+#orderEmailForm button:hover{
+	background: #008fff;
+}
+#orderEmailForm button:first-child{
+	margin-right: 25px
+}
+#orderEmail input.error{
+	background: #ecbec0;
+}
