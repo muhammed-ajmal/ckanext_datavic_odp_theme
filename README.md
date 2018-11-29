@@ -3,6 +3,10 @@ A custom CKAN extension theme for Data.vic.gov.au (Public)
 
 ## Installation
 
+Add this repository as a sub-module to your main project repository:
+
+        git submodule add git@github.com:salsadigitalauorg/ckanext_datavic_odp_theme.git ckan/default/src/ckanext-datavic-odp-theme
+
 Activate the Python virtual environment:
 
         . /usr/lib/ckan/default/bin/activate
@@ -27,3 +31,19 @@ Or... Restart Nginx & Apache:
         sudo service apache2 stop
         sudo service apache2 start
         sudo service nginx start
+
+## CSS & Grunt
+
+This theme adds a CSS resource to CKAN via the `fanstatic` dir:
+
+        ~/ckanext-datavic-odp-theme/ckanext/datavic_odp_theme/fanstatic/datavic_odp_theme.css
+
+This CSS file is generated through a basic `grunt` configuration in:
+
+        ~/ckanext-datavic-odp-theme/ckanext/datavic_odp_theme/grunt
+
+CD into that directory and run `npm install` to install grunt and its dependencies.
+
+Then compile the `.scss` files in the `ckanext-datavic-odp-theme/ckanext/datavic_odp_theme/grunt/sass` dir using:
+
+        grunt
