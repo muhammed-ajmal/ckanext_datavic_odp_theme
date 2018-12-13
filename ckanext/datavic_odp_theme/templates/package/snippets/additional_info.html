@@ -77,21 +77,28 @@
         {% if pkg_dict.license_id %}
           <tr>
             <th scope="row" class="dataset-label">{{ _('License') }}</th>
-            <td class="dataset-details" property="dc:contributor">{{ pkg_dict.license_title }}</td>
+            <td class="dataset-details">{{ pkg_dict.license_title }}</td>
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.custom_licence_text %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _('License - other') }}</th>
+            <td class="dataset-details">{{ pkg_dict.custom_licence_text }}</td>
           </tr>
         {% endif %}
 
         {% if pkg_dict.access %}
           <tr>
             <th scope="row" class="dataset-label">{{ _('Access') }}</th>
-            <td class="dataset-details" property="dc:contributor">{{h.get_option_label('dataset', 'access', pkg_dict.access)}}</td>
+            <td class="dataset-details">{{h.get_option_label('dataset', 'access', pkg_dict.access)}}</td>
           </tr>
         {% endif %}
 
         {% if pkg_dict.protective_marking %}
           <tr>
             <th scope="row" class="dataset-label">{{ _('Protective Marking') }}</th>
-            <td class="dataset-details" property="dc:contributor">{{ pkg_dict.protective_marking }}</td>
+            <td class="dataset-details"{{ pkg_dict.protective_marking }}</td>
           </tr>
         {% endif %}
 
