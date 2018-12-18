@@ -74,18 +74,24 @@
           </tr>
         {% endif %}
 
-        {% if pkg_dict.license_id %}
+        {% if pkg_dict.license_id != 'other' %}
           <tr>
             <th scope="row" class="dataset-label">{{ _('License') }}</th>
             <td class="dataset-details">{{ pkg_dict.license_title }}</td>
           </tr>
-        {% endif %}
-
-        {% if pkg_dict.custom_licence_text %}
-          <tr>
-            <th scope="row" class="dataset-label">{{ _('License - other') }}</th>
-            <td class="dataset-details">{{ pkg_dict.custom_licence_text }}</td>
-          </tr>
+        {% else %}
+          {% if pkg_dict.custom_licence_text %}
+            <tr>
+              <th scope="row" class="dataset-label">{{ _('License - other') }}</th>
+              <td class="dataset-details">{{ pkg_dict.custom_licence_text }}</td>
+            </tr>
+          {% endif %}
+          {% if pkg_dict.custom_licence_link %}
+            <tr>
+              <th scope="row" class="dataset-label">{{ _('Custom license link') }}</th>
+              <td class="dataset-details">{{ pkg_dict.custom_licence_link }}</td>
+            </tr>
+          {% endif %}
         {% endif %}
 
         {% if pkg_dict.access %}
