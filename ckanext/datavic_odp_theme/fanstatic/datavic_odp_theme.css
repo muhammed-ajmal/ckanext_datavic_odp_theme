@@ -8,169 +8,183 @@
   clip: rect(0, 0, 0, 0);
   border: 0; }
 
-#orderEmail {
-  height: 0px;
-  width: 0px;
-  position: absolute;
-  margin-right: auto;
-  background: white;
-  border: 1px solid #767676;
-  opacity: 0;
-  box-shadow: 2px 2px 6px gray;
-  transition: height 1s, width 1s, opacity 1s;
-  overflow: hidden;
-  z-index: 99; }
+/*@import 'order_form';*/
+.resource-item {
+  border-bottom: 2px solid #D7DBE0;
+  padding: 10px; }
+  .resource-item .btn-primary {
+    background-color: #0052C2;
+    background-image: none;
+    border: none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+    padding: 16px; }
+    .resource-item .btn-primary:active, .resource-item .btn-primary:hover, .resource-item .btn-primary:focus {
+      background-color: #0052C2; }
+  .resource-item .btn-group.open .btn-primary.dropdown-toggle {
+    background-color: #0052C2; }
+  .resource-item .dropdown-menu > li > a:hover {
+    background-color: #0052C2;
+    background-image: none; }
+  .resource-item .format {
+    background-color: #F6F6F9;
+    box-shadow: inset 0 1px 43px 0 rgba(0, 0, 0, 0.05);
+    color: #011A3C;
+    font-size: 14px;
+    font-weight: 500;
+    height: 18px;
+    line-height: 18px;
+    margin: 0 6px 0 0;
+    padding: 3px 8px;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: top;
+    width: 40px; }
 
-#orderEmail.shown {
-  opacity: 1;
-  border: 1px solid #767676;
-  height: 360px;
-  width: 500px; }
-
-#orderEmail div {
-  margin: auto;
-  text-align: center; }
-
-#orderEmailForm {
-  padding: 40px 40px; }
-
-#orderEmailForm input {
-  width: 280px; }
-
-#orderEmailButtons {
-  width: 310px; }
-
-#orderEmailForm button {
-  color: white;
-  background: #004dff;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  text-align: center;
-  border: 1px solid #60b9ff; }
-
-#orderEmailForm button:hover {
-  background: #008fff; }
-
-#orderEmailForm button:first-child {
-  margin-right: 25px; }
-
-#orderEmail input.error {
-  background: #ecbec0; }
-
+/*
 .user-block-holder {
-  color: #767676;
-  font-size: 18px;
-  margin: 0 0 20px;
-  line-height: 20px;
-  padding: 0 0 10px;
-  border-bottom: 1px solid #e6e6e6; }
-  .user-block-holder .info {
-    margin: 0 20px 0 0;
-    width: 220px; }
-    .user-block-holder .info p {
-      margin-bottom: 6px; }
-    .user-block-holder .info .format {
-      text-transform: uppercase;
-      vertical-align: top;
-      background: #004dff;
-      text-align: center;
-      line-height: 18px;
-      margin: 0 6px 0 0;
-      font-size: 12px;
-      width: 40px;
-      color: #fff; }
-  .user-block-holder .frame {
-    position: relative;
-    padding: 0 0 23px; }
-    .user-block-holder .frame:after {
-      display: block;
-      content: '';
-      clear: both; }
-    .user-block-holder .frame:hover {
-      z-index: 2; }
-    .user-block-holder .frame .info {
-      width: 100%; }
-  .user-block-holder .btn-holder {
-    margin: 0;
-    font-size: 19px;
-    list-style: none;
-    padding: 0 20px 0 0;
-    float: right; }
-    .user-block-holder .btn-holder:after {
-      display: block;
-      content: '';
-      clear: both; }
-    .user-block-holder .btn-holder a:active, .user-block-holder .btn-holder a:focus {
-      text-decoration: none; }
-    .user-block-holder .btn-holder a .eye {
-      background: url(/ico-eye.png) no-repeat;
-      vertical-align: middle;
-      display: inline-block;
-      height: 12px;
-      width: 20px; }
-    .user-block-holder .btn-holder li {
-      float: left;
-      position: relative;
-      margin: 0 0 0 23px;
-      line-height: 32px;
-      width: 176px;
-      z-index: 1; }
-      .user-block-holder .btn-holder li:first-child {
-        margin: 0; }
-      .user-block-holder .btn-holder li:hover .drop {
-        display: block; }
-      .user-block-holder .btn-holder li:hover > a {
-        text-decoration: none;
-        background: #008fff; }
-      .user-block-holder .btn-holder li > a {
-        color: #fff;
-        display: block;
-        padding: 0 10px;
-        text-align: center;
-        background: #004dff;
-        border: 1px solid #60b9ff;
-        text-transform: uppercase; }
-      .user-block-holder .btn-holder li .drop {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        padding: 10px;
-        display: none;
-        color: #767676;
-        font-size: 12px;
-        background: #fff;
-        line-height: 18px;
-        text-align: center;
-        border: 1px solid #008fff;
-        border-width: 0 1px 1px; }
-        .user-block-holder .btn-holder li .drop label {
-          display: inline-block; }
-          .user-block-holder .btn-holder li .drop label:after {
-            content: ""; }
-        .user-block-holder .btn-holder li .drop p {
-          text-align: left; }
+	color:#767676;
+	font-size:18px;
+	margin:0 0 20px;
+	line-height:20px;
+	padding:0 0 10px;
+	border-bottom:1px solid #e6e6e6;
 
-.custom-check {
-  vertical-align: middle;
-  display: inline-block;
-  position: relative;
-  margin: 0 5px 0 0;
-  top: -.15em;
-  width: 31px;
-  height: 31px;
-  background: url(/bg-checkboxes.png) no-repeat; }
+    .info {
+        margin:0 20px 0 0;
+        width:220px;
 
-.custom-check.focus,
-label:hover .custom-check {
-  background-position: -62px 0; }
+        p {
+            margin-bottom:6px;
+        }
 
-.custom-check.checked,
-label.custom-label:hover .custom-check.checked {
-  background-position: -62px 0; }
+        .format {
+            text-transform:uppercase;
+            vertical-align:top;
+            background:#004dff;
+            text-align:center;
+            line-height:18px;
+            margin:0 6px 0 0;
+            font-size:12px;
+            width:40px;
+            color:#fff;
+        }
+    }
 
-label:not(.chk-label-active):hover .custom-check {
-  background-position: -62px 0; }
+    .frame {
+        position:relative;
+        padding:0 0 23px;
 
-.chk-label-active .custom-check {
-  background-position: -62px; }
+        &:after {
+            display:block;
+            content:'';
+            clear:both;
+        }
+
+        &:hover {
+            z-index:2;
+        }
+
+        .info {
+            width: 100%;
+
+            ul {
+            }
+        }
+    }
+
+    .btn-holder {
+        margin:0;
+        font-size:19px;
+        list-style:none;
+        padding:0 20px 0 0;
+        float: right;
+
+        &:after {
+            display:block;
+            content:'';
+            clear:both;
+        }
+
+        a {
+            &:active,
+            &:focus {
+                text-decoration:none;
+            }
+
+            .eye {
+                background:url(/ico-eye.png) no-repeat;
+                vertical-align:middle;
+                display:inline-block;
+                height:12px;
+                width:20px;
+            }
+        }
+
+        li {
+            float: left;
+            position:relative;
+            margin:0 0 0 23px;
+            line-height:32px;
+            width:176px;
+            z-index: 1;
+
+            &:first-child {
+                margin: 0;
+            }
+
+            &:hover {
+                .drop {
+                    display:block;
+                }
+            }
+
+            &:hover > a {
+                text-decoration:none;
+                background:#008fff;
+            }
+
+            & > a {
+                color:#fff;
+                display:block;
+                padding:0 10px;
+                text-align:center;
+                background:#004dff;
+                border:1px solid #60b9ff;
+                text-transform:uppercase;
+            }
+
+            .drop {
+                position:absolute;
+                top:100%;
+                left:0;
+                right:0;
+                padding:10px;
+                display:none;
+                color:#767676;
+                font-size:12px;
+                background:#fff;
+                line-height:18px;
+                text-align:center;
+                border:1px solid #008fff;
+                border-width:0 1px 1px;
+
+                label {
+                    display:inline-block;
+
+                    &:after {
+                        content: ""
+                    }
+                }
+
+                p {
+                    text-align:left;
+                }
+            }
+        }
+    }
+}
+*/
