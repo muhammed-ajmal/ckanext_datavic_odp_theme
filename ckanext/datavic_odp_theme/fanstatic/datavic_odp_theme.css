@@ -459,7 +459,11 @@ nav {
     font-weight: normal;
     color: #125ec6; }
   .rpl-breadcrumbs__items li.active a {
-    color: inherit; }
+    color: inherit;
+    font-family: "VIC-Regular", "Arial", "Helvetica", "sans-serif";
+    font-size: 0.875rem;
+    line-height: 1.4em;
+    font-weight: normal; }
 
 .rpl-site-footer {
   overflow-x: hidden;

@@ -61,5 +61,6 @@ nav {
 
   &__items li.active a {
     color: inherit;
+    @include rpl_typography_ruleset($rpl-breadcrumbs-text-ruleset);
   }
 }
