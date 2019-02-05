@@ -1,0 +1,31 @@
+body {
+  background-color: white;
+  background-image: none;
+  color: inherit;
+}
+
+[role="main"] {
+  background: none;
+  padding-top: 0;
+}
+
+.wrapper {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.btn-primary,
+.btn-success {
+  background-image: none;
+  border: none;
+  text-shadow: none;
+}
+
+.dataset-resources {
+  margin: 0;
+}
+
+.search-form .search-input.search-giant button {
+  margin-top: -14px;
+}
