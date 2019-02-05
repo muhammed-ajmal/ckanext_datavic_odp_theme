@@ -1,0 +1,17 @@
+{% ckan_extends %}
+
+{%- block content %}
+    {% if self.breadcrumb_content() | trim %}
+    <nav aria-label="breadcrumbs">
+        <ul class="rpl-breadcrumbs__items">
+            <li class="rpl-breadcrumbs__item"><a href="{{ h.url_for('home') }}" class="rpl-link rpl-breadcrumbs__link">Home</a></li>
+            {% block breadcrumb_content %}{% endblock %}
+        </ul>
+    </nav>
+    {% endif %}
+
+    {{ super() }}
+
+    {% block breadcrumb %}
+    {% endblock %}
+{% endblock -%}

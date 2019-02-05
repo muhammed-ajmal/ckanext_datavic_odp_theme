@@ -1,0 +1,3 @@
+[submodule "ckanext/datavic_odp_theme/grunt/ripple"]
+	path = ckanext/datavic_odp_theme/grunt/ripple
+	url = git@github.com:dpc-sdp/ripple.git

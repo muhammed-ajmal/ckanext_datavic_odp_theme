@@ -1,0 +1,21 @@
+.dataset-resources {
+  margin-bottom: rem(8px);
+
+  li {
+    a {
+      &.label {
+        background-color: rpl-color('light_neutral');
+        border-radius: none;
+        color: inherit;
+        font-size: rem(14px);
+        font-weight: 500;
+        height: rem(18px);
+        line-height: rem(18px);
+        padding: rem(3px) rem(8px);
+        text-align:center;
+        text-shadow: none;
+        text-transform:uppercase;
+      }
+    }
+  }
+}
