@@ -1166,67 +1166,67 @@ nav {
     padding: 0;
     margin: 0;
     list-style: none; }
-  .module .pagination ul li {
-    display: inline-block;
-    padding: 0 0 0 0.5rem; }
-    .module .pagination ul li::after {
-      content: '/';
-      color: #d7dbe0;
+    .module .pagination ul > li {
+      display: inline-block;
       padding: 0 0 0 0.5rem; }
-      @media (min-width: 0) {
-        .module .pagination ul li::after {
-          font-family: "VIC-Bold", "Arial", "Helvetica", "sans-serif";
-          font-size: 1rem;
-          line-height: 1.5em;
-          font-weight: normal; } }
-      @media (min-width: 992px) {
-        .module .pagination ul li::after {
-          font-family: "VIC-Bold", "Arial", "Helvetica", "sans-serif";
-          font-size: 1.25rem;
-          line-height: 1.2em;
-          font-weight: normal; } }
-    .module .pagination ul li:last-child::after {
-      content: ''; }
-  .module .pagination li a,
-  .module .pagination li.active a {
-    background: transparent;
-    border: 0;
-    margin: 0;
-    padding: 0; }
-    @media (min-width: 0) {
-      .module .pagination li a,
-      .module .pagination li.active a {
-        font-family: "VIC-Bold", "Arial", "Helvetica", "sans-serif";
-        font-size: 1rem;
-        line-height: 1.5em;
-        font-weight: normal; } }
-    @media (min-width: 992px) {
-      .module .pagination li a,
-      .module .pagination li.active a {
-        font-family: "VIC-Bold", "Arial", "Helvetica", "sans-serif";
-        font-size: 1.25rem;
-        line-height: 1.2em;
-        font-weight: normal; } }
-  .module .pagination li a {
-    color: #011a3c;
-    cursor: pointer;
-    border-bottom: 2px solid transparent; }
-    .module .pagination li a:hover, .module .pagination li a:focus {
-      color: #0095ec;
-      border-bottom: 2px solid transparent; }
-    .module .pagination li a span {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      border: 0;
-      pointer-events: none; }
-  .module .pagination li.active a {
-    color: #0095ec;
-    border-bottom: 2px solid #0095ec; }
+      .module .pagination ul > li::after {
+        content: '/';
+        color: #d7dbe0;
+        padding: 0 0 0 0.5rem; }
+        @media (min-width: 0) {
+          .module .pagination ul > li::after {
+            font-family: "VIC-Bold", "Arial", "Helvetica", "sans-serif";
+            font-size: 1rem;
+            line-height: 1.5em;
+            font-weight: normal; } }
+        @media (min-width: 992px) {
+          .module .pagination ul > li::after {
+            font-family: "VIC-Bold", "Arial", "Helvetica", "sans-serif";
+            font-size: 1.25rem;
+            line-height: 1.2em;
+            font-weight: normal; } }
+      .module .pagination ul > li:last-child::after {
+        content: ''; }
+      .module .pagination ul > li > a,
+      .module .pagination ul > li.active > a {
+        background: transparent;
+        border: 0;
+        margin: 0;
+        padding: 0; }
+        @media (min-width: 0) {
+          .module .pagination ul > li > a,
+          .module .pagination ul > li.active > a {
+            font-family: "VIC-Bold", "Arial", "Helvetica", "sans-serif";
+            font-size: 1rem;
+            line-height: 1.5em;
+            font-weight: normal; } }
+        @media (min-width: 992px) {
+          .module .pagination ul > li > a,
+          .module .pagination ul > li.active > a {
+            font-family: "VIC-Bold", "Arial", "Helvetica", "sans-serif";
+            font-size: 1.25rem;
+            line-height: 1.2em;
+            font-weight: normal; } }
+      .module .pagination ul > li > a {
+        color: #011a3c;
+        cursor: pointer;
+        border-bottom: 2px solid transparent; }
+        .module .pagination ul > li > a:hover, .module .pagination ul > li > a:focus {
+          color: #0095ec;
+          border-bottom: 2px solid transparent; }
+        .module .pagination ul > li > a span {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0 0 0 0);
+          border: 0;
+          pointer-events: none; }
+      .module .pagination ul > li.active > a {
+        color: #0095ec;
+        border-bottom: 2px solid #0095ec; }
 
 .resource-item {
   border-bottom: 2px solid #D7DBE0;
@@ -1274,7 +1274,7 @@ nav {
     .resource-item .btn-primary:hover, .resource-item .btn-primary:focus {
       text-decoration: none; }
   .resource-item .format {
-    background-color: #F6F6F9;
+    background-color: #f6f6f9;
     box-shadow: inset 0 1px 43px 0 rgba(0, 0, 0, 0.05);
     color: #011A3C;
     font-size: 14px;
