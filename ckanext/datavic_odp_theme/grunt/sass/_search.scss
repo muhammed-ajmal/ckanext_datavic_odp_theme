@@ -1,5 +1,5 @@
 .dataset-resources {
-  margin-bottom: rem(8px);
+  margin-top: rem(12px);
 
   li {
     a {
@@ -18,4 +18,17 @@
       }
     }
   }
+}
+
+.search-form {
+  border-bottom: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dataset-item {
+  border-bottom: none;
+  border-top: 2px solid rpl-color('mid_neutral_1');
+  padding: rem(32px) 0 0 0;
+  margin: rem(32px) 0 0 0;
 }

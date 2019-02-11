@@ -113,7 +113,7 @@ $rpl-site-header-logout-btn-icon-margin: 0 0 0 $rpl-space-2 !default;
   // Menu Container - changes for vert / horizontal
   &__menu-container {
     &--vertical {
-      width: 100%;
+      width: inherit;
       position: absolute;
       bottom: 0;
       left: $rpl-header-horizontal-padding-xs;

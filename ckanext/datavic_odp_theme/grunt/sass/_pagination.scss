@@ -91,3 +91,12 @@ $rpl-pagination-nav-margin: 0 0 0 ($rpl-space * 5) !default;
     }
   }
 }
+
+.span12 {
+  .module {
+    .pagination {
+      padding-left: rem(25px);
+      padding-right: rem(25px);
+    }
+  }
+}

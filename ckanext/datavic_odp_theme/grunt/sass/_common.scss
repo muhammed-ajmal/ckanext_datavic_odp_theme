@@ -8,3 +8,10 @@
   clip: rect(0,0,0,0);
   border: 0;
 }
+
+@each $color-name, $color-value in $rpl-colors {
+  .rpl-icon--color_#{str-replace($color-name, ' ', '-')} {
+    fill: rpl-color($color-name);
+  }
+}
+

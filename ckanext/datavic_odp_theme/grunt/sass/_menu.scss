@@ -342,3 +342,17 @@ $rpl-menu-gutter: rpl_grid_get_gutter($rpl-grid) !default;
     }
   }
 }
+#main-menu {
+  .rpl-site-header__menu-container {
+    display: none;
+    @include rpl_breakpoint('l') {
+      display: inline-block;
+    }
+  }
+}
+#mobile-menu {
+  z-index: 1040;
+  .rpl-site-header__top {
+    height: 3rem;
+  }
+}
