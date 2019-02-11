@@ -18,9 +18,6 @@ body {
   border: none;
   text-shadow: none; }
 
-.dataset-resources {
-  margin: 0; }
-
 .search-form .search-input.search-giant button {
   margin-top: -14px; }
 
@@ -388,6 +385,42 @@ html {
   clip: rect(0, 0, 0, 0);
   border: 0; }
 
+.rpl-icon--color_primary {
+  fill: #0052c2; }
+
+.rpl-icon--color_dark_primary {
+  fill: #023b89; }
+
+.rpl-icon--color_secondary {
+  fill: #0095ec; }
+
+.rpl-icon--color_extra_dark_neutral {
+  fill: #011a3c; }
+
+.rpl-icon--color_dark_neutral {
+  fill: #465870; }
+
+.rpl-icon--color_mid_neutral_1 {
+  fill: #d7dbe0; }
+
+.rpl-icon--color_mid_neutral_2 {
+  fill: #e8ebee; }
+
+.rpl-icon--color_light_neutral {
+  fill: #f6f6f9; }
+
+.rpl-icon--color_danger {
+  fill: #a50034; }
+
+.rpl-icon--color_warning {
+  fill: #e35205; }
+
+.rpl-icon--color_success {
+  fill: #009ca6; }
+
+.rpl-icon--color_white {
+  fill: #fff; }
+
 .rpl-acknowledgement {
   position: relative;
   padding: 0 0 0 1.25rem;
@@ -738,7 +771,7 @@ nav {
           .rpl-site-header__logo-container--vic-logo-primary--cobrand {
             display: block; } }
   .rpl-site-header__menu-container--vertical {
-    width: 100%;
+    width: inherit;
     position: absolute;
     bottom: 0;
     left: 0.625rem;
@@ -1140,6 +1173,17 @@ nav {
     background-color: transparent;
     color: #fff; }
 
+#main-menu .rpl-site-header__menu-container {
+  display: none; }
+  @media (min-width: 992px) {
+    #main-menu .rpl-site-header__menu-container {
+      display: inline-block; } }
+
+#mobile-menu {
+  z-index: 1040; }
+  #mobile-menu .rpl-site-header__top {
+    height: 3rem; }
+
 .module-content .pagination {
   margin: 0; }
 
@@ -1228,6 +1272,10 @@ nav {
         color: #0095ec;
         border-bottom: 2px solid #0095ec; }
 
+.span12 .module .pagination {
+  padding-left: 1.5625rem;
+  padding-right: 1.5625rem; }
+
 .resource-item {
   border-bottom: 2px solid #D7DBE0;
   padding: 10px; }
@@ -1289,7 +1337,7 @@ nav {
     width: 40px; }
 
 .dataset-resources {
-  margin-bottom: 0.5rem; }
+  margin-top: 0.75rem; }
   .dataset-resources li a.label {
     background-color: #f6f6f9;
     border-radius: none;
@@ -1302,3 +1350,14 @@ nav {
     text-align: center;
     text-shadow: none;
     text-transform: uppercase; }
+
+.search-form {
+  border-bottom: none;
+  margin: 0;
+  padding: 0; }
+
+.dataset-item {
+  border-bottom: none;
+  border-top: 2px solid #d7dbe0;
+  padding: 2rem 0 0 0;
+  margin: 2rem 0 0 0; }

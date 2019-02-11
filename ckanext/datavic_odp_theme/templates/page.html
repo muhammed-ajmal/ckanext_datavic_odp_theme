@@ -1,6 +1,7 @@
 {% ckan_extends %}
 
 {%- block content %}
+
     {% if self.breadcrumb_content() | trim %}
     <div class="rpl-breadcrumbs">
         <nav aria-label="breadcrumbs">
@@ -12,8 +13,57 @@
     </div>
     {% endif %}
 
-    {{ super() }}
+    {% block maintag %}<div role="main">{% endblock %}
+      <div id="content" class="container">
+        {% block main_content %}
+          {% block flash %}
+            <div class="flash-messages">
+              {% block flash_inner %}
+                {% for message in h.flash.pop_messages() | list %}
+                  <div class="alert fade in {{ message.category }}">
+                    {{ h.literal(message) }}
+                  </div>
+                {% endfor %}
+              {% endblock %}
+            </div>
+          {% endblock %}
 
-    {% block breadcrumb %}
-    {% endblock %}
-{% endblock -%}
+          {% block toolbar %}
+            <div class="toolbar">
+              {% block breadcrumb %}
+              {% endblock %}
+            </div>
+          {% endblock %}
+
+          <div class="row wrapper{% block wrapper_class %}{% endblock %}{% if self.secondary()|trim == '' %} no-nav{% endif %}">
+
+            {#
+            The pre_primary block can be used to add content to before the
+            rendering of the main content columns of the page.
+            #}
+            {% block pre_primary %}
+            {% endblock %}
+
+            {% block primary %}
+              {% set span = 12 if c.controller in ['dataset', 'package'] and c.action in ['search'] else 9 %}
+              <div class="primary span{{ span }}">
+                {% block primary_content %}
+                  {{ super() }}
+                {% endblock %}
+              </div>
+            {% endblock %}
+
+            {% block secondary %}
+              {% set span = 12 if c.controller in ['dataset', 'package'] and c.action in ['search'] else 9 %}
+              {% if span != 12 %}
+                  <aside class="secondary span3">
+                    {% block secondary_content %}{% endblock %}
+                  </aside>
+              {% endif %}
+            {% endblock %}
+          </div>
+        {% endblock %}
+      </div>
+    </div>
+  {% endblock -%}
+
