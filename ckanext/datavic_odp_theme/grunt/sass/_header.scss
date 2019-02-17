@@ -20,11 +20,11 @@ $rpl-site-header-logout-btn-icon-margin: 0 0 0 $rpl-space-2 !default;
   $root: &;
   //position: absolute;
   //z-index: $rpl-zindex-header;
-  padding: $rpl-header-horizontal-padding-xs;
+  padding: $rpl-header-horizontal-padding-xs 0;
   box-sizing: border-box;
   width: 100%;
 
-  @include rpl_breakpoint('s') {
+  @include rpl_breakpoint('m') {
     padding: $rpl-header-horizontal-padding-s;
   }
 
@@ -48,6 +48,8 @@ $rpl-site-header-logout-btn-icon-margin: 0 0 0 $rpl-space-2 !default;
     position: fixed;
     top: 0;
     height: 100vh;
+    left: 0;
+    padding: $rpl-header-horizontal-padding-xs;
 
     #{$root}__inner {
       margin: 0;
@@ -122,11 +124,6 @@ $rpl-site-header-logout-btn-icon-margin: 0 0 0 $rpl-space-2 !default;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       top: $rpl-site-header-top-height-s;
-
-      @include rpl_breakpoint('s') {
-        left: $rpl-header-horizontal-padding-s;
-        right: $rpl-header-horizontal-padding-s;
-      }
     }
 
     &--horizontal {
