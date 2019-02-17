@@ -710,10 +710,10 @@ nav {
       width: calc(33.33% - 16px); } }
 
 .rpl-site-header {
-  padding: 0.625rem;
+  padding: 0.625rem 0;
   box-sizing: border-box;
   width: 100%; }
-  @media (min-width: 576px) {
+  @media (min-width: 768px) {
     .rpl-site-header {
       padding: 1.25rem; } }
   .rpl-site-header__inner {
@@ -731,7 +731,9 @@ nav {
   .rpl-site-header--open {
     position: fixed;
     top: 0;
-    height: 100vh; }
+    height: 100vh;
+    left: 0;
+    padding: 0.625rem; }
     .rpl-site-header--open .rpl-site-header__inner {
       margin: 0;
       border-radius: 0.25rem;
@@ -780,10 +782,6 @@ nav {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     top: 3rem; }
-    @media (min-width: 576px) {
-      .rpl-site-header__menu-container--vertical {
-        left: 1.25rem;
-        right: 1.25rem; } }
   .rpl-site-header__menu-container--horizontal {
     margin-left: auto; }
   .rpl-site-header__search-container {
