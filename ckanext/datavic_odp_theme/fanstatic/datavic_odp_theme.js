@@ -10,4 +10,8 @@
         jQuery('#mobile-menu').addClass('rpl-site-header--open').removeClass('hidden');
         jQuery('#main-menu').hide();
     });
+
+    jQuery('form #field-order-by').on('change', function() {
+        jQuery(this).closest("form").submit();
+    });
   });
