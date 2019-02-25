@@ -6,7 +6,8 @@
 {% set no_bottom_border = no_bottom_border if no_bottom_border else false %}
 {% set form_id = form_id if form_id else false %}
 
-<form {% if form_id %}id="{{ form_id }}" {% endif %}class="search-form{% if no_bottom_border %} no-bottom-border{% endif %}" method="get">
+
+<form {% if form_id %}id="{{ form_id }}" {% endif %}class="search-form{% if no_bottom_border %} no-bottom-border{% endif %}" action="{{ h.url_for('search') }}" method="get">
 
   {% block search_input %}
 
@@ -20,6 +21,9 @@
       {% endblock %}
     </div>
 
+    {% set organization = fields_grouped['organization'][0]|default(None) %}
+    {% set group = fields_grouped['groups'][0]|default(None) %}
+    {% set format = fields_grouped['res_format'][0]|default(None) %}
 
     {% if facets %}
     <div class="control-group {{ search_class }}">
@@ -29,7 +33,7 @@
           <select name="organization">
             <option value="">Please select an organisation</option>
           {% for item in items %}
-            <option value="{{item.name}}">{{item.display_name}}</option>
+            <option value="{{item.name}}"{% if organization == item.name %} selected="selected"{% endif %}>{{item.display_name}}</option>
           {% endfor %}
           </select>
         {% endif %}
@@ -42,7 +46,7 @@
           <select name="groups">
             <option value="">Please select a category</option>
           {% for item in items %}
-            <option value="{{item.name}}">{{item.display_name}}</option>
+            <option value="{{item.name}}"{% if group == item.name %} selected="selected"{% endif %}>{{item.display_name}}</option>
           {% endfor %}
           </select>
         {% endif %}
@@ -55,7 +59,7 @@
           <select name="res_format">
             <option value="">Please select a format</option>
           {% for item in items %}
-            <option value="{{item}}">{{item|upper}}</option>
+            <option value="{{item}}"{% if format == item.name %} selected="selected"{% endif %}>{{item|upper}}</option>
           {% endfor %}
           </select>
         {% endif %}
@@ -101,7 +105,7 @@
   {% endblock %}
 
   {% block search_facets %}
-    {% if facets %}
+    {#% if facets %}
       <p class="filter-list">
         {% for field in facets.fields %}
           {% set search_facets_items = facets.search.get(field)['items'] %}
@@ -119,7 +123,7 @@
         {% endfor %}
       </p>
       <a class="show-filters btn">{{ _('Filter Results') }}</a>
-    {% endif %}
+    {% endif %#}
   {% endblock %}
 
 </form>

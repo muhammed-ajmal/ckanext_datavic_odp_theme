@@ -28,4 +28,4 @@ def format_list(limit=100):
         .group_by(model.Resource.format)
         .order_by('format ASC'))
 
-    return [resource.format for resource in query]
+    return [resource.format for resource in query if not resource.format == '']
