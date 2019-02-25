@@ -8,35 +8,6 @@ $primary-color: #0052C2;
 	border-bottom: 2px solid #D7DBE0;
 	padding: 10px;
 
-    .btn-primary {
-
-        @include rpl_button;
-        @include rpl_button_primary;
-
-        //background-color: rpl-color('primary');
-        //background-image: none;
-        //border: none;
-        //border-radius: 4px;
-        //color: #FFFFFF;
-        //font-size: 14px;
-        //font-weight: bold;
-        //line-height: 14px;
-        //padding: 16px;
-        //&:active,
-        //&:hover,
-        //&:focus {
-        //    background-color: $primary-color;
-        //}
-        &:hover,
-        &:focus {
-            text-decoration: none;
-        }
-    }
-
-    .btn-group.open .btn-primary.dropdown-toggle {
-        //background-color: $primary-color;
-    }
-
     .dropdown-menu > li > a:hover {
         //background-color: $primary-color;
         //background-image: none;
