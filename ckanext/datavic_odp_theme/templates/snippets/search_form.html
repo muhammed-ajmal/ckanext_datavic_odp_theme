@@ -21,9 +21,10 @@
       {% endblock %}
     </div>
 
-    {% set organization = fields_grouped['organization'][0]|default(None) %}
-    {% set group = fields_grouped['groups'][0]|default(None) %}
-    {% set format = fields_grouped['res_format'][0]|default(None) %}
+    {% set fields_grouped = c.fields_grouped %}
+    {% set organization = fields_grouped['organization'][0] if fields_grouped['organization'] and fields_grouped['organization'][0] else None %}
+    {% set group = fields_grouped['groups'][0] if fields_grouped['groups'] and fields_grouped['groups'][0] else None %}
+    {% set format = fields_grouped['res_format'][0] if fields_grouped['res_format'] and fields_grouped['res_format'][0] else None %}
 
     {% if facets %}
     <div class="control-group {{ search_class }}">
@@ -59,7 +60,7 @@
           <select name="res_format">
             <option value="">Please select a format</option>
           {% for item in items %}
-            <option value="{{item}}"{% if format == item.name %} selected="selected"{% endif %}>{{item|upper}}</option>
+            <option value="{{item}}"{% if format == item %} selected="selected"{% endif %}>{{item|upper}}</option>
           {% endfor %}
           </select>
         {% endif %}
