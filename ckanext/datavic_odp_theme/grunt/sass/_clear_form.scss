@@ -1,0 +1,19 @@
+$rpl-clearform-typography-emphasis: ('s', 1.6em, 'bold') !default;
+$rpl-clearform-padding: $rpl-space-2;
+
+.rpl-clearform {
+  padding: $rpl-clearform-padding 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+
+  &:active {
+    color: currentColor;
+  }
+
+  @include rpl_typography_ruleset($rpl-clearform-typography-emphasis);
+
+  .rpl-icon {
+    vertical-align: -4px; /* fix icon alignment */
+  }
+}

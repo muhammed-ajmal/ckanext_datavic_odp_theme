@@ -1,0 +1,53 @@
+.da-search {
+  background-color: rpl-color('light_neutral');
+
+  .rpl-search-form {
+    &__btn {
+      &:hover, &:focus {
+        span {
+          color: rpl-color('secondary');
+        }
+        svg {
+          fill: rpl-color('secondary');
+        }
+      }
+    }
+
+    &__show-filters {
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+
+    &__field {
+      background: rpl-color('white');
+      padding: $rpl-space-4;
+      border: 1px solid transparent;
+
+      &:focus-within {
+        border: 1px solid rpl-color('primary');
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .rpl-submit-loader[type="submit"] {
+    padding-left: $rpl-space;
+    padding-right: $rpl-space;
+    width: 100%;
+  }
+
+  .rpl-fieldset {
+    .form-group {
+      &--col-four {
+        @include rpl-breakpoint(m) {
+          margin-top: ($rpl-space-4 + $rpl-space-3);
+          flex-basis: calc(25% - (#{$rpl-space-3} * 2));
+        }
+      }
+    }
+  }
+}
