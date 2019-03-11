@@ -212,6 +212,12 @@ $rpl-search-form-search-text: $rpl-search-form-show-filters-ruleset !default;
   @include full-width;
 }
 
+.rpl-form {
+  @include rpl_breakpoint('m') {
+    padding: 0 25px;
+  }
+}
+
 .rpl-search-form {
   @include rpl_breakpoint('m') {
     margin-left: auto;
@@ -237,4 +243,8 @@ $rpl-search-form-search-text: $rpl-search-form-show-filters-ruleset !default;
     line-height: 1.17em;
     padding: 1px;
   }
+}
+
+.control-order-by {
+  margin: 30px 0;
 }
