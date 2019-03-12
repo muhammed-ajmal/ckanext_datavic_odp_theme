@@ -3,7 +3,7 @@
 
 <li class="resource-item" data-id="{{ res.id }}">
   {% block resource_item_title %}
-    <div>
+    <div class="resource-summary">
         <p>
             {% if url_is_edit %}
                 Edit "<a href="{{ url }}">{{ h.resource_display_name(res) }} </a>"<br/>

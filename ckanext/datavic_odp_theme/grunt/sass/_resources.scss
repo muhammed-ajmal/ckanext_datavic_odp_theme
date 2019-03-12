@@ -9,6 +9,10 @@ $primary-color: #0052C2;
     border-radius: 0;
 	padding: 10px;
 
+    .resource-summary {
+        margin-right: 15px;
+    }
+
     .format {
         background-color: rpl-color('light_neutral');
         box-shadow: inset 0 1px 43px 0 rgba(0,0,0,0.05);

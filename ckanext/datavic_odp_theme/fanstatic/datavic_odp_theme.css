@@ -1333,6 +1333,8 @@ nav {
   border-bottom: 2px solid #d7dbe0;
   border-radius: 0;
   padding: 10px; }
+  .resource-item .resource-summary {
+    margin-right: 15px; }
   .resource-item .format {
     background-color: #f6f6f9;
     box-shadow: inset 0 1px 43px 0 rgba(0, 0, 0, 0.05);
