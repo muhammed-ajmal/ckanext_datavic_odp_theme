@@ -9,11 +9,6 @@ $primary-color: #0052C2;
     border-radius: 0;
 	padding: 10px;
 
-    .dropdown-menu > li > a:hover {
-        //background-color: $primary-color;
-        //background-image: none;
-    }
-
     .format {
         background-color: rpl-color('light_neutral');
         box-shadow: inset 0 1px 43px 0 rgba(0,0,0,0.05);
@@ -42,5 +37,17 @@ $primary-color: #0052C2;
         position: relative;
         top: auto;
         right: auto;
+    }
+}
+
+.dropdown-menu {
+    border-color: rpl_color('primary');
+    > li {
+        > {
+            a:hover {
+                background-image: none;
+                background-color: rpl_color('primary');
+            }
+        }
     }
 }

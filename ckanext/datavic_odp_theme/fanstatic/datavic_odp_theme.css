@@ -1359,6 +1359,12 @@ nav {
   top: auto;
   right: auto; }
 
+.dropdown-menu {
+  border-color: #0052c2; }
+  .dropdown-menu > li > a:hover {
+    background-image: none;
+    background-color: #0052c2; }
+
 .dataset-resources {
   margin-top: 0.75rem; }
   .dataset-resources li a.label {
