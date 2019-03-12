@@ -5,7 +5,8 @@ $primary-color: #0052C2;
 
 .resource-item {
 
-	border-bottom: 2px solid #D7DBE0;
+	border-bottom: 2px solid rpl-color('mid_neutral_1');
+    border-radius: 0;
 	padding: 10px;
 
     .dropdown-menu > li > a:hover {
@@ -27,5 +28,19 @@ $primary-color: #0052C2;
         text-transform:uppercase;
         vertical-align:top;
         width:40px;
+    }
+}
+
+.resource-list {
+    .resource-item {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .btn-group {
+        position: relative;
+        top: auto;
+        right: auto;
     }
 }

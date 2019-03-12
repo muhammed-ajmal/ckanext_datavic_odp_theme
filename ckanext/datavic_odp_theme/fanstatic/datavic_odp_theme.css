@@ -1330,7 +1330,8 @@ nav {
   padding-right: 1.5625rem; }
 
 .resource-item {
-  border-bottom: 2px solid #D7DBE0;
+  border-bottom: 2px solid #d7dbe0;
+  border-radius: 0;
   padding: 10px; }
   .resource-item .format {
     background-color: #f6f6f9;
@@ -1346,6 +1347,17 @@ nav {
     text-transform: uppercase;
     vertical-align: top;
     width: 40px; }
+
+.resource-list .resource-item {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start; }
+
+.resource-list .btn-group {
+  position: relative;
+  top: auto;
+  right: auto; }
 
 .dataset-resources {
   margin-top: 0.75rem; }

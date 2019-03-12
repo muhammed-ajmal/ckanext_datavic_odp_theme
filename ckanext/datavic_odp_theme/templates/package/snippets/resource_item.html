@@ -3,28 +3,30 @@
 
 <li class="resource-item" data-id="{{ res.id }}">
   {% block resource_item_title %}
-    <p>
-        {% if url_is_edit %}
-            Edit "<a href="{{ url }}">{{ h.resource_display_name(res) }} </a>"<br/>
-        {% else %}
-            <a class="heading" href="{{ url }}" title="{{ res.name or res.description }}">
-              {{ h.resource_display_name(res)}}<br/>
-            </a>
-        {%endif%}
-        {% if historical or url_is_edit %}
-        <small>
-            {% if res.release_date and res.release_date != '' %}
-                Release Date: {{res.release_date|truncate(10,end='')}}
+    <div>
+        <p>
+            {% if url_is_edit %}
+                Edit "<a href="{{ url }}">{{ h.resource_display_name(res) }} </a>"<br/>
+            {% else %}
+                <a class="heading" href="{{ url }}" title="{{ res.name or res.description }}">
+                  {{ h.resource_display_name(res)}}<br/>
+                </a>
+            {%endif%}
+            {% if historical or url_is_edit %}
+            <small>
+                {% if res.release_date and res.release_date != '' %}
+                    Release Date: {{res.release_date|truncate(10,end='')}}
+                {% endif %}
+                {% if res.period_start and res.period_start != '' %}
+                &nbsp; Period: {{res.period_start|truncate(10,end='')}} &raquo; {{res.period_end|truncate(10,end='')}}
+                {% endif %}
+            </small>
             {% endif %}
-            {% if res.period_start and res.period_start != '' %}
-            &nbsp; Period: {{res.period_start|truncate(10,end='')}} &raquo; {{res.period_end|truncate(10,end='')}}
-            {% endif %}
-        </small>
+        </p>
+        {% if not url_is_edit %}
+            <a class="format" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">{{ h.get_translated(res, 'format') }}<span class='sr-only'> format</span></a>
         {% endif %}
-    </p>
-    {% if not url_is_edit %}
-        <a class="format" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">{{ h.get_translated(res, 'format') }}<span class='sr-only'> format</span></a>
-    {% endif %}
+    </div>
   {% endblock %}
 
   {% block resource_item_description %}
