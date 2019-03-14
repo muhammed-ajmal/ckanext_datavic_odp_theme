@@ -11,8 +11,9 @@
         jQuery('#main-menu').hide();
     });
 
-    jQuery('form #field-order-by').on('change', function() {
-        jQuery(this).closest("form").submit();
+    jQuery('#field-order-by').on('change', function() {
+        jQuery('.rpl-search-form input[name="sort"]').val(jQuery(this).val());
+        jQuery('.rpl-search-form form').submit();
     });
 
     function closeAllDropdowns() {

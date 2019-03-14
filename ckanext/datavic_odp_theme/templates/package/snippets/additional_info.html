@@ -56,7 +56,7 @@
           {% set org = h.get_organization(pkg_dict.organization.name) %}
           <tr>
             <th scope="row" class="dataset-label">{{ _('Organisation') }}</th>
-            <td class="dataset-details" property="dc:contributor">{{ org.title }}</td>
+            <td class="dataset-details" property="dc:owner"><a href="{{ h.url_for(org.type ~ '_read', action='read', id=org.name) }}">{{ org.title }}</a></td>
           </tr>
         {% endif %}
 
@@ -77,7 +77,13 @@
         {% if pkg_dict.license_id != 'other' %}
           <tr>
             <th scope="row" class="dataset-label">{{ _('License') }}</th>
-            <td class="dataset-details">{{ pkg_dict.license_title }}</td>
+            <td class="dataset-details">
+              {% if 'license_url' in pkg_dict %}
+                <a href="{{ pkg_dict.license_url }}" rel="dc:rights">{{ pkg_dict.license_title }}</a>
+              {% else %}
+                <span property="dc:rights">{{ pkg_dict.license_title }}</span>
+              {% endif %}
+            </td>
           </tr>
         {% else %}
           {% if pkg_dict.custom_licence_text %}
@@ -118,12 +124,15 @@
         {% endif %}
 
       {% block extras scoped %}
+        {% set hidden = ['harvest_url'] %}
         {% for extra in h.sorted_extras(pkg_dict.extras) %}
           {% set key, value = extra %}
-          <tr rel="dc:relation" resource="_:extra{{ i }}">
-            <th scope="row" class="dataset-label" property="rdfs:label">{{ _(key) }}</th>
-            <td class="dataset-details" property="rdf:value">{{ value }}</td>
-          </tr>
+          {% if key not in hidden %}
+            <tr rel="dc:relation" resource="_:extra{{ i }}">
+              <th scope="row" class="dataset-label" property="rdfs:label">{{ _(key) }}</th>
+              <td class="dataset-details" property="rdf:value">{{ value }}</td>
+            </tr>
+          {% endif %}
         {% endfor %}
       {% endblock %}
 

@@ -8,7 +8,7 @@
 
 {% if c.controller in ['package', 'dataset'] and c.action == 'search' %}
 
-  {% snippet 'snippets/dataset_search_form.html', query=query, count=count, type=type, facets=facets, placeholder=placeholder, sorting=sorting, form_id=form_id %}
+  {% snippet 'snippets/dataset_search_form.html', query=query, count=count, type=type, facets=facets, placeholder=placeholder, sorting=sorting, form_id=form_id, sorting_selected=sorting_selected %}
 
 {% else %}
 
