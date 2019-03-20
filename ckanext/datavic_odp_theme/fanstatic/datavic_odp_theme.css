@@ -1355,6 +1355,8 @@ nav {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: flex-start; }
+  .resource-list .resource-item:hover {
+    background-color: transparent; }
 
 .resource-list .btn-group {
   position: relative;

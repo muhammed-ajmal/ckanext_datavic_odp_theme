@@ -36,6 +36,9 @@ $primary-color: #0052C2;
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: flex-start;
+        &:hover {
+            background-color: transparent;
+        }
     }
     .btn-group {
         position: relative;

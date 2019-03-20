@@ -24,7 +24,7 @@
             {% endif %}
         </p>
         {% if not url_is_edit %}
-            <a class="format" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">{{ h.get_translated(res, 'format') }}<span class='sr-only'> format</span></a>
+            <span class="format" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">{{ h.get_translated(res, 'format') }}<span class='sr-only'> format</span></span>
         {% endif %}
     </div>
   {% endblock %}
