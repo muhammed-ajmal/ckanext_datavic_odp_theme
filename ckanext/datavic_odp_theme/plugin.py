@@ -25,4 +25,9 @@ class DatavicODPTheme(plugins.SingletonPlugin):
             'organization_list': helpers.organization_list,
             'group_list': helpers.group_list,
             'format_list': helpers.format_list,
+            'hotjar_tracking_enabled': helpers.hotjar_tracking_enabled,
+            'monsido_tracking_enabled': helpers.monsido_tracking_enabled,
+            'get_hotjar_hsid': helpers.get_hotjar_hsid,
+            'get_hotjar_hjsv': helpers.get_hotjar_hjsv,
+            'get_monsido_domain_token': helpers.get_monsido_domain_token
         }

@@ -29,3 +29,23 @@ def format_list(limit=100):
         .order_by('format ASC'))
 
     return [resource.format for resource in query if not resource.format == '']
+
+
+def hotjar_tracking_enabled():
+    return toolkit.asbool(config.get('ckan.tracking.hotjar_enabled', False))
+
+
+def monsido_tracking_enabled():
+    return toolkit.asbool(config.get('ckan.tracking.monsido_enabled', False))
+
+
+def get_hotjar_hsid():
+    return config.get('ckan.tracking.hotjar.hjid', None)
+
+
+def get_hotjar_hjsv():
+    return config.get('ckan.tracking.hotjar.hjsv', None)
+
+
+def get_monsido_domain_token():
+    return config.get('ckan.tracking.monsido.domain_token', None)
