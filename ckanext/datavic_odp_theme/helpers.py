@@ -49,3 +49,14 @@ def get_hotjar_hjsv():
 
 def get_monsido_domain_token():
     return config.get('ckan.tracking.monsido.domain_token', None)
+
+
+def get_ga_tracking_id():
+    return config.get('googleanalytics.id', None)
+
+
+def get_ga_site():
+    from urlparse import urlparse
+    site_url = config.get('ckan.site_url', None)
+    o = urlparse(site_url)
+    return o.hostname

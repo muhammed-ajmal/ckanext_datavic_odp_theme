@@ -2,6 +2,9 @@
 
 {% block head_extras %}
   {{ super() }}
+  {% if h.get_ga_tracking_id() %}
+    {% snippet "snippets/analytics_include.html" %}
+  {% endif %}
   {% if h.hotjar_tracking_enabled() == true %}
     {% snippet "snippets/hotjar.html" %}
   {% endif %}

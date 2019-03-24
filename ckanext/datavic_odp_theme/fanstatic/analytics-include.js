@@ -10,29 +10,6 @@ For example, the DBI website analyst can assist with customisations to:
 IMPORTANT: In order to track websites properly, all websites must have their own profile number.
 */
 
-/* START: UPDATE AS APPROPRIATE */
-
-/* Set profile numbers */
-var WOVGprofileNumber = "UA-2063136-9"; /* DO NOT MODIFY */
-var DEPTprofileNumber = "UA-1687583-29"; /* Set Department/Agency roll up profile number - if none exists, replace with "UA-000000-0". */
-var SITEprofileNumber = "UA-130672871-3"; /* Set website's profile number. */
-
-/* Set tracking code values */
-var dept = "dbi"; /* Set Department achronym/name. You can choose from: dbi | deecd | dhs | doj | dot | dpc | dpcd | dpi | dse | dtf | health . If you are not sure which department is appropriate for your website, please contact the DBI website analyst at webteam@dbi.vic.gov.au */
-var site = "www.data.vic.gov.au"; /* Set website's domain location - do NOT include "www.", unless the site is located ENTIRELY on "www.". Likewise, if the website is located ENTIRELY on a subdomain, insert it, e.g. "subdomain.website.vic.gov.au". */
-var siteOnSubFolder = "no"; /* Set this to "yes" if the website is located ENTIRELY on a dedicated subfolder, e.g "website.vic.gov.au/subfolder", otherwise, leave as "no". */
-var subFolder = "/subfolder"; /* Set the subfolder value only if the site is located ENTIRELY on a dedicated subfolder (include the leading forwardslash "/"). */
-var errorPageTitle = "Page not found"; /* Set the page title of 404 error page (capitalisation IS important). If you don't have a 404 error page or if it can't be tracked, set as "Error page not able to be tracked". */
-
-/* NOTE RE PAGEVIEW TRACKING: If there are subdomains and/or subfolders of this domain that you would like to be tracked as Referring Sites in the Traffic Sources report for this website, please contact the DBI website analyst at webteam@dbi.vic.gov.au */
-
-/* Set file types for file download tracking. */
-var downloadFileTypes = ["docx", "xlsx", "pptx", "doc", "xls", "ppt", "exe", "zip", "pdf", "xpi", "csv", "js", "txt", "rdf", "wma", "mov", "avi", "wmv", "wav", "mp3", "mp4", "mpg", "pps", "ppt", "swf", "rar", "rtf"];
-
-/* NOTE RE CLICK TRACKING: If you would like subdomains and/or subfolders of this website to be tracked as outbound links, or if you would like other domains to be tracked as internal links, please contact the DBI website analyst at webteam@dbi.vic.gov.au */
-
-/* END: UPDATE AS APPROPRIATE */
-
 /* YOU SHOULD NOT NEED TO MODIFY ANY OF THE FOLLOWING CODE. IF YOU THINK YOU NEED TO, PLEASE CONTACT THE DBI WEBSITE ANALYST AT WEBTEAM@DBI.VIC.GOV.AU FOR ASSISTANCE. */
 
 /* START: compressed code for standard pageview and automated click tracking (includes call to ga.js) - DO NOT MODIFY - compressed at http://jscompress.com */

@@ -36,6 +36,10 @@ Or... Restart Nginx & Apache:
 
 ### Trackers
 
+#### Google Analytics
+
+        googleanalytics.id = UA-...
+
 #### Hotjar
 
         ckan.tracking.hotjar_enabled = true

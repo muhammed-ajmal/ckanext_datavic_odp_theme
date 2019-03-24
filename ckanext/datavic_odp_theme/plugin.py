@@ -29,5 +29,7 @@ class DatavicODPTheme(plugins.SingletonPlugin):
             'monsido_tracking_enabled': helpers.monsido_tracking_enabled,
             'get_hotjar_hsid': helpers.get_hotjar_hsid,
             'get_hotjar_hjsv': helpers.get_hotjar_hjsv,
-            'get_monsido_domain_token': helpers.get_monsido_domain_token
+            'get_monsido_domain_token': helpers.get_monsido_domain_token,
+            'get_ga_tracking_id': helpers.get_ga_tracking_id,
+            'get_ga_site': helpers.get_ga_site,
         }
