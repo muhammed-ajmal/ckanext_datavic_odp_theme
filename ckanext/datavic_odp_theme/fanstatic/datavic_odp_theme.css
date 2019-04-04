@@ -811,7 +811,7 @@ nav {
       display: flex;
       flex-flow: column; }
     .rpl-site-header__logo-container img {
-      width: auto;
+      width: 6em;
       margin-left: 0.5rem; }
     .rpl-site-header__logo-container--vic-logo-primary {
       display: block; }
@@ -936,7 +936,7 @@ nav {
     font-weight: 600;
     letter-spacing: 0.0125rem;
     line-height: 1rem;
-    padding-left: 0.5rem; }
+    padding-left: 0; }
 
 .rpl-text-icon--before {
   margin: auto .5rem auto auto; }

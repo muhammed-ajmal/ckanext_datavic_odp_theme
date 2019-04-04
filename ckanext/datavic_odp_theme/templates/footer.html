@@ -4,22 +4,17 @@
       <ul class="rpl-footer-nav">
         <li class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent">
           <h2 class="rpl-footer-nav__heading">
-            <a href="{{ h.url_for('search') }}" class="rpl-link">Browse Data</a>
+            <a href="{{ h.url_for('search') }}" class="rpl-link rpl-menu__item-link">{{ _('Data') }}</a>
           </h2>
         </li>
         <li class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent">
           <h2 class="rpl-footer-nav__heading">
-            <a class="rpl-link">Suggest a dataset</a>
+            <a href="{{ h.get_parent_site_url() }}/about-datavic" class="rpl-link rpl-menu__item-link">{{ _('About us') }}</a>
           </h2>
         </li>
         <li class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent">
           <h2 class="rpl-footer-nav__heading">
-            <a class="rpl-link">Open data policies</a>
-          </h2>
-        </li>
-        <li class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent">
-          <h2 class="rpl-footer-nav__heading">
-            <a class="rpl-link">Contact us</a>
+            <a href="{{ h.get_parent_site_url() }}/contact-us" class="rpl-link rpl-menu__item-link">{{ _('Contact us') }}</a>
           </h2>
         </li>
       </ul>
@@ -29,12 +24,12 @@
       <div class="rpl-site-footer__bottom-main">
         <div class="rpl-links-and-copyright">
           <ul class="rpl-links-and-copyright__links">
-            <li><a class="rpl-link">Privacy</a></li>
-            <li><a class="rpl-link">Disclaimer</a></li>
-            <li><a class="rpl-link">Terms of use</a></li>
-            <li><a class="rpl-link">Sitemap</a></li>
-            <li><a class="rpl-link">Accessibility Statement</a></li>
-            <li><a class="rpl-link">Help</a></li>
+            <li><a class="rpl-link" href="{{ h.get_parent_site_url() }}/privacy-vicgovau">Privacy</a></li>
+            <li><a class="rpl-link" href="{{ h.get_parent_site_url() }}/disclaimer">Disclaimer</a></li>
+            <li><a class="rpl-link" href="{{ h.get_parent_site_url() }}/copyright">Copyright</a></li>
+            <li><a class="rpl-link" href="{{ h.get_parent_site_url() }}/accessibility">Accessibility</a></li>
+            <li><a class="rpl-link" href="{{ h.get_parent_site_url() }}/sitemap">Sitemap</a></li>
+            <li><a class="rpl-link" href="{{ h.get_parent_site_url() }}/contact-us">Contact us</a></li>
           </ul>
           <div class="rpl-links-and-copyright__copyright">© Copyright State Government of Victoria</div>
         </div>

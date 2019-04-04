@@ -1,4 +1,4 @@
-$rpl-site-header-logo-width: auto !default;
+$rpl-site-header-logo-width: 6em;
 $rpl-site-header-logo-primary-width: rem(98px);
 $rpl-site-header-text-color: rpl-color('white') !default;
 $rpl-site-header-border-radius: rem(4px) !default;
@@ -248,7 +248,7 @@ $rpl-site-header-logout-btn-icon-margin: 0 0 0 $rpl-space-2 !default;
       font-weight: 600;
       letter-spacing: rem(0.2px);
       line-height: rem(16px);
-      padding-left: 0.5rem;
+      padding-left: 0;
     }
   }
 }
