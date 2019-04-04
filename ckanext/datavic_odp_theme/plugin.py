@@ -32,4 +32,5 @@ class DatavicODPTheme(plugins.SingletonPlugin):
             'get_monsido_domain_token': helpers.get_monsido_domain_token,
             'get_ga_tracking_id': helpers.get_ga_tracking_id,
             'get_ga_site': helpers.get_ga_site,
+            'get_parent_site_url': helpers.get_parent_site_url,
         }

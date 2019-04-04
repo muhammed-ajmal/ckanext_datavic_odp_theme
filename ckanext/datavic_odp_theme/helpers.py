@@ -60,3 +60,7 @@ def get_ga_site():
     site_url = config.get('ckan.site_url', None)
     o = urlparse(site_url)
     return o.hostname
+
+
+def get_parent_site_url():
+    return config.get('ckan.parent_site_url', 'https://www.data.vic.gov.au/')
