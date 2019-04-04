@@ -3,6 +3,9 @@
 
 <li class="resource-item" data-id="{{ res.id }}">
   {% block resource_item_title %}
+    <div class="resource-icon">
+        <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">{{ h.get_translated(res, 'format') }}</span>
+    </div>
     <div class="resource-summary">
         <p>
             {% if url_is_edit %}
@@ -23,9 +26,9 @@
             </small>
             {% endif %}
         </p>
-        {% if not url_is_edit %}
-            <span class="format" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">{{ h.get_translated(res, 'format') }}<span class='sr-only'> format</span></span>
-        {% endif %}
+        {#% if not url_is_edit %}
+            <span class="format" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">x {{ h.get_translated(res, 'format') }}<span class='sr-only'> format</span></span>
+        {% endif %#}
     </div>
   {% endblock %}
 
