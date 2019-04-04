@@ -242,6 +242,32 @@ $rpl-search-form-search-text: $rpl-search-form-show-filters-ruleset !default;
     font-weight: 400;
     line-height: 1.17em;
     padding: 1px;
+    &::-webkit-input-placeholder { /* WebKit browsers */
+        color: transparent;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+       color: transparent;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+       color: transparent;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+       color: transparent;
+    }
+    @include rpl_breakpoint('s') {
+        &::-webkit-input-placeholder { /* WebKit browsers */
+            color: $rpl-search-form-input-text-color;
+        }
+        &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+           color: $rpl-search-form-input-text-color;
+        }
+        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+           color: $rpl-search-form-input-text-color;
+        }
+        &:-ms-input-placeholder { /* Internet Explorer 10+ */
+           color: $rpl-search-form-input-text-color;
+        }
+    }
   }
 }
 

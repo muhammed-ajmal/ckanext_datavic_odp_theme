@@ -2004,6 +2004,31 @@ nav {
   font-weight: 400;
   line-height: 1.17em;
   padding: 1px; }
+  .rpl-search-form__field input[type="text"]::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: transparent; }
+  .rpl-search-form__field input[type="text"]:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: transparent; }
+  .rpl-search-form__field input[type="text"]::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: transparent; }
+  .rpl-search-form__field input[type="text"]:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: transparent; }
+  @media (min-width: 576px) {
+    .rpl-search-form__field input[type="text"]::-webkit-input-placeholder {
+      /* WebKit browsers */
+      color: #011a3c; }
+    .rpl-search-form__field input[type="text"]:-moz-placeholder {
+      /* Mozilla Firefox 4 to 18 */
+      color: #011a3c; }
+    .rpl-search-form__field input[type="text"]::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      color: #011a3c; }
+    .rpl-search-form__field input[type="text"]:-ms-input-placeholder {
+      /* Internet Explorer 10+ */
+      color: #011a3c; } }
 
 .package-search-control-order-by {
   margin: 30px 0; }
