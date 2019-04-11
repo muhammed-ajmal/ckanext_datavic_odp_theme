@@ -34,12 +34,12 @@ function showOrderEmail(href){
     document.querySelector('#orderEmail').setAttribute('data-href', href)
 }
 
-function checkOrder(){
+function checkOrder(e){
     var email = document.querySelector('#order-email').value
-    var email_confirm = document.querySelector('#order-email-confirm').value
+    console.log(email);
     var dog = email.indexOf('@')
     var dot = email.lastIndexOf('.')
-    if (dog < 1 || dot < dog || dot - dog < 2 || email.length - 2 < dot || email !== email_confirm) {
+    if (dog < 1 || dot < dog || dot - dog < 2 || email.length - 2 < dot) {
         var inputs = document.querySelectorAll('#orderEmail input'), i;
 
         for (i = 0; i < inputs.length; ++i) {
@@ -47,8 +47,7 @@ function checkOrder(){
         }
     }
     else {
-        console.log('Suvccvess');
-        //window.location = document.querySelector('#orderEmail').getAttribute('data-href').replace(':emailAddress', encodeURI(email))
+        window.location = document.querySelector('#orderEmail').getAttribute('data-href').replace(':emailAddress', encodeURI(email))
     }
 
 }
