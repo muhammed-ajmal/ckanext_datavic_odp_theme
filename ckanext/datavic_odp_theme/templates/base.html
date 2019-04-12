@@ -2,9 +2,6 @@
 
 {% block head_extras %}
   {{ super() }}
-  {% if h.get_ga_tracking_id() %}
-    {% snippet "snippets/analytics_include.html" %}
-  {% endif %}
   {% if h.hotjar_tracking_enabled() == true %}
     {% snippet "snippets/hotjar.html" %}
   {% endif %}
@@ -21,5 +18,4 @@
 {% block scripts %}
   {{ super() }}
   {% resource 'datavic_odp_theme/datavic_odp_theme.js' %}
-  {% resource 'datavic_odp_theme/analytics-include.js' %}
 {% endblock %}
