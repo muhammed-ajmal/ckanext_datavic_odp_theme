@@ -1349,6 +1349,15 @@ nav {
   align-items: flex-start; }
   .resource-list .resource-item:hover {
     background-color: transparent; }
+  .resource-list .resource-item.has-wms-buttons {
+    border-bottom: none;
+    padding-bottom: 0; }
+    .resource-list .resource-item.has-wms-buttons p {
+      margin-bottom: 0; }
+  .resource-list .resource-item.wms-buttons {
+    justify-content: flex-end; }
+    .resource-list .resource-item.wms-buttons ul:first-child {
+      margin-right: 20px; }
 
 .resource-list .btn-group {
   position: relative;
@@ -2054,7 +2063,7 @@ ul.btn-holder {
   text-align: center;
   border: 1px solid #008fff;
   border-width: 0 1px 1px;
-  z-index: 99; }
+  z-index: 10; }
 
 .sdm-resource {
   display: block; }
@@ -2072,9 +2081,14 @@ ul.btn-holder {
 .drop label:after {
   content: ''; }
 
+label:hover .custom-check {
+  background-position: -62px 0;
+  opacity: 0.5; }
+
 label.chk-label-active .custom-check,
-.custom-check.focus, label:hover .custom-check {
-  background-position: -62px 0; }
+.custom-check.focus {
+  background-position: -62px 0;
+  opacity: 1; }
 
 #orderEmail {
   height: 0px;

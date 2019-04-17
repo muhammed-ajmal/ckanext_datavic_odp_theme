@@ -32,6 +32,19 @@ $primary-color: #0052C2;
         &:hover {
             background-color: transparent;
         }
+        &.has-wms-buttons {
+            border-bottom: none;
+            padding-bottom: 0;
+            p {
+                margin-bottom: 0;
+            }
+        }
+        &.wms-buttons {
+            justify-content: flex-end;
+            ul:first-child {
+                margin-right: 20px;
+            }
+        }
     }
     .btn-group {
         position: relative;
