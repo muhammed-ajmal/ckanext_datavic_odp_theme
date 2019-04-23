@@ -1358,6 +1358,8 @@ nav {
     justify-content: flex-end; }
     .resource-list .resource-item.wms-buttons ul:first-child {
       margin-right: 20px; }
+    .resource-list .resource-item.wms-buttons.no-wms-url ul:first-child {
+      margin-right: 0; }
 
 .resource-list .btn-group {
   position: relative;

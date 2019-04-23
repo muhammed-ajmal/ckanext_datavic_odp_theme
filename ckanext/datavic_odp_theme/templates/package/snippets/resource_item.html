@@ -1,7 +1,7 @@
 {% set url_action = 'resource_edit' if url_is_edit and can_edit else 'resource_read' %}
 {% set url = h.url_for(controller='package', action=url_action, id=pkg.name, resource_id=res.id) %}
 
-<li class="resource-item {% if res.wms_url %}has-wms-buttons{% endif %}" data-id="{{ res.id }}">
+<li class="resource-item {% if res.public_order_url %}has-wms-buttons{% endif %}" data-id="{{ res.id }}">
 
     {% if res.public_order_url %}
      <div id='orderEmail'>
@@ -57,7 +57,8 @@
     {# SDM harvested datasets have a `public_order_url` assigned to their resources #}
     {% if res.public_order_url %}
 </li>
-<li class="resource-item wms-buttons">
+<li class="resource-item wms-buttons {% if res.format not in ['wms', 'WMS'] %}no-wms-url{% endif %}">
+          {% if res.format in ['wms', 'WMS'] %}
             <ul class="btn-holder">
                 <li>
                 <a class='btn btn-primary resource-download' href="{{ res.wms_url }}" onclick='return checkTerms(event)'>
@@ -70,6 +71,7 @@
                 </form>
                 </li>
             </ul>
+          {% endif %}
             <ul class="btn-holder">
                 <li>
                     <a class='btn btn-primary resource-download sdm-resource' href='{{ res.url }}' onclick='return checkTerms(event)'>
