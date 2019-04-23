@@ -6,6 +6,7 @@
   {% endblock %}
 
 {% block header_account %}
+  {% if c.userobj %}
   <header class="account-masthead">
     <div class="container">
       {% block header_account_container_content %}
@@ -70,6 +71,7 @@
       {% endblock %}
     </div>
   </header>
+  {% endif %}
 {% endblock %}
 
 <div id="mobile-menu" class="rpl-site-header hidden">
