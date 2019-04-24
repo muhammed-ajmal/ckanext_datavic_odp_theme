@@ -58,37 +58,37 @@
     {% if res.public_order_url %}
 </li>
 <li class="resource-item wms-buttons {% if res.format not in ['wms', 'WMS'] %}no-wms-url{% endif %}">
-          {% if res.format in ['wms', 'WMS'] %}
-            <ul class="btn-holder">
-                <li>
-                <a class='btn btn-primary resource-download' href="{{ res.wms_url }}" onclick='return checkTerms(event)'>
-                     {{ _('WMS URL') }}
+      {% if res.wms_url and res.format in ["wms", "WMS"] %}
+        <ul class="btn-holder">
+            <li>
+            <a class='btn btn-primary resource-download' href="{{ res.wms_url }}" onclick='return checkTerms(event)'>
+                 {{ _('WMS URL') }}
+                <i class="icon-arrow-down"></i>
+            </a>
+            <form class="drop">
+                <label class="custom-label"><input title="checkbox" type="checkbox" class="jcf-hidden" style="position: absolute; left: -9999px;"><span class="custom-check" onclick='checkboxClick(event)' ></span></label>
+                <p>Please check this box to confirm you accept and agree to comply with our <a class="terms-link" href="/terms-of-use" target="_blank">Terms of Use and Copyright and Attribution</a> requirements including any attribution specified on this page. You must comply with the relevant Licence requirements for each dataset.</p>
+            </form>
+            </li>
+        </ul>
+      {% endif %}
+        <ul class="btn-holder">
+            <li>
+                <a class='btn btn-primary resource-download sdm-resource' href='{{ res.url }}' onclick='return checkTerms(event)'>
+                    {# @Todo: Change this to res.public_order_url #}
+                    {% if res.url %}
+                    {{ _('Order Resource') }}
+                    {% else %}
+                    {{ _('Download') }}
+                    {% endif %}
                     <i class="icon-arrow-down"></i>
                 </a>
                 <form class="drop">
-                    <label class="custom-label"><input title="checkbox" type="checkbox" class="jcf-hidden" style="position: absolute; left: -9999px;"><span class="custom-check" onclick='checkboxClick(event)' ></span></label>
+                    <label class="custom-label"><input title="checkbox" type="checkbox" class="jcf-hidden" style="position: absolute; left: -9999px;" ><span class="custom-check" onclick='checkboxClick(event)'></span></label>
                     <p>Please check this box to confirm you accept and agree to comply with our <a class="terms-link" href="/terms-of-use" target="_blank">Terms of Use and Copyright and Attribution</a> requirements including any attribution specified on this page. You must comply with the relevant Licence requirements for each dataset.</p>
                 </form>
-                </li>
-            </ul>
-          {% endif %}
-            <ul class="btn-holder">
-                <li>
-                    <a class='btn btn-primary resource-download sdm-resource' href='{{ res.url }}' onclick='return checkTerms(event)'>
-                        {# @Todo: Change this to res.public_order_url #}
-                        {% if res.url %}
-                        {{ _('Order Resource') }}
-                        {% else %}
-                        {{ _('Download') }}
-                        {% endif %}
-                        <i class="icon-arrow-down"></i>
-                    </a>
-                    <form class="drop">
-                        <label class="custom-label"><input title="checkbox" type="checkbox" class="jcf-hidden" style="position: absolute; left: -9999px;" ><span class="custom-check" onclick='checkboxClick(event)'></span></label>
-                        <p>Please check this box to confirm you accept and agree to comply with our <a class="terms-link" href="/terms-of-use" target="_blank">Terms of Use and Copyright and Attribution</a> requirements including any attribution specified on this page. You must comply with the relevant Licence requirements for each dataset.</p>
-                    </form>
-                </li>
-            </ul>
+            </li>
+        </ul>
     {% else %}
 
         <div class="dropdown btn-group">
