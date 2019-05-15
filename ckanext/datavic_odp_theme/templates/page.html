@@ -46,7 +46,7 @@
 
             {% block primary %}
               {#% set span = 12 if c.controller in ['dataset', 'package'] and c.action in ['search'] else 9 %#}
-              {% set span = 9 if c.controller in ['user', 'admin'] else 12 %}
+              {% set span = 9 if c.controller in ['user', 'admin', 'harvest'] else 12 %}
               <div class="primary span{{ span }}">
                 {% block primary_content %}
                   {{ super() }}
@@ -56,7 +56,7 @@
 
             {% block secondary %}
               {#% set span = 12 if c.controller in ['dataset', 'package'] and c.action in ['search'] else 9 %#}
-              {% set span = 9 if c.controller in ['user', 'admin'] else 12 %}
+              {% set span = 9 if c.controller in ['user', 'admin', 'harvest'] else 12 %}
               {% if span != 12 %}
                   <aside class="secondary span3">
                     {% block secondary_content %}{% endblock %}
