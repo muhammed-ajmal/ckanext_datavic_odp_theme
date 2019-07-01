@@ -25,11 +25,10 @@
             {% endblock %}
           </div>
           {% if facets %}
-            {% set expanded = true if organization != '' or group != '' or format != '' else false %}
-            <button class="rpl-search-form__show-filters{% if expanded %} rpl-search-form__show-filters--expanded" aria-expanded="true{% endif %}">
+            <button class="rpl-search-form__show-filters rpl-search-form__show-filters--expanded" aria-expanded="true">
               <span>Advanced search</span>
             </button>
-            <div class="rpl-search-form__filters"{% if not expanded %} style="display: none;"{% endif %}>
+            <div class="rpl-search-form__filters">
               <div class="vue-form-generator">
                   <fieldset class="rpl-fieldset">
                     <div class="rpl-fieldset__inner">
