@@ -123,6 +123,14 @@
           </tr>
         {% endif %}
 
+        {% set range = h.historical_resources_range(pkg_dict.resources) %}
+        {% if range %}
+          <tr>
+              <th scope="row" class="dataset-label">Data Temporal Coverage:</th>
+              <td class="dataset-details"> {{ range }}</td>
+          </tr>
+        {% endif %}
+
       {% block extras scoped %}
         {% set hidden = ['harvest_url', 'spatial'] %}
         {% for extra in h.sorted_extras(pkg_dict.extras) %}
