@@ -2042,6 +2042,7 @@ nav {
       /* Internet Explorer 10+ */
       color: #011a3c; } }
 
+.organisation-search-form .control-order-by,
 .package-search-control-order-by {
   margin: 30px 0; }
 
