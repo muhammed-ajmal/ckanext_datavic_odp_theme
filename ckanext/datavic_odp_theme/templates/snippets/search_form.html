@@ -5,6 +5,7 @@
 {% set search_class = search_class if search_class else 'search-giant' %}
 {% set no_bottom_border = no_bottom_border if no_bottom_border else false %}
 {% set form_id = form_id if form_id else false %}
+{% set form_classes = form_classes if form_classes else 'search-form' %}
 
 {% if c.controller in ['package', 'dataset'] and c.action == 'search' %}
 
@@ -12,8 +13,9 @@
 
 {% else %}
 
-  <form {% if form_id %}id="{{ form_id }}" {% endif %}class="search-form{% if no_bottom_border %} no-bottom-border{% endif %}" method="get" data-module="select-switch">
+  <form {% if form_id %}id="{{ form_id }}" {% endif %}class="{{ form_classes }}{% if no_bottom_border %} no-bottom-border{% endif %}" method="get" data-module="select-switch">
 
+    {% if not (c.controller in ['organization'] and c.action == 'read') %}
     {% block search_input %}
       <div class="search-input control-group {{ search_class }}">
         <input type="text" class="search" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}">
@@ -25,6 +27,7 @@
         {% endblock %}
       </div>
     {% endblock %}
+    {% endif %}
 
     {% block search_search_fields %}
       {% if fields -%}
