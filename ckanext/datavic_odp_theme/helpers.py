@@ -79,3 +79,9 @@ def release_date(pkg_dict):
             dates.append(resource['release_date'])
     dates.sort()
     return dates[0].split("T")[0]
+
+
+def get_gtm_code():
+    # To get Google Tag Manager Code
+    gtm_code = config.get('ckan.google_tag_manager.gtm_container_id', False)
+    return str(gtm_code)

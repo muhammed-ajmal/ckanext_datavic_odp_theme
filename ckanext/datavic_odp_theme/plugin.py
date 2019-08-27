@@ -35,6 +35,7 @@ class DatavicODPTheme(plugins.SingletonPlugin):
             'get_ga_site': helpers.get_ga_site,
             'get_parent_site_url': helpers.get_parent_site_url,
             'release_date': helpers.release_date,
+            'get_gtm_code': helpers.get_gtm_code,
         }
 
     # IMiddleware
