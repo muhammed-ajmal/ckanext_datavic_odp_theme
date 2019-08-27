@@ -22,10 +22,3 @@
   {{ super() }}
   {% resource 'datavic_odp_theme/datavic_odp_theme.js' %}
 {% endblock %}
-
-{% block skip %}
-  {% if h.get_gtm_code() %}
-    {% snippet "snippets/gtm_include_noscript.html" %}
-  {% endif %}
-  {{ super() }}
-{% endblock %}
