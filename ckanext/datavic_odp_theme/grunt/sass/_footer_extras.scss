@@ -1,0 +1,20 @@
+.rpl-footer-nav {
+  padding: 0;
+  margin: 12px 0;
+  ol {
+    margin: 0;
+  }
+}
+
+.rpl-footer-nav__menu-item {
+  width: 100%;
+
+  @include rpl_breakpoint(l) {
+    display: inline-block;
+    width: calc(33.33% - 16px);
+  }
+}
+
+.rpl-links-and-copyright__links li {
+  line-height: 1em;
+}
