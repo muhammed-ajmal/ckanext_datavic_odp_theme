@@ -1,32 +1,33 @@
 // SETTINGS
 
 // Functions
-@import '../ripple/packages/Atoms/Global/scss/settings/functions';
+@import '../ripple/packages/components/Atoms/Global/scss/settings/functions';
 
 //  CKAN RESET
 @import 'ckan_reset';
 
 // Settings
-@import '../ripple/packages/Atoms/Global/scss/settings/breakpoints';
-@import '../ripple/packages/Atoms/Global/scss/settings/color';
+@import '../ripple/packages/components/Atoms/Global/scss/settings/breakpoints';
+@import '../ripple/packages/components/Atoms/Global/scss/settings/color';
 @import 'font';
-@import '../ripple/packages/Atoms/Global/scss/settings/variables';
-@import '../ripple/packages/Atoms/Global/scss/settings/grid';
-@import '../ripple/packages/Atoms/Global/scss/settings/layout';
-@import '../ripple/packages/Atoms/Global/scss/settings/button';
+@import '../ripple/packages/components/Atoms/Global/scss/settings/variables';
+@import '../ripple/packages/components/Atoms/Global/scss/settings/grid';
+@import '../ripple/packages/components/Atoms/Global/scss/settings/layout';
+@import '../ripple/packages/components/Atoms/Global/scss/settings/button';
+@import '../ripple/packages/components/Atoms/Global/scss/settings/print';
 
 //@import '../ripple/packages/Atoms/Global/scss/settings';
-@import '../ripple/packages/Atoms/Global/scss/tools';
+@import '../ripple/packages/components/Atoms/Global/scss/tools';
 
 // GENERIC
-@import '../ripple/packages/Atoms/Global/scss/generic/normalize';
-@import '../ripple/packages/Atoms/Global/scss/generic/global';
+@import '../ripple/packages/components/Atoms/Global/scss/generic/normalize';
+@import '../ripple/packages/components/Atoms/Global/scss/generic/global';
 
 // ELEMENTS
-@import '../ripple/packages/Atoms/Global/scss/elements/font';
+@import '../ripple/packages/components/Atoms/Global/scss/elements/font';
 
-@import '../ripple/packages/Atoms/Global/scss/components/button';
-@import "../ripple/packages/Organisms/SiteHeader/scss/site_header";
+@import '../ripple/packages/components/Atoms/Global/scss/components/button';
+@import "../ripple/packages/components/Organisms/SiteHeader/scss/site_header";
 
 //  DATA.VIC RIPPLE IMPLEMENTATIONS
 @import 'common';
@@ -37,6 +38,7 @@
 @import 'breadcrumbs';
 @import 'button';
 @import 'footer';
+@import 'footer_extras';
 @import 'header';
 @import 'icons';
 @import 'menu';
