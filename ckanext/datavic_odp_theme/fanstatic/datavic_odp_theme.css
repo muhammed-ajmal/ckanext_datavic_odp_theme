@@ -2,10 +2,18 @@ body {
   background-color: white;
   background-image: none;
   color: inherit; }
+  @media (max-width: 767px) {
+    body {
+      padding-left: 0;
+      padding-right: 0; } }
 
 [role="main"] {
   background: none;
   padding-top: 0; }
+  @media (max-width: 767px) {
+    [role="main"] {
+      padding-left: 20px;
+      padding-right: 20px; } }
 
 .wrapper {
   background: none;
@@ -1331,6 +1339,9 @@ nav {
 
 .module-content .pagination {
   margin: 0; }
+
+.module .pagination {
+  box-sizing: border-box; }
 
 .module .pagination li a {
   border: none;
