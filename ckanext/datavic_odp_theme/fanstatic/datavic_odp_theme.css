@@ -836,15 +836,18 @@ nav {
 
 .rpl-footer-nav {
   padding: 0;
-  margin: 12px 0; }
+  margin: 16px 0; }
   .rpl-footer-nav ol {
     margin: 0; }
 
 .rpl-footer-nav__menu-item {
   width: 100%; }
+  .rpl-footer-nav__menu-item:first-child {
+    margin-left: 0; }
   @media screen and (min-width: 992px) {
     .rpl-footer-nav__menu-item {
       display: inline-block;
+      margin-left: 20px;
       width: calc(33.33% - 16px); } }
 
 .rpl-links-and-copyright__links li {

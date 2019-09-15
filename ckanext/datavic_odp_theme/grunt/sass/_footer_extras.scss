@@ -1,6 +1,6 @@
 .rpl-footer-nav {
   padding: 0;
-  margin: 12px 0;
+  margin: 16px 0;
   ol {
     margin: 0;
   }
@@ -9,8 +9,13 @@
 .rpl-footer-nav__menu-item {
   width: 100%;
 
+  &:first-child {
+    margin-left: 0;
+  }
+
   @include rpl_breakpoint(l) {
     display: inline-block;
+    margin-left: 20px;
     width: calc(33.33% - 16px);
   }
 }
