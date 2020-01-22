@@ -1,13 +1,14 @@
 import ckan.plugins.toolkit as toolkit
 import ckan.logic           as logic
+import ckan.model as model
+import logging
 
+from sqlalchemy import and_ as _and_
+from sqlalchemy.sql import func
 from ckan.common import config, request
 
-import ckan.model as model
-import sqlalchemy
+log = logging.getLogger(__name__)
 
-_and_ = sqlalchemy.and_
-_func = sqlalchemy.func
 
 def organization_list():
     return toolkit.get_action('organization_list')({}, {'all_fields': True})
@@ -18,17 +19,24 @@ def group_list():
 
 
 def format_list(limit=100):
-    session = model.Session
+    resource_formats = []
+    try:
+        session = model.Session
 
-    query = (session.query(
-        model.Resource.format,)
-        .filter(_and_(
-            model.Resource.state == 'active',
-        ))
-        .group_by(model.Resource.format)
-        .order_by('format ASC'))
+        query = (session.query(
+            model.Resource.format,)
+            .filter(_and_(
+                model.Resource.state == 'active',
+            ))
+            .group_by(model.Resource.format)
+            .order_by(
+                func.lower(model.Resource.format)
+            ))
+        resource_formats = [resource.format for resource in query if not resource.format == '']
+    except Exception, e:
+        log.error(e.message)
 
-    return [resource.format for resource in query if not resource.format == '']
+    return resource_formats
 
 
 def hotjar_tracking_enabled():
