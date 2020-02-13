@@ -20,12 +20,12 @@ $rpl-site-header-logout-btn-icon-margin: 0 0 0 $rpl-space-2 !default;
   $root: &;
   //position: absolute;
   //z-index: $rpl-zindex-header;
-  padding: $rpl-header-horizontal-padding-xs 0;
+  padding: $rpl-header-horizontal-padding-xs 0 rem(4px) 0;
   box-sizing: border-box;
   width: 100%;
 
   @include rpl_breakpoint('m') {
-    padding: $rpl-header-horizontal-padding-s;
+    padding: $rpl-header-horizontal-padding-s $rpl-header-horizontal-padding-s rem(4px) $rpl-header-horizontal-padding-s;
   }
 
   &__inner {

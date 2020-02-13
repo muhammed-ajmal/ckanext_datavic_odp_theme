@@ -1,5 +1,5 @@
 <section class="additional-info">
-  <h3>{{ _('Additional Info') }}</h3>
+  <h3>{{ _('Additional Information') }}</h3>
   <table class="table table-striped table-bordered table-condensed">
     <thead>
       <tr>
@@ -37,7 +37,7 @@
         {% if pkg_dict.metadata_created %}
           {% set release_date = h.release_date(pkg_dict) %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _("Published (Metadata Record)") }}</th>
+            <th scope="row" class="dataset-label">{{ _("Published (Metadata record)") }}</th>
             <td class="dataset-details" property="dct:issued">
               {{ release_date[8:] + '/' + release_date[5:7] + '/' + release_date[:4] }}
             </td>
@@ -46,7 +46,7 @@
         {% if pkg_dict.metadata_modified %}
           {% set metadata_modified = pkg_dict.metadata_modified.split("T")[0] %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _("Last Updated") }}</th>
+            <th scope="row" class="dataset-label">{{ _("Last updated") }}</th>
             <td class="dataset-details" property="dct:updated">
               {{ metadata_modified[8:] + '/' + metadata_modified[5:7] + '/' + metadata_modified[:4] }}
             </td>
@@ -63,7 +63,7 @@
 
         {% if pkg_dict.maintainer %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _('Data Custodian') }}</th>
+            <th scope="row" class="dataset-label">{{ _('Data custodian') }}</th>
             <td class="dataset-details" property="dc:contributor">{{ pkg_dict.maintainer }}</td>
           </tr>
         {% endif %}
@@ -110,14 +110,14 @@
 
         {% if pkg_dict.protective_marking %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _('Protective Marking') }}</th>
+            <th scope="row" class="dataset-label">{{ _('Protective marking') }}</th>
             <td class="dataset-details>"{{ pkg_dict.protective_marking }}</td>
           </tr>
         {% endif %}
 
         {% if pkg_dict.date_created_data_asset %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _('Created (Data Asset)') }}</th>
+            <th scope="row" class="dataset-label">{{ _('Created (Data asset)') }}</th>
             <td class="dataset-details">
                 {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.date_created_data_asset %}
             </td>
@@ -127,14 +127,14 @@
         {% set range = h.historical_resources_range(pkg_dict.resources) %}
         {% if range %}
           <tr>
-              <th scope="row" class="dataset-label">Data Temporal Coverage:</th>
+              <th scope="row" class="dataset-label">Data temporal coverage:</th>
               <td class="dataset-details"> {{ range }}</td>
           </tr>
         {% endif %}
 
         {% if pkg_dict.full_metadata_url %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _('Full Metadata URL') }}</th>
+            <th scope="row" class="dataset-label">{{ _('Full metadata URL') }}</th>
             <td class="dataset-details">
             {% if pkg_dict.full_metadata_url.startswith('http') %}
               <a href="{{ pkg_dict.full_metadata_url }}" target="_blank" rel="nofollow">{{ pkg_dict.full_metadata_url }}</a>

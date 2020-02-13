@@ -11,11 +11,6 @@
         jQuery('#main-menu').hide();
     });
 
-    jQuery('#field-order-by').on('change', function() {
-        jQuery('.rpl-search-form input[name="sort"]').val(jQuery(this).val());
-        jQuery('.rpl-search-form form').submit();
-    });
-
     function closeAllDropdowns() {
         jQuery('.rpl-search-form__filters .rpl-checklist__combobox--expanded').removeClass('rpl-checklist__combobox--expanded');
         jQuery('.rpl-search-form__filters .rpl-checklist__main-row.expanded').removeClass('expanded');
@@ -60,6 +55,11 @@
             jQuery(this).parent().addClass('is-checked');
             jQuery(checklist + ' .rpl-checklist__combobox .rpl-checklist__list-row button.rpl-checklist__single-item--selected').removeClass('rpl-checklist__single-item--selected');
             jQuery(this).addClass('rpl-checklist__single-item--selected');
+
+            if (jQuery(this).attr('data-checklist') == 'checklist-order-by') {
+                jQuery('.rpl-search-form input[name="sort"]').val(value);
+                jQuery('.rpl-search-form form').submit();
+            }
         }
 
         hideDropdown(checklist);

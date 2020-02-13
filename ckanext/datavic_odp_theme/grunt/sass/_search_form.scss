@@ -208,7 +208,8 @@ $rpl-search-form-search-text: $rpl-search-form-show-filters-ruleset !default;
 
 .search-form-wrapper {
   background-color: rpl-color('light_neutral');
-  border-top: 1px solid rpl-color('mid_neutral_1');
+  border-top: 0;
+  margin-bottom: 1px;
   @include full-width;
 }
 
@@ -269,8 +270,4 @@ $rpl-search-form-search-text: $rpl-search-form-show-filters-ruleset !default;
         }
     }
   }
-}
-
-.package-search-control-order-by {
-  margin: 30px 0;
 }
