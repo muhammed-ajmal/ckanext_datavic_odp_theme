@@ -34,6 +34,17 @@
             <td class="dataset-details">{{ _(pkg_dict.state) }}</td>
           </tr>
         {% endif %}
+
+        {% if pkg_dict.date_created_data_asset %}
+          {% set date_created_data_asset = pkg_dict.date_created_data_asset.split("T")[0] %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Created (Data Asset)") }}</th>
+            <td class="dataset-details" property="dct:issued">
+              {{ date_created_data_asset[8:] + '/' + date_created_data_asset[5:7] + '/' + date_created_data_asset[:4] }}
+            </td>
+          </tr>
+        {% endif %}
+
         {% if pkg_dict.metadata_created %}
           {% set release_date = h.release_date(pkg_dict) %}
           <tr>
@@ -112,15 +123,6 @@
           <tr>
             <th scope="row" class="dataset-label">{{ _('Protective marking') }}</th>
             <td class="dataset-details>"{{ pkg_dict.protective_marking }}</td>
-          </tr>
-        {% endif %}
-
-        {% if pkg_dict.date_created_data_asset %}
-          <tr>
-            <th scope="row" class="dataset-label">{{ _('Created (Data asset)') }}</th>
-            <td class="dataset-details">
-                {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.date_created_data_asset %}
-            </td>
           </tr>
         {% endif %}
 
