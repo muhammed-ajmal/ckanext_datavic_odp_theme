@@ -434,6 +434,22 @@ html {
 .rpl-icon--color_black {
   fill: #000; }
 
+h2 {
+  font-size: 1.5rem; }
+
+.module-content h1 {
+  font-family: "Vic-Bold", arial, sans-serif;
+  font-size: 1.75rem;
+  padding-top: 1rem; }
+
+.module-content .resources h2,
+.module-content .resources h3 {
+  padding: 1rem 0; }
+
+.additional-info h3,
+.dataset-contact h3 {
+  padding: 1rem 0; }
+
 @media screen and (min-width: 768px) {
   .rpl-acknowledgement {
     display: flex;
@@ -726,7 +742,7 @@ nav {
       padding-right: 0 !important; } }
   @media screen and (min-width: 992px) {
     .rpl-site-footer__bottom {
-      width: 99.99%;
+      width: 100%;
       flex-wrap: nowrap; } }
   @media screen and (min-width: 992px) {
     .rpl-site-footer__bottom {
@@ -862,12 +878,12 @@ nav {
   line-height: 1em; }
 
 .rpl-site-header {
-  padding: 0.625rem 0;
+  padding: 0.625rem 0 0.25rem 0;
   box-sizing: border-box;
   width: 100%; }
   @media screen and (min-width: 768px) {
     .rpl-site-header {
-      padding: 1.25rem; } }
+      padding: 1.25rem 1.25rem 0.25rem 1.25rem; } }
   .rpl-site-header__inner {
     overflow: hidden;
     background-color: #0052c2;
@@ -1191,7 +1207,7 @@ nav {
     .rpl-menu--horizontal .rpl-menu--horizontal-floating-wrapper > .rpl-menu__inner > .rpl-menu__inner_root {
       margin-left: -0.75rem;
       margin-right: -0.75rem;
-      width: calc(99.99% + 0.75rem * 2); }
+      width: calc(100% + 0.75rem * 2); }
       @media screen {
         .rpl-menu--horizontal .rpl-menu--horizontal-floating-wrapper > .rpl-menu__inner > .rpl-menu__inner_root {
           box-sizing: border-box;
@@ -1434,14 +1450,14 @@ nav {
   padding-right: 1.5625rem; }
 
 .resource-item {
-  border-bottom: 2px solid #d7dbe0;
+  border-bottom: 1px solid #d7dbe0;
   border-radius: 0;
-  padding: 10px; }
+  padding: 0.625rem; }
   .resource-item .resource-summary {
     flex-grow: 2;
-    margin-right: 15px; }
+    margin-right: 0.9375rem; }
   .resource-item .resource-icon {
-    max-width: 45px; }
+    max-width: 2.8125rem; }
     .resource-item .resource-icon .format-label {
       position: initial;
       margin-right: 10px; }
@@ -1461,7 +1477,7 @@ nav {
   .resource-list .resource-item.wms-buttons {
     justify-content: flex-end; }
     .resource-list .resource-item.wms-buttons ul:first-child {
-      margin-right: 20px; }
+      margin-right: 1.25rem; }
     .resource-list .resource-item.wms-buttons.no-wms-url ul:first-child {
       margin-right: 0; }
   .resource-list .resource-item .btn-group {
@@ -1477,6 +1493,24 @@ nav {
   .dropdown-menu > li > a:hover {
     background-image: none;
     background-color: #0052c2; }
+
+.dataset-resources .label {
+  background: none;
+  color: #465870;
+  font-size: 0.875rem;
+  padding: 0 0.25rem 0 0;
+  text-shadow: none;
+  text-transform: uppercase; }
+  .dataset-resources .label:hover, .dataset-resources .label:focus {
+    color: #465870;
+    text-decoration: underline; }
+  .dataset-resources .label:before {
+    content: "|";
+    padding-right: 0.625rem; }
+
+.dataset-resources li:first-child .label:before {
+  content: "";
+  padding-right: 0; }
 
 .dataset-resources {
   margin-top: 0.75rem;
@@ -1502,9 +1536,27 @@ nav {
 
 .dataset-item {
   border-bottom: none;
-  border-top: 2px solid #d7dbe0;
+  border-top: 1px solid #d7dbe0;
   padding: 2rem 0 0 0;
   margin: 2rem 0 0 0; }
+
+.dataset-heading {
+  font-size: 1.5rem; }
+
+.order-by.rpl-search-form__filters {
+  padding-top: 1.875rem; }
+
+.order-by .vue-form-generator .form-group {
+  margin-bottom: 0; }
+
+.order-by .vue-form-generator label {
+  font-family: "VIC-Bold", "Arial", "Helvetica", "sans-serif";
+  font-size: 1rem;
+  line-height: 1em;
+  font-weight: normal;
+  color: #011a3c;
+  display: block;
+  margin-bottom: 0.75rem; }
 
 .da-search {
   background-color: #f6f6f9; }
@@ -1827,7 +1879,7 @@ nav {
   text-align: left;
   display: block;
   width: 100%;
-  background: transparent;
+  background: #fff;
   border: 0;
   padding: 1rem; }
   @media screen and (min-width: 768px) {
@@ -2110,7 +2162,8 @@ nav {
 
 .search-form-wrapper {
   background-color: #f6f6f9;
-  border-top: 1px solid #d7dbe0;
+  border-top: 0;
+  margin-bottom: 1px;
   width: 100vw;
   position: relative;
   left: 50%;
@@ -2167,9 +2220,6 @@ nav {
     .rpl-search-form__field input[type="text"]:-ms-input-placeholder {
       /* Internet Explorer 10+ */
       color: #011a3c; } }
-
-.package-search-control-order-by {
-  margin: 30px 0; }
 
 ul.btn-holder {
   margin: 0;

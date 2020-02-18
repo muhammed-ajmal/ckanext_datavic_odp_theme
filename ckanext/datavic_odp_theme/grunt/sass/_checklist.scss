@@ -43,7 +43,7 @@ $rpl-checklist-dropdown-max-height: (rem(38px) * 10);
     text-align: left;
     display: block;
     width: 100%;
-    background: transparent;
+    background: rpl-color('white');
     border: 0;
     padding: $rpl-form-element-padding-s;
     @include rpl_breakpoint(m) {

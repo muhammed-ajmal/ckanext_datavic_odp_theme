@@ -15,3 +15,27 @@
   }
 }
 
+h2 {
+  font-size: rem(24px);
+}
+
+.module-content {
+  h1 {
+    font-family: "Vic-Bold", arial, sans-serif;
+    font-size: rem(28px);
+    padding-top: rem(16px);
+  }
+  .resources {
+    h2,
+    h3 {
+      padding: 1rem 0;
+    }
+  }
+}
+
+.additional-info,
+.dataset-contact {
+  h3 {
+    padding: rem(16px) 0;
+  }
+}

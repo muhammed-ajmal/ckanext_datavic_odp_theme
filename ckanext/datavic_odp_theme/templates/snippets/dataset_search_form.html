@@ -8,7 +8,7 @@
     <div class="search-form-wrapper">
       <div class="rpl-search-form da-search rpl-site-constrain--on-all">
         <form {% if form_id %}id="{{ form_id }}" {% endif %}class="rpl-form" action="{{ h.url_for('search') }}" method="get">
-          <input type="hidden" name="sort" value="{{ sorting_selected }}" />
+          <input type="hidden" id="field-order-by" name="sort" value="{{ sorting_selected }}" />
           <div class="rpl-search-form__field">
             <label>
               <span class="rpl-search-form__label-text">Search for</span>
@@ -243,27 +243,67 @@
     {% if c.controller == 'organization' and c.action == 'index' %}
     {% else %}
         {% if sorting %}
-          <div class="form-select control-group package-search-control-order-by">
-            <label for="field-order-by">{{ _('Order by') }}</label>
-            <select id="field-order-by" name="sort">
-              {% for label, value in sorting %}
-                {% if label and value %}
-                  <option value="{{ value }}"{% if sorting_selected == value %} selected="selected"{% endif %}>{{ label }}</option>
-                {% endif %}
-              {% endfor %}
-            </select>
-            {% block search_sortby_button %}
-            <button class="btn js-hide" type="submit">{{ _('Go') }}</button>
-            {% endblock %}
+          <div class="rpl-search-form__filters order-by">
+            <div class="vue-form-generator">
+                <fieldset class="rpl-fieldset">
+                  <div class="rpl-fieldset__inner">
+                    <div class="form-group form-group--col-two field-rplchecklist">
+                      <label for="field-order-by">
+                        <span>{{ _('Order by') }}</span>
+                      </label>
+                      <div class="field-wrap">
+                        <div id="checklist-order-by" class="rpl-checklist wrapper">
+                          <div class="rpl-checklist__combobox form-control">
+                            <div class="rpl-checklist__main-row">
+                              <button type="button" class="rpl-checklist__info" data-checklist="checklist-order-by">
+                                {# sorting_selected defaults to Relevance #}
+                                {% for label, value in sorting %}
+                                  {% if label and value and value == sorting_selected %}
+                                  <span>{{ label }}</span>
+                                  {% endif %}
+                                {% endfor %}
+                                <svg aria-hidden="true" class="rpl-icon rpl-icon--down rpl-icon--color_light_primary" style="width: 8px; height: 5px;" width="8" height="5" viewBox="0 0 8 5" xmlns="http://www.w3.org/2000/svg">
+                                  <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+                                    fill="inherit" />
+                                </svg>
+                              </button>
+                            </div>
+                            {% if sorting %}
+                              <div class="rpl-checklist__list rpl-checklist__list--dropdown" style="display: none;">
+                              {% for label, value in sorting %}
+                                {% if label and value %}
+                                <div class="rpl-checklist__list-row rpl-checklist__list-row--single">
+                                  <button type="button" class="rpl-checklist__single-item"
+                                          data-value="{{ value }}"
+                                          data-target="field-order-by"
+                                          data-checklist="checklist-order-by"
+                                  >
+                                    <span>{{ label }}</span>
+                                    {% if sorting_selected == value %}
+                                    <span class="rpl-visually-hidden">(Selected)</span>
+                                    {% endif %}
+                                  </button>
+                                </div>
+                                {% endif %}
+                              {% endfor %}
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+            </div>
           </div>
         {% endif %}
-        {% endif %}
+    {% endif %}
   {% endblock %}
 
   {% block search_title %}
-    {% if not error %}
+    {% if not error and count %}
       <h2>{% snippet 'snippets/search_result_text.html', query=query, count=count, type=type %}</h2>
-    {% else %}
+    {% elif error %}
       <h2>Error</h2>
     {% endif %}
   {% endblock %}
