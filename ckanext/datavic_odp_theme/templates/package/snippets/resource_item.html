@@ -102,13 +102,7 @@
       {% block resource_item_explore_links %}
       <li>
         <a href="{{ url }}">
-          {% if res.has_views or res.format|upper not in ['API', 'API/TOOL', 'DATA TOOL', 'HTML', 'WMS', 'WFS', 'GeoJSON', 'GPX', 'KML', 'KMZ', 'SHP', 'SHP-ZIP', 'MIF-ZIP', 'TAB-ZIP', 'DXF-ZIP'] %}
-            <i class="fa fa-bar-chart-o"></i>
-            {{ _('Preview') }}
-          {% else %}
-            <i class="fa fa-info-circle"></i>
-            {{ _('More information') }}
-          {% endif %}
+          {{ _('More information') }}
         </a>
       </li>
       {% if res.url and h.is_url(res.url) %}
