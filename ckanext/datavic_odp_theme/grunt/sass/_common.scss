@@ -39,3 +39,17 @@ h2 {
     padding: rem(16px) 0;
   }
 }
+
+.module-content {
+  .notes.embedded-content {
+    h2 {
+      font-size: rem(20px);
+    }
+    h3 {
+      font-size: rem(18px);
+    }
+    h3 {
+      font-size: rem(16px);
+    }
+  }
+}

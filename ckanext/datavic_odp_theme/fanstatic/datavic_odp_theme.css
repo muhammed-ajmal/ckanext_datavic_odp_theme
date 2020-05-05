@@ -450,6 +450,15 @@ h2 {
 .dataset-contact h3 {
   padding: 1rem 0; }
 
+.module-content .notes.embedded-content h2 {
+  font-size: 1.25rem; }
+
+.module-content .notes.embedded-content h3 {
+  font-size: 1.125rem; }
+
+.module-content .notes.embedded-content h3 {
+  font-size: 1rem; }
+
 @media screen and (min-width: 768px) {
   .rpl-acknowledgement {
     display: flex;
