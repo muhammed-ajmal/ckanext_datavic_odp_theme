@@ -1,0 +1,106 @@
+//  CKAN RESET
+.module-content .pagination {
+  margin: 0;
+}
+
+.module .pagination {
+  box-sizing: border-box;
+}
+
+.module .pagination li a {
+  border: none;
+  padding: 0;
+}
+
+//  RIPPLE IMPLEMENTATION
+$rpl-pagination-step-ruleset: (
+        'xs': ('s', 1.5em, 'bold'),
+        'l': ('l', 1.2em, 'bold')
+) !default;
+$rpl-pagination-list-item-padding: 0 0 0 $rpl-space-2 !default;
+$rpl-pagination-list-item-divider-color: rpl-color('mid_neutral_1') !default;
+$rpl-pagination-step-color: rpl-color('extra_dark_neutral') !default;
+$rpl-pagination-step-border-bottom: 2px solid transparent !default;
+$rpl-pagination-step-hover-color: rpl-color('secondary') !default;
+$rpl-pagination-step-hover-border-bottom: 2px solid rpl-color('secondary') !default;
+$rpl-pagination-step-current-color: rpl-color('secondary') !default;
+$rpl-pagination-step-current-border-bottom: 2px solid rpl-color('secondary') !default;
+$rpl-pagination-nav-margin: 0 0 0 ($rpl-space * 5) !default;
+
+.module {
+  .pagination {
+    @include rpl_mobile_padding();
+    @include rpl_breakpoint('m') {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    display: flex;
+    align-items: center;
+    padding-top: 3rem;
+    width: 100%;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      > li {
+        display: inline-block;
+        padding: $rpl-pagination-list-item-padding;
+
+        &::after {
+          @include rpl_typography_ruleset($rpl-pagination-step-ruleset);
+          content: '/';
+          color: $rpl-pagination-list-item-divider-color;
+          padding: $rpl-pagination-list-item-padding;
+        }
+
+        &:last-child {
+          &::after {
+            content: '';
+          }
+        }
+
+        > a,
+        &.active > a {
+          @include rpl_typography_ruleset($rpl-pagination-step-ruleset);
+          background: transparent;
+          border: 0;
+          margin: 0;
+          padding: 0;
+        }
+
+        > a {
+          color: $rpl-pagination-step-color;
+          cursor: pointer;
+          border-bottom: $rpl-pagination-step-border-bottom;
+
+          &:hover,
+          &:focus {
+            color: $rpl-pagination-step-hover-color;
+            border-bottom: $rpl-pagination-step-border-bottom;
+          }
+
+          span {
+            @include rpl_visually_hidden;
+          }
+        }
+
+        &.active > a {
+          color: $rpl-pagination-step-current-color;
+          border-bottom: $rpl-pagination-step-current-border-bottom;
+        }
+      }
+    }
+  }
+}
+
+.span12 {
+  .module {
+    .pagination {
+      padding-left: rem(25px);
+      padding-right: rem(25px);
+    }
+  }
+}

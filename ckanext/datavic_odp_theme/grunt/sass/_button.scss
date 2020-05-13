@@ -1,0 +1,27 @@
+.btn-primary {
+
+    @include rpl_button;
+    @include rpl_button_primary;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+.btn-group.open .btn-primary.dropdown-toggle {
+    //background-color: $primary-color;
+}
+
+.btn-group {
+    &.open {
+        .btn-primary {
+            &.dropdown-toggle {
+                background-color: $rpl-button-primary-background-color;
+            }
+        }
+    }
+    > .btn {
+        font-size: initial;
+    }
+}

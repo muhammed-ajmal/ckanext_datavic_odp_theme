@@ -1,0 +1,312 @@
+  {% block search_input %}
+
+    {% set fields_grouped = c.fields_grouped %}
+    {% set organization = fields_grouped['organization'][0] if fields_grouped['organization'] and fields_grouped['organization'][0] else '' %}
+    {% set group = fields_grouped['groups'][0] if fields_grouped['groups'] and fields_grouped['groups'][0] else '' %}
+    {% set format = fields_grouped['res_format'][0] if fields_grouped['res_format'] and fields_grouped['res_format'][0] else '' %}
+
+    <div class="search-form-wrapper">
+      <div class="rpl-search-form da-search rpl-site-constrain--on-all">
+        <form {% if form_id %}id="{{ form_id }}" {% endif %}class="rpl-form" action="{{ h.url_for('search') }}" method="get">
+          <input type="hidden" id="field-order-by" name="sort" value="{{ sorting_selected }}" />
+          <div class="rpl-search-form__field">
+            <label>
+              <span class="rpl-search-form__label-text">Search for</span>
+              <input type="text" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}" class="rpl-search-form__input">
+            </label>
+            {% block search_input_button %}
+            <button class="rpl-search-form__btn">
+              <span class="">Search</span>
+              <svg aria-hidden="true" class="rpl-icon rpl-icon--search rpl-icon--color_primary" style="width:24px;height:24px;" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M10.9895 9.24258C12.587 6.79233 12.2144 3.42261 9.85748 1.40991C7.58966 -0.526184 4.13776 -0.45993 1.94049 1.55707C-0.581665 3.87222 -0.645325 7.81287 1.75031 10.2102C3.79315 12.2547 6.95502 12.503 9.2771 10.967C9.30811 10.9465 9.37885 10.8841 9.47473 10.7944L13.8181 14.9887C14.192 15.3498 14.7879 15.3394 15.1489 14.9655C15.51 14.5916 15.4996 13.9958 15.1257 13.6347L10.8018 9.45914C10.8997 9.35345 10.9681 9.27545 10.9895 9.24258ZM2.96704 8.99216C1.3045 7.3284 1.3045 4.62128 2.96704 2.95752C4.62952 1.29376 7.33447 1.29334 8.99695 2.95752C10.6594 4.62128 10.6594 7.3284 8.99695 8.99216C7.33447 10.6559 4.62952 10.6559 2.96704 8.99216Z"
+                  fill="inherit" />
+              </svg>
+            </button>
+            {% endblock %}
+          </div>
+          {% if facets %}
+            <button class="rpl-search-form__show-filters rpl-search-form__show-filters--expanded" aria-expanded="true">
+              <span>Advanced search</span>
+            </button>
+            <div class="rpl-search-form__filters">
+              <div class="vue-form-generator">
+                  <fieldset class="rpl-fieldset">
+                    <div class="rpl-fieldset__inner">
+                      <div class="form-group form-group--col-two field-rplchecklist">
+                        <label for="organisation">
+                          <span>Organisation</span>
+                        </label>
+                        <div class="field-wrap">
+                          <div id="checklist-organization" class="rpl-checklist wrapper">
+                            <input type="hidden" id="organization" name="organization" value="{{ organization }}" />
+                            <div class="rpl-checklist__combobox form-control">
+                              <div class="rpl-checklist__main-row">
+                                <button type="button" class="rpl-checklist__info" data-checklist="checklist-organization">
+                                  {% if organization %}
+                                    {% for item in h.organization_list() %}
+                                      {% if item.name == organization %}
+                                        <span>{{ item.display_name }}</span>
+                                      {% endif %}
+                                    {% endfor %}
+                                  {% else %}
+                                  <span>Please select an organisation</span>
+                                  {% endif %}
+                                  <svg aria-hidden="true" class="rpl-icon rpl-icon--down rpl-icon--color_primary" style="width: 8px; height: 5px;" width="8" height="5" viewBox="0 0 8 5" xmlns="http://www.w3.org/2000/svg">
+                                    <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+                                      fill="inherit" />
+                                  </svg>
+                                </button>
+                              </div>
+                              {% with items = h.organization_list() %}
+                                {% if items %}
+                                  <div class="rpl-checklist__list rpl-checklist__list--dropdown" style="display: none;">
+                                    <div class="rpl-checklist__list-row rpl-checklist__list-row--single">
+                                      <button type="button" class="rpl-checklist__single-item default"
+                                              data-value=""
+                                              data-target="organization"
+                                              data-checklist="checklist-organization"
+                                      >
+                                        <span>Please select an organisation</span>
+                                      </button><!---->
+                                    </div>
+                                  {% for item in items %}
+                                    <div class="rpl-checklist__list-row rpl-checklist__list-row--single">
+                                      <button type="button" class="rpl-checklist__single-item"
+                                              data-value="{{item.name}}"
+                                              data-target="organization"
+                                              data-checklist="checklist-organization"
+                                      >
+                                        <span>{{item.display_name}}</span>
+                                      </button>
+                                    </div>
+                                  {% endfor %}
+                                  </div>
+                                {% endif %}
+                              {% endwith %}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group form-group--col-two field-rplchecklist">
+                        <label for="category">
+                          <span>Category</span>
+                        </label>
+                        <div class="field-wrap">
+                          <div id="checklist-group" class="rpl-checklist wrapper">
+                            <input type="hidden" id="groups" name="groups" value="{{ group }}" />
+                            <div class="rpl-checklist__combobox form-control">
+                              <div class="rpl-checklist__main-row">
+                                <button type="button" class="rpl-checklist__info" data-checklist="checklist-group">
+                                  {% if group %}
+                                    {% for item in h.group_list() %}
+                                      {% if item.name == group %}
+                                        <span>{{ item.display_name }}</span>
+                                      {% endif %}
+                                    {% endfor %}
+                                  {% else %}
+                                  <span>Please select a category</span>
+                                  {% endif %}
+                                  <svg aria-hidden="true" class="rpl-icon rpl-icon--down rpl-icon--color_primary" style="width: 8px; height: 5px;" width="8" height="5" viewBox="0 0 8 5" xmlns="http://www.w3.org/2000/svg">
+                                    <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+                                      fill="inherit" />
+                                  </svg>
+                                </button>
+                              </div>
+                              {% with items = h.group_list() %}
+                                {% if items %}
+                                  <div class="rpl-checklist__list rpl-checklist__list--dropdown" style="display: none;">
+                                    <div class="rpl-checklist__list-row rpl-checklist__list-row--single">
+                                      <button type="button" class="rpl-checklist__single-item default"
+                                              data-value=""
+                                              data-target="group"
+                                              data-checklist="checklist-group"
+                                      >
+                                        <span>Please select a category</span>
+                                      </button><!---->
+                                    </div>
+                                  {% for item in items %}
+                                    <div class="rpl-checklist__list-row rpl-checklist__list-row--single">
+                                      <button type="button" class="rpl-checklist__single-item"
+                                              data-value="{{item.name}}"
+                                              data-target="groups"
+                                              data-checklist="checklist-group "
+                                      >
+                                        <span>{{item.display_name}}</span>
+                                      </button>
+                                    </div>
+                                  {% endfor %}
+                                  </div>
+                                {% endif %}
+                              {% endwith %}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  </fieldset>
+                  <fieldset class="rpl-fieldset"><div class="rpl-fieldset__inner">
+                    <!---->
+                      <div class="form-group form-group--col-two field-rplchecklist">
+                        <label for="format">
+                          <span>Format</span>
+                        </label>
+                        <div class="field-wrap">
+                          <div id="checklist-format" class="rpl-checklist wrapper">
+                            <input type="hidden" id="res_format" name="res_format" value="{{ format }}" />
+                            <div class="rpl-checklist__combobox form-control">
+                              <div class="rpl-checklist__main-row">
+                                <button type="button" class="rpl-checklist__info" data-checklist="checklist-format">
+                                  {% if format %}
+                                    {% for item in h.format_list() %}
+                                      {% if item == format %}
+                                        <span>{{ item|upper }}</span>
+                                      {% endif %}
+                                    {% endfor %}
+                                  {% else %}
+                                  <span>Please select a format</span>
+                                  {% endif %}
+                                  <svg aria-hidden="true" class="rpl-icon rpl-icon--down rpl-icon--color_primary" style="width: 8px; height: 5px;" width="8" height="5" viewBox="0 0 8 5" xmlns="http://www.w3.org/2000/svg">
+                                    <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+                                      fill="inherit" />
+                                  </svg>
+                                </button>
+                              </div>
+                              {% with items = h.format_list() %}
+                                {% if items %}
+                                  <div class="rpl-checklist__list rpl-checklist__list--dropdown" style="display: none;">
+                                    <div class="rpl-checklist__list-row rpl-checklist__list-row--single">
+                                      <button type="button" class="rpl-checklist__single-item default"
+                                              data-value=""
+                                              data-target="res_format"
+                                              data-checklist="checklist-format"
+                                      >
+                                        <span>Please select a format</span>
+                                      </button><!---->
+                                    </div>
+                                  {% for item in items %}
+                                    <div class="rpl-checklist__list-row rpl-checklist__list-row--single">
+                                      <button type="button" class="rpl-checklist__single-item"
+                                              data-value="{{item}}"
+                                              data-target="res_format"
+                                              data-checklist="checklist-format"
+                                      >
+                                        <span>{{item|upper}}</span>
+                                      </button>
+                                    </div>
+                                  {% endfor %}
+                                  </div>
+                                {% endif %}
+                              {% endwith %}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="form-group form-group--col-four field-rplclearform"><!---->
+                      <div class="field-wrap">
+                        <button class="rpl-clearform" href="{{ h.url_for('search') }}">
+                          <span>
+                            <span class="rpl-text-icon__group">
+                              <svg aria-hidden="true" class="rpl-text-icon--before rpl-icon rpl-icon--cross_circle rpl-icon--color_danger" style="width: 20px; height: 20px;" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="inherit" fill-rule="nonzero" d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm5.884 15.15a.581.581 0 0 1 0 .823l-1.916 1.91a.581.581 0 0 1-.823 0L12 14.71l-3.15 3.174a.581.581 0 0 1-.823 0l-1.91-1.916a.581.581 0 0 1 0-.823L9.29 12 6.116 8.85a.581.581 0 0 1 0-.823l1.916-1.916a.581.581 0 0 1 .823 0L12 9.291l3.15-3.175a.581.581 0 0 1 .823 0l1.916 1.916a.581.581 0 0 1 0 .823L14.709 12l3.175 3.15z" />
+                              </svg>Clear
+                            </span>
+                            <span> search filters</span><!---->
+                          </span>
+                        </button> <!---->
+                      </div> <!----> <!---->
+                    </div>
+                    <div class="form-group form-group--col-four field-rplsubmitloader"><!---->
+                      <div class="field-wrap">
+                        <button type="submit" class="rpl-submit-loader form-control">
+                          <span class="rpl-submit-loader__text">Apply search filters</span><!---->
+                        </button> <!---->
+                      </div> <!----> <!---->
+                    </div>
+                  </div>
+                  </fieldset>
+                </div>
+            </div>
+          {% endif %}
+        </form>
+      </div>
+    </div>
+
+  {% endblock %}
+
+  {% block search_search_fields %}
+    {% if fields -%}
+      <span>{{ form.hidden_from_list(fields=fields) }}</span>
+    {%- endif %}
+  {% endblock %}
+
+  {% block search_sortby %}
+    {% if c.controller == 'organization' and c.action == 'index' %}
+    {% else %}
+        {% if sorting %}
+          <div class="rpl-search-form__filters order-by">
+            <div class="vue-form-generator">
+                <fieldset class="rpl-fieldset">
+                  <div class="rpl-fieldset__inner">
+                    <div class="form-group form-group--col-two field-rplchecklist">
+                      <label for="field-order-by">
+                        <span>{{ _('Order by') }}</span>
+                      </label>
+                      <div class="field-wrap">
+                        <div id="checklist-order-by" class="rpl-checklist wrapper">
+                          <div class="rpl-checklist__combobox form-control">
+                            <div class="rpl-checklist__main-row">
+                              <button type="button" class="rpl-checklist__info" data-checklist="checklist-order-by">
+                                {# sorting_selected defaults to Relevance #}
+                                {% for label, value in sorting %}
+                                  {% if label and value and value == sorting_selected %}
+                                  <span>{{ label }}</span>
+                                  {% endif %}
+                                {% endfor %}
+                                <svg aria-hidden="true" class="rpl-icon rpl-icon--down rpl-icon--color_light_primary" style="width: 8px; height: 5px;" width="8" height="5" viewBox="0 0 8 5" xmlns="http://www.w3.org/2000/svg">
+                                  <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+                                    fill="inherit" />
+                                </svg>
+                              </button>
+                            </div>
+                            {% if sorting %}
+                              <div class="rpl-checklist__list rpl-checklist__list--dropdown" style="display: none;">
+                              {% for label, value in sorting %}
+                                {% if label and value %}
+                                <div class="rpl-checklist__list-row rpl-checklist__list-row--single">
+                                  <button type="button" class="rpl-checklist__single-item"
+                                          data-value="{{ value }}"
+                                          data-target="field-order-by"
+                                          data-checklist="checklist-order-by"
+                                  >
+                                    <span>{{ label }}</span>
+                                    {% if sorting_selected == value %}
+                                    <span class="rpl-visually-hidden">(Selected)</span>
+                                    {% endif %}
+                                  </button>
+                                </div>
+                                {% endif %}
+                              {% endfor %}
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+            </div>
+          </div>
+        {% endif %}
+    {% endif %}
+  {% endblock %}
+
+  {% block search_title %}
+    {% if not error and count %}
+      <h2>{% snippet 'snippets/search_result_text.html', query=query, count=count, type=type %}</h2>
+    {% elif error %}
+      <h2>Error</h2>
+    {% endif %}
+  {% endblock %}
+
+  {% block search_facets %}
+  {% endblock %}

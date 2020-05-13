@@ -32,6 +32,25 @@ Or... Restart Nginx & Apache:
         sudo service apache2 start
         sudo service nginx start
 
+## Additional Configuration Settings
+
+### Trackers
+
+#### Google Analytics
+
+        googleanalytics.id = UA-...
+
+#### Hotjar
+
+        ckan.tracking.hotjar_enabled = true
+        ckan.tracking.hotjar.hjid = ...
+        ckan.tracking.hotjar.hjsv = ...
+
+#### Monsido
+
+        ckan.tracking.monsido_enabled = true
+        ckan.tracking.monsido.domain_token = ...
+
 ## CSS & Grunt
 
 This theme adds a CSS resource to CKAN via the `fanstatic` dir:

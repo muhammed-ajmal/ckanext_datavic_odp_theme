@@ -5,193 +5,100 @@ $primary-color: #0052C2;
 
 .resource-item {
 
-	border-bottom: 2px solid #D7DBE0;
-	padding: 10px;
+	border-bottom: 1px solid rpl-color('mid_neutral_1');
+    border-radius: 0;
+	padding: rem(10px);
 
-    .btn-primary {
-        background-color: $primary-color;
-        background-image: none;
-        border: none;
-        border-radius: 4px;
-        color: #FFFFFF;
-        font-size: 14px;
-        font-weight: bold;
-        line-height: 14px;
-        padding: 16px;
-        &:active,
+    .resource-summary {
+        flex-grow: 2;
+        margin-right: rem(15px);
+    }
+
+    .resource-icon {
+        max-width: rem(45px);
+        .format-label {
+            position: initial;
+            margin-right: 10px;
+        }
+    }
+}
+
+.resource-list {
+    .resource-item {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        &:hover {
+            background-color: transparent;
+        }
+        &.has-wms-buttons {
+            border-bottom: none;
+            padding-bottom: 0;
+            p {
+                margin-bottom: 0;
+            }
+        }
+        &.wms-buttons {
+            justify-content: flex-end;
+            ul:first-child {
+                margin-right: rem(20px);
+            }
+            &.no-wms-url {
+              ul:first-child {
+                  margin-right: 0;
+              }
+            }
+        }
+        .btn-group {
+            display: inline-block;
+        }
+    }
+    .btn-group {
+        position: relative;
+        top: auto;
+        right: auto;
+    }
+}
+
+.dropdown-menu {
+    border-color: rpl_color('primary');
+    > li {
+        > {
+            a:hover {
+                background-image: none;
+                background-color: rpl_color('primary');
+            }
+        }
+    }
+}
+
+.dataset-resources {
+    .label {
+        background: none;
+        color: rpl_color('dark_neutral');
+        font-size: rem(14px);
+        padding: 0 rem(4px) 0 0;
+        text-shadow: none;
+        text-transform: uppercase;
         &:hover,
         &:focus {
-            background-color: $primary-color;
+            color: rpl_color('dark_neutral');
+            text-decoration: underline;
+        }
+        &:before {
+            content: "|";
+            padding-right: rem(10px);
         }
     }
-
-    .btn-group.open .btn-primary.dropdown-toggle {
-        background-color: $primary-color;
-    }
-
-    .dropdown-menu > li > a:hover {
-        background-color: $primary-color;
-        background-image: none;
-    }
-
-    .format {
-        background-color: #F6F6F9;
-        box-shadow: inset 0 1px 43px 0 rgba(0,0,0,0.05);
-        color: #011A3C;
-        font-size: 14px;
-        font-weight: 500;
-        height: 18px;
-        line-height:18px;
-        margin:0 6px 0 0;
-        padding: 3px 8px;
-        text-align:center;
-        text-transform:uppercase;
-        vertical-align:top;
-        width:40px;
-    }
-}
-
-/*
-.user-block-holder {
-	color:#767676;
-	font-size:18px;
-	margin:0 0 20px;
-	line-height:20px;
-	padding:0 0 10px;
-	border-bottom:1px solid #e6e6e6;
-
-    .info {
-        margin:0 20px 0 0;
-        width:220px;
-
-        p {
-            margin-bottom:6px;
-        }
-
-        .format {
-            text-transform:uppercase;
-            vertical-align:top;
-            background:#004dff;
-            text-align:center;
-            line-height:18px;
-            margin:0 6px 0 0;
-            font-size:12px;
-            width:40px;
-            color:#fff;
-        }
-    }
-
-    .frame {
-        position:relative;
-        padding:0 0 23px;
-
-        &:after {
-            display:block;
-            content:'';
-            clear:both;
-        }
-
-        &:hover {
-            z-index:2;
-        }
-
-        .info {
-            width: 100%;
-
-            ul {
-            }
-        }
-    }
-
-    .btn-holder {
-        margin:0;
-        font-size:19px;
-        list-style:none;
-        padding:0 20px 0 0;
-        float: right;
-
-        &:after {
-            display:block;
-            content:'';
-            clear:both;
-        }
-
-        a {
-            &:active,
-            &:focus {
-                text-decoration:none;
-            }
-
-            .eye {
-                background:url(/ico-eye.png) no-repeat;
-                vertical-align:middle;
-                display:inline-block;
-                height:12px;
-                width:20px;
-            }
-        }
-
-        li {
-            float: left;
-            position:relative;
-            margin:0 0 0 23px;
-            line-height:32px;
-            width:176px;
-            z-index: 1;
-
-            &:first-child {
-                margin: 0;
-            }
-
-            &:hover {
-                .drop {
-                    display:block;
-                }
-            }
-
-            &:hover > a {
-                text-decoration:none;
-                background:#008fff;
-            }
-
-            & > a {
-                color:#fff;
-                display:block;
-                padding:0 10px;
-                text-align:center;
-                background:#004dff;
-                border:1px solid #60b9ff;
-                text-transform:uppercase;
-            }
-
-            .drop {
-                position:absolute;
-                top:100%;
-                left:0;
-                right:0;
-                padding:10px;
-                display:none;
-                color:#767676;
-                font-size:12px;
-                background:#fff;
-                line-height:18px;
-                text-align:center;
-                border:1px solid #008fff;
-                border-width:0 1px 1px;
-
-                label {
-                    display:inline-block;
-
-                    &:after {
-                        content: ""
-                    }
-                }
-
-                p {
-                    text-align:left;
+    li {
+        &:first-child {
+            .label {
+                &:before {
+                    content: "";
+                    padding-right: 0;
                 }
             }
         }
     }
 }
-*/

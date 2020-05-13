@@ -40,3 +40,9 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+
+# Grunt
+.idea/
+
+# SDP Ripple
+ckanext/datavic_odp_theme/grunt/ripple
