@@ -1522,32 +1522,27 @@ nav {
   padding-right: 0; }
 
 .dataset-resources {
-  margin-top: 0.75rem;
-  /*
-  li {
-    a {
-      &.label {
-        background-color: rpl-color('light_neutral');
-        border-radius: none;
-        color: inherit;
-        font-size: rem(14px);
-        font-weight: 500;
-        height: rem(18px);
-        line-height: rem(18px);
-        padding: rem(3px) rem(8px);
-        text-align:center;
-        text-shadow: none;
-        text-transform:uppercase;
-      }
-    }
-  }
-  */ }
+  margin-top: 0.75rem; }
+  .dataset-resources li a.label {
+    font-family: "Vic-Medium", arial, sans-serif;
+    font-weight: normal; }
 
 .dataset-item {
   border-bottom: none;
   border-top: 1px solid #d7dbe0;
   padding: 2rem 0 0 0;
   margin: 2rem 0 0 0; }
+  .dataset-item h3.dataset-heading {
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem; }
+  .dataset-item .dataset-content .dataset-heading > a, .dataset-item .dataset-content div {
+    color: #011a3c; }
+  .dataset-item h5.search-result-organisation {
+    font-family: "Vic-Medium", arial, sans-serif;
+    font-size: 1.125rem;
+    margin: 0.75rem 0; }
+    .dataset-item h5.search-result-organisation a {
+      color: #465870; }
 
 .dataset-heading {
   font-size: 1.5rem; }

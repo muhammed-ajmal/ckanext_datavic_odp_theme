@@ -1,24 +1,27 @@
+$dataset-item-text-color: rpl-color('extra_dark_neutral') !default;
+
 .dataset-resources {
   margin-top: rem(12px);
-  /*
+
   li {
     a {
       &.label {
-        background-color: rpl-color('light_neutral');
-        border-radius: none;
-        color: inherit;
-        font-size: rem(14px);
-        font-weight: 500;
-        height: rem(18px);
-        line-height: rem(18px);
-        padding: rem(3px) rem(8px);
-        text-align:center;
-        text-shadow: none;
-        text-transform:uppercase;
+        // background-color: rpl-color('light_neutral');
+        // border-radius: none;
+        // color: inherit;
+        font-family: "Vic-Medium", arial, sans-serif;
+        font-weight: normal;
+        // font-size: rem(14px);
+        // height: rem(18px);
+        // line-height: rem(18px);
+        // padding: rem(3px) rem(8px);
+        // text-align:center;
+        // text-shadow: none;
+        // text-transform:uppercase;
       }
     }
   }
-  */
+  
 }
 
 .dataset-item {
@@ -26,6 +29,27 @@
   border-top: 1px solid rpl-color('mid_neutral_1');
   padding: rem(32px) 0 0 0;
   margin: rem(32px) 0 0 0;
+
+  h3 {
+    &.dataset-heading {
+      margin-bottom: rem(12px);
+      margin-top: rem(24px);
+    }
+  }
+  
+  .dataset-content .dataset-heading > a, .dataset-content div {
+    color: $dataset-item-text-color;
+  }
+  h5 {
+    &.search-result-organisation {
+      font-family: "Vic-Medium", arial, sans-serif;
+      font-size: rem(18px);
+      margin: rem(12px) 0;
+      a {
+        color: rpl-color('dark_neutral');
+      }
+    }
+  }
 }
 
 .dataset-heading {
