@@ -56,6 +56,13 @@ Example:
           {% else %}
             <p class="empty">{{ _("This dataset has no description") }}</p>
           {% endif %}
+          {% if package.organization %}
+            <h5 class="search-result-organisation">
+                <a href="{{ h.url_for(controller='organization', action='read', id=package.organization.name) }}">
+                    {{ package.organization.title }}
+                </a>
+            </h5>
+        {% endif %}
         {% endblock %}
         {% block resources %}
           {% if package.resources and not hide_resources %}
