@@ -71,7 +71,8 @@
             </form>
             </li>
         </ul>
-      {% elif res.public_order_url %}
+      {% endif %}
+      {% if res.public_order_url %}
         <ul class="btn-holder">
             <li>
                 {% set sdm_url = res.url | replace("https://sdm.iar.data.vic.gov.au/vicgislite/sdmAccess.jsp", h.current_url() + '/order') %}
