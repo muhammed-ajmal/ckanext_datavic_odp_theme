@@ -367,23 +367,23 @@ html {
 
 @font-face {
   font-family: "VIC-Regular";
-  src: url("/fonts/VIC-Regular.woff2") format("woff2"), url("/fonts/VIC-Regular.woff") format("woff");
-  font-display: swap; }
+  src: url("/fonts/VIC-Regular.eot");
+  src: url("/fonts/VIC-Regular.eot?#iefix") format("embedded-opentype"), url("/fonts/VIC-Regular.woff") format("woff"), url("/fonts/VIC-Regular.woff2") format("woff2"), url("/fonts/VIC-Regular.ttf") format("truetype"); }
 
 @font-face {
   font-family: "VIC-Medium";
-  src: url("/fonts/VIC-Medium.woff2") format("woff2"), url("/fonts/VIC-Medium.woff") format("woff");
-  font-display: swap; }
+  src: url("/fonts/VIC-Medium.eot");
+  src: url("/fonts/VIC-Medium.eot?#iefix") format("embedded-opentype"), url("/fonts/VIC-Medium.woff") format("woff"), url("/fonts/VIC-Medium.woff2") format("woff2"), url("/fonts/VIC-Medium.ttf") format("truetype"); }
 
 @font-face {
   font-family: "VIC-SemiBold";
-  src: url("/fonts/VIC-SemiBold.woff2") format("woff2"), url("/fonts/VIC-SemiBold.woff") format("woff");
-  font-display: swap; }
+  src: url("/fonts/VIC-SemiBold.eot");
+  src: url("/fonts/VIC-SemiBold.eot?#iefix") format("embedded-opentype"), url("/fonts/VIC-SemiBold.woff") format("woff"), url("/fonts/VIC-SemiBold.woff2") format("woff2"), url("/fonts/VIC-SemiBold.ttf") format("truetype"); }
 
 @font-face {
   font-family: "VIC-Bold";
-  src: url("/fonts/VIC-Bold.woff2") format("woff2"), url("/fonts/VIC-Bold.woff") format("woff");
-  font-display: swap; }
+  src: url("/fonts/VIC-Bold.eot");
+  src: url("/fonts/VIC-Bold.eot?#iefix") format("embedded-opentype"), url("/fonts/VIC-Bold.woff") format("woff"), url("/fonts/VIC-Bold.woff2") format("woff2"), url("/fonts/VIC-Bold.ttf") format("truetype"); }
 
 .sr-only {
   position: absolute;
@@ -394,6 +394,45 @@ html {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0; }
+
+.rpl-icon--color_primary {
+  fill: #0052c2; }
+
+.rpl-icon--color_dark_primary {
+  fill: #023b89; }
+
+.rpl-icon--color_secondary {
+  fill: #0095ec; }
+
+.rpl-icon--color_extra_dark_neutral {
+  fill: #011a3c; }
+
+.rpl-icon--color_dark_neutral {
+  fill: #465870; }
+
+.rpl-icon--color_mid_neutral_1 {
+  fill: #d7dbe0; }
+
+.rpl-icon--color_mid_neutral_2 {
+  fill: #e8ebee; }
+
+.rpl-icon--color_light_neutral {
+  fill: #f6f6f9; }
+
+.rpl-icon--color_danger {
+  fill: #af272f; }
+
+.rpl-icon--color_warning {
+  fill: #ca4c21; }
+
+.rpl-icon--color_success {
+  fill: #009ca6; }
+
+.rpl-icon--color_white {
+  fill: #fff; }
+
+.rpl-icon--color_black {
+  fill: #000; }
 
 h2 {
   font-size: 1.5rem; }
@@ -562,9 +601,7 @@ nav {
     background-color: #0095ec;
     color: #fff; }
   .btn-primary:active {
-    color: #fff;
-    background-color: transparent;
-    background-image: linear-gradient(180deg, #0052c2 0%, #0095ec 100%); }
+    color: #fff; }
     @media print {
       .btn-primary:active {
         color: #000; } }
@@ -1652,9 +1689,7 @@ nav {
       background-color: #0095ec;
       color: #fff; }
     .rpl-form [type='submit']:active {
-      color: #fff;
-      background-color: transparent;
-      background-image: linear-gradient(180deg, #0052c2 0%, #0095ec 100%); }
+      color: #fff; }
       @media print {
         .rpl-form [type='submit']:active {
           color: #000; } }
