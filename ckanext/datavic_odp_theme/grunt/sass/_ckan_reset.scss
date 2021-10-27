@@ -1,3 +1,7 @@
+html {
+  font-size: 100%;
+}
+
 body {
   background-color: white;
   background-image: none;
@@ -6,6 +10,10 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+legend {
+  line-height: 2.5rem;
 }
 
 [role="main"] {
@@ -36,4 +44,118 @@ body {
 
 .search-form .search-input.search-giant button {
   margin-top: -14px;
+}
+
+.primary {
+  &.span12 {
+  }
+    .control-group {
+      margin-bottom: 20px;
+    }
+    form {
+      .controls {
+        margin-left: 130px;
+      }
+      .control-group {
+        &:after,
+        &:before {
+          display: table;
+          content: "";
+          line-height: 0;
+          clear: both;
+        }
+      }
+      .control-label {
+        float: left;
+        width: 7.5rem;
+        padding-top: 0.5rem;
+        text-align: right;
+      }
+      .info-block {
+        position: relative;
+        display: block;
+        font-size: 11px;
+        color: #aaa;
+        line-height: 1.3;
+        margin-top: 6px;
+      }
+    }
+}
+
+.control-large {
+  input,
+  .control-label {
+    font-size: 1.0625rem;
+    line-height: 30px;
+  }
+}
+
+.control-medium input, .control-medium select, .control-medium textarea {
+  width: 20rem;
+}
+
+.dataset-heading {
+  .label {
+    font-size: .75rem;
+    padding: 2px 4px;
+  }
+}
+
+.span3 {
+  @include rpl_breakpoint(l) {
+    width: 13.75rem;
+  }
+}
+
+.span12 {
+  @include rpl_breakpoint(l) {
+    width: 58.75rem;
+  }
+}
+
+[role="main"] .container {
+  padding-left: 0;
+  padding-right: 0;
+
+  @include rpl_breakpoint(l) {
+    width: 940px;
+  }
+  .primary {
+    @include rpl_breakpoint(l) {
+      float: right;
+    }
+  }
+  .secondary {
+    @include rpl_breakpoint(l) {
+      float: left;
+    }
+  }
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+    .primary {
+      &.span9 {
+        width: 700px;
+        .page-header {
+          margin-left: -17px;
+        }
+        div.module-content {
+          padding-left: 10px;
+        }
+      }
+    }
+    .primary,
+    .secondary {
+      margin-left: 0;
+    }
+  }
+}
+
+.unstyled {
+  margin: 0;
+}
+
+.module-content:first-child {
+  margin-top: 0;
+  padding-top: 20px;
 }
