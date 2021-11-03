@@ -49,7 +49,9 @@ class AuthMiddleware(object):
     def __call__(self, environ, start_response):
         # Redirect homepage (/) to /dataset
         if environ['PATH_INFO'] == '/':
-            print('hello')
-            environ['wsgiorg.routing_args'] = '', {'action': 'search', 'controller': 'package'}
+            location = toolkit.h.url_for('dataset.search')
+            headers = [('Location', location)]
+            status = "301 Moved Permanently"
+            start_response(status, headers)
+            return []
         return self.app(environ, start_response)
-
