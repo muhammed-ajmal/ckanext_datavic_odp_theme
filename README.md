@@ -9,11 +9,11 @@ Add this repository as a sub-module to your main project repository:
 
 Activate the Python virtual environment:
 
-        . /usr/lib/ckan/default/bin/activate
+        . /app/ckan/default/bin/activate
 
 Install the CKAN extension:
 
-        cd /usr/lib/ckan/default/src/ckanext-datavic-odp-theme
+        cd /app/ckan/default/src/ckanext-datavic-odp-theme
 
         python setup.py develop
         
@@ -25,13 +25,9 @@ Restart CKAN
 
         paster serve /etc/ckan/default/development.ini
 
-Or... Restart Nginx & Apache:
+Or... Restart Docker
 
-        sudo service nginx stop
-        sudo service apache2 stop
-        sudo service apache2 start
-        sudo service nginx start
-
+        docker-compose restart ckan        
 ## Additional Configuration Settings
 
 ### Trackers
