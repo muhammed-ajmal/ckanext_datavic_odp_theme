@@ -12,9 +12,3 @@ datavic_odp_theme-js:
     preload:
       - base/main
   filters: rjsmin
-
-datavic-odp-resources-js:
-  output: datavic_odp_resources_js/%(version)s_datavic_odp_resources.js
-  contents:
-    - datavic_odp_resources.js
-  filters: rjsmin
