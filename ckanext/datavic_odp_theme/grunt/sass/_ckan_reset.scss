@@ -159,3 +159,9 @@ legend {
   margin-top: 0;
   padding-top: 20px;
 }
+
+.panel-body {
+  code {
+    word-break: break-word;
+  }
+}
