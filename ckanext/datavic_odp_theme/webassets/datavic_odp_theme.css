@@ -1661,7 +1661,8 @@ nav {
 .order-by .vue-form-generator .form-group {
   margin-bottom: 0; }
 
-.order-by .vue-form-generator label {
+.order-by .vue-form-generator label,
+.order-by .vue-form-generator .pseudo-label {
   font-family: "VIC-Bold", "Arial", "Helvetica", "sans-serif";
   font-size: 1rem;
   line-height: 1em;
@@ -1702,7 +1703,8 @@ nav {
   font-weight: normal; }
   .rpl-form__title {
     margin-top: 0; }
-  .rpl-form label {
+  .rpl-form label,
+  .rpl-form .pseudo-label {
     font-family: "VIC-Bold", "Arial", "Helvetica", "sans-serif";
     font-size: 1rem;
     line-height: 1em;

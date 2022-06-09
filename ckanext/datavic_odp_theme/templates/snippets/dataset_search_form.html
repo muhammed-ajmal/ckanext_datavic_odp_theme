@@ -10,9 +10,9 @@
         <form {% if form_id %}id="{{ form_id }}" {% endif %}class="rpl-form" action="{{ h.url_for('search') }}" method="get">
           <input type="hidden" id="field-order-by" name="sort" value="{{ sorting_selected }}" />
           <div class="rpl-search-form__field">
-            <label>
+            <label for="search-query">
               <span class="rpl-search-form__label-text">Search for</span>
-              <input type="text" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}" class="rpl-search-form__input">
+              <input id="search-query" type="text" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}" class="rpl-search-form__input">
             </label>
             {% block search_input_button %}
             <button class="rpl-search-form__btn">
@@ -33,9 +33,9 @@
                   <fieldset class="rpl-fieldset">
                     <div class="rpl-fieldset__inner">
                       <div class="form-group form-group--col-two field-rplchecklist">
-                        <label for="organisation">
+                        <div class="pseudo-label">
                           <span>Organisation</span>
-                        </label>
+                        </div>
                         <div class="field-wrap">
                           <div id="checklist-organization" class="rpl-checklist rpl-wrapper">
                             <input type="hidden" id="organization" name="organization" value="{{ organization }}" />
@@ -88,9 +88,9 @@
                         </div>
                       </div>
                       <div class="form-group form-group--col-two field-rplchecklist">
-                        <label for="category">
+                        <div class="pseudo-label">
                           <span>Category</span>
-                        </label>
+                        </div>
                         <div class="field-wrap">
                           <div id="checklist-group" class="rpl-checklist rpl-wrapper">
                             <input type="hidden" id="groups" name="groups" value="{{ group }}" />
@@ -147,9 +147,9 @@
                   <fieldset class="rpl-fieldset"><div class="rpl-fieldset__inner">
                     <!---->
                       <div class="form-group form-group--col-two field-rplchecklist">
-                        <label for="format">
+                        <div class="pseudo-label">
                           <span>Format</span>
-                        </label>
+                        </div>
                         <div class="field-wrap">
                           <div id="checklist-format" class="rpl-checklist rpl-wrapper">
                             <input type="hidden" id="res_format" name="res_format" value="{{ format }}" />
@@ -248,9 +248,9 @@
                 <fieldset class="rpl-fieldset">
                   <div class="rpl-fieldset__inner">
                     <div class="form-group form-group--col-two field-rplchecklist">
-                      <label for="field-order-by">
+                      <div class="pseudo-label">
                         <span>{{ _('Order by') }}</span>
-                      </label>
+                      </div>
                       <div class="field-wrap">
                         <div id="checklist-order-by" class="rpl-checklist">
                           <div class="rpl-checklist__combobox">
