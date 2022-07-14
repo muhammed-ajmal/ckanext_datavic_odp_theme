@@ -2,12 +2,14 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
 from ckanext.datavic_odp_theme import helpers
+from ckanext.datavic_odp_theme.logic import auth_functions
 
 
 class DatavicODPTheme(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IMiddleware, inherit=True)
+    plugins.implements(plugins.IAuthFunctions)
 
     # IConfigurer
 
@@ -40,6 +42,11 @@ class DatavicODPTheme(plugins.SingletonPlugin):
     # IMiddleware
     def make_middleware(self, app, config):
         return AuthMiddleware(app, config)
+
+    # IAuthFunctions
+
+    def get_auth_functions(self):
+        return auth_functions()
 
 
 class AuthMiddleware(object):
