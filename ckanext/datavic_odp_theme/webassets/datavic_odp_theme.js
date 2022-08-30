@@ -1,11 +1,11 @@
-  jQuery(document).ready(function() {
-    jQuery('#btn-mobile-menu-close').on('click', function(){
+jQuery(document).ready(function () {
+    jQuery('#btn-mobile-menu-close').on('click', function () {
         jQuery('body').css('overflow', '');
         jQuery('#mobile-menu').removeClass('rpl-site-header--open').addClass('hidden');
         jQuery('#main-menu').show();
     });
 
-    jQuery('#btn-mobile-menu-open').on('click', function(){
+    jQuery('#btn-mobile-menu-open').on('click', function () {
         jQuery('body').css('overflow', 'hidden');
         jQuery('#mobile-menu').addClass('rpl-site-header--open').removeClass('hidden');
         jQuery('#main-menu').hide();
@@ -30,17 +30,17 @@
         jQuery(target + ' .rpl-checklist__combobox').removeClass('rpl-checklist__combobox--expanded');
     }
 
-    jQuery('body').on('click', function(e) {
+    jQuery('body').on('click', function (e) {
         closeAllDropdowns();
     });
 
-    jQuery('.rpl-checklist .rpl-checklist__main-row button').on('click', function(e) {
+    jQuery('.rpl-checklist .rpl-checklist__main-row button').on('click', function (e) {
         target = '#' + jQuery(this).attr('data-checklist');
         showDropdown(target);
         return false;
     });
 
-    jQuery('.rpl-checklist button.rpl-checklist__single-item').on('click', function(e) {
+    jQuery('.rpl-checklist button.rpl-checklist__single-item').on('click', function (e) {
         name = jQuery(this).find('span').text();
         value = jQuery(this).attr('data-value');
         target = '#' + jQuery(this).attr('data-target');
@@ -66,12 +66,12 @@
         return false;
     });
 
-    jQuery('button.rpl-clearform').on('click', function(e) {
+    jQuery('button.rpl-clearform').on('click', function (e) {
         jQuery('#organization').val('');
         jQuery('#groups').val('');
         jQuery('#res_format').val('');
         jQuery('input[name="q"]').val('');
-        jQuery('.rpl-checklist__combobox').each(function() {
+        jQuery('.rpl-checklist__combobox').each(function () {
             var value = jQuery(this).find('.rpl-checklist__list-row button.default span').text();
             jQuery(this).find('.rpl-checklist__main-row button span').text(value);
         });
@@ -81,7 +81,7 @@
         e.preventDefault();
     });
 
-    jQuery('button.rpl-search-form__show-filters').on('click', function(e) {
+    jQuery('button.rpl-search-form__show-filters').on('click', function (e) {
         var expandedClass = 'rpl-search-form__show-filters--expanded';
         if (jQuery(this).hasClass(expandedClass)) {
             jQuery(this).removeClass(expandedClass);
@@ -95,4 +95,7 @@
         }
         e.preventDefault();
     });
-  });
+
+    // remove link for active breadcrumb item and nav-tav items
+    jQuery(".rpl-breadcrumbs__items li.active a, .page-header .nav-tabs li.active a").attr("href", "#")
+});
