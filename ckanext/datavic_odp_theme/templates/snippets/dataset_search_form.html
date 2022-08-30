@@ -269,7 +269,7 @@
                               </button>
                             </div>
                             {% if sorting %}
-                              <div class="rpl-checklist__list rpl-checklist__list--dropdown" style="display: none;">
+                              <div aria-hidden="true" class="rpl-checklist__list rpl-checklist__list--dropdown" style="display: none;">
                               {% for label, value in sorting %}
                                 {% if label and value %}
                                 <div class="rpl-checklist__list-row rpl-checklist__list-row--single">
