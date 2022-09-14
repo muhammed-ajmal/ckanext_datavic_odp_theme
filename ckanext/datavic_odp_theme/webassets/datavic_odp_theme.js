@@ -15,7 +15,7 @@
         $('.rpl-search-form__filters .rpl-checklist__combobox--expanded').removeClass('rpl-checklist__combobox--expanded');
         $('.rpl-search-form__filters .rpl-checklist__main-row.expanded').removeClass('expanded');
         $('.rpl-search-form__filters .rpl-checklist__list--dropdown').css('display', 'none');
-        $('#checklist-order-by .rpl-checklist__combobox .rpl-checklist__list--dropdown').attr('aria-hidden', "true");
+        $('.rpl-search-form__filters .rpl-checklist__combobox .rpl-checklist__list--dropdown').attr('aria-hidden', "true");
     }
 
     function showDropdown(target) {
@@ -23,18 +23,14 @@
         $(target + ' .rpl-checklist__combobox .rpl-checklist__list--dropdown').css('display', 'block');
         $(target + ' .rpl-checklist__main-row').addClass('expanded');
         $(target + ' .rpl-checklist__combobox').addClass('rpl-checklist__combobox--expanded');
-        if (target == '#checklist-order-by') {
-            $(target + ' .rpl-checklist__combobox .rpl-checklist__list--dropdown').attr('aria-hidden', "false");
-        };
+        $(target + ' .rpl-checklist__combobox .rpl-checklist__list--dropdown').attr('aria-hidden', "false");
     }
 
     function hideDropdown(target) {
         $(target + ' .rpl-checklist__combobox .rpl-checklist__list--dropdown').css('display', 'none');
         $(target + ' .rpl-checklist__main-row').removeClass('expanded');
         $(target + ' .rpl-checklist__combobox').removeClass('rpl-checklist__combobox--expanded');
-        if (target == '#checklist-order-by') {
-            $(target + ' .rpl-checklist__combobox .rpl-checklist__list--dropdown').attr('aria-hidden', "true");
-        };
+        $(target + ' .rpl-checklist__combobox .rpl-checklist__list--dropdown').attr('aria-hidden', "true");
     }
 
     $('body').on('click', function(e) {
