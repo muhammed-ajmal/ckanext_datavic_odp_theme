@@ -49,3 +49,49 @@ $rpl-form-textarea-height-m: rem(75px) !default;
   border-color: rpl-color('danger');
   background-color: $rpl-danger-bg-color;
 }
+
+
+.stages {
+    li {
+        .highlight {
+            color: #6B6B6B;
+        }
+        &.active {
+            &:before {
+                color: #438240;
+            }
+            .highlight {
+                background: #438240;
+            }
+        }
+    }
+}
+
+.control-required {
+    color: #B15D5F;
+}
+
+.editor {
+    .editor-info-block {
+        a {
+            color: #187491;
+        }
+    }
+}
+
+.primary {
+    form {
+        .info-block {
+            color: #757575;
+        }
+    }
+}
+
+.error-block {
+    background: #DD3134;
+}
+.btn-warning, .btn-danger {
+    &, &:focus, &:hover, &:active {
+        color: #000;
+    }
+}
