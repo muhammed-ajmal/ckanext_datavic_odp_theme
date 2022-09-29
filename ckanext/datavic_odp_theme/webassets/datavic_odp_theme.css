@@ -1582,7 +1582,8 @@ nav {
   padding: 0.625rem; }
   .resource-item .resource-summary {
     flex-grow: 2;
-    margin-right: 0.9375rem; }
+    margin-right: 0.9375rem;
+    word-break: break-word; }
   .resource-item .resource-icon {
     max-width: 2.8125rem; }
     .resource-item .resource-icon .format-label {
@@ -1603,6 +1604,12 @@ nav {
   position: relative;
   top: auto;
   right: auto; }
+
+@media (max-width: 767px) {
+  .resource-list .resource-item {
+    display: inline; }
+    .resource-list .resource-item .btn-group {
+      display: block; } }
 
 .dropdown-menu {
   border-color: #0052c2; }

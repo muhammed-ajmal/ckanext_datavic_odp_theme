@@ -12,6 +12,7 @@ $primary-color: #0052C2;
     .resource-summary {
         flex-grow: 2;
         margin-right: rem(15px);
+        word-break: break-word;
     }
 
     .resource-icon {
@@ -41,6 +42,15 @@ $primary-color: #0052C2;
         top: auto;
         right: auto;
     }
+
+    @media (max-width:767px) {
+        .resource-item {
+            display: inline;
+            .btn-group {
+                display: block;
+            }
+        }
+      }
 }
 
 .dropdown-menu {
