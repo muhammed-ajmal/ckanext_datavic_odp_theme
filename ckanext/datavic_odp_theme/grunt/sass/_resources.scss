@@ -12,7 +12,7 @@ $primary-color: #0052C2;
     .resource-summary {
         flex-grow: 2;
         margin-right: rem(15px);
-        word-break: break-word;
+        word-break: break-all;
     }
 
     .resource-icon {

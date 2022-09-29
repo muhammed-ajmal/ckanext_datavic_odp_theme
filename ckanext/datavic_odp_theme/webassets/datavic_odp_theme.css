@@ -1583,7 +1583,7 @@ nav {
   .resource-item .resource-summary {
     flex-grow: 2;
     margin-right: 0.9375rem;
-    word-break: break-word; }
+    word-break: break-all; }
   .resource-item .resource-icon {
     max-width: 2.8125rem; }
     .resource-item .resource-icon .format-label {
