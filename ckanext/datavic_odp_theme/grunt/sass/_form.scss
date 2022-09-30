@@ -53,17 +53,36 @@ $rpl-form-textarea-height-m: rem(75px) !default;
 
 .stages {
     li {
+        $green: #438240;
+        &.last {
+            right: 0px;
+        }
+
         .highlight {
             color: #6B6B6B;
         }
         &.active {
             &:before {
-                color: #438240;
+                color: $green;
             }
+            &:after {
+                border-top-color: $green;
+                border-bottom-color: $green;
+            }
+
             .highlight {
-                background: #438240;
+                background: $green;
             }
         }
+        &.complete {
+            &:before {
+                color: darken($green, 5);
+            }
+            .highlight {
+                background: darken($green, 5);
+            }
+        }
+
     }
 }
 

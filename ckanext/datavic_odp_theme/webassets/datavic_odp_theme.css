@@ -1702,14 +1702,27 @@ nav {
       margin-top: 1.75rem;
       flex-basis: calc(25% - (0.75rem * 2)); } }
 
+.stages li.last {
+  right: 0px; }
+
 .stages li .highlight {
   color: #6B6B6B; }
 
 .stages li.active:before {
   color: #438240; }
 
+.stages li.active:after {
+  border-top-color: #438240;
+  border-bottom-color: #438240; }
+
 .stages li.active .highlight {
   background: #438240; }
+
+.stages li.complete:before {
+  color: #3a7138; }
+
+.stages li.complete .highlight {
+  background: #3a7138; }
 
 .control-required {
   color: #B15D5F; }
