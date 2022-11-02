@@ -46,8 +46,8 @@ $rpl-search-form-heading-color: rpl-color('primary') !default;
 $rpl-search-form-dark-text-color: rpl-color('white') !default;
 $rpl-search-form-heading-ruleset: (
         'xs': ('mega', 1.07em, 'bold'),
-        'm': ('xgiga', 1em, 'bold'),
-        'xxl': ('tera', 1em, 'bold')
+        'm': ('xmega', 1em, 'bold'),
+        'xxl': ('xmega', 1em, 'bold')
 ) !default;
 $rpl-search-form-sub-heading-ruleset: (
         'm': ('mega', 1em, 'medium'),
