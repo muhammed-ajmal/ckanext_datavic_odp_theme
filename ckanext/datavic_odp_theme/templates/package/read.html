@@ -18,6 +18,12 @@
   {% endif %}
 {% endblock %}
 
+{% block featured_resource_content %}
+  {% snippet 'package/snippets/featured_resource.html',
+      pkg=pkg
+      %}
+{% endblock %}
+
   {% block package_additional_info %}
     {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
   {% endblock %}

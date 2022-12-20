@@ -7,6 +7,7 @@ from sqlalchemy import and_ as _and_
 from sqlalchemy.sql import func
 from ckan.common import config, request
 
+NotFound = toolkit.ObjectNotFound
 log = logging.getLogger(__name__)
 
 
@@ -95,3 +96,21 @@ def get_gtm_code():
     # To get Google Tag Manager Code
     gtm_code = config.get('ckan.google_tag_manager.gtm_container_id', False)
     return str(gtm_code)
+
+
+def featured_resource_preview(package):
+    # To get a featured preview for the dataset
+    featured_preview = None
+    if package.get('nominated_view_id',None):
+        try:
+            resource_view = toolkit.get_action('resource_view_show')(
+                {}, {'id': package['nominated_view_id']})
+            resource = toolkit.get_action('resource_show')(
+                {}, {'id': resource_view['resource_id']})
+            featured_preview = {
+                            'preview':resource_view,
+                            'resource':resource
+                            }
+        except NotFound:
+            pass
+    return featured_preview
