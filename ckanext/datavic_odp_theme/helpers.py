@@ -114,3 +114,6 @@ def featured_resource_preview(package):
         except NotFound:
             pass
     return featured_preview
+
+def get_google_optimize_id():
+    return config.get('ckan.google_optimize.id', None)
