@@ -22,9 +22,7 @@ def redirect_read(id):
         return dataset.read('dataset',id)
 
     redirect_without_no_preview = random.randrange(2)
-    if (
-        pkg_dict.get('nominated_view_id')
-        and pkg_dict.get['nominated_view_id'] not in ['']):
+    if (pkg_dict.get['nominated_view_id'] not in ['',None]):
         preview = request.args.get('no_preview')
         if preview or redirect_without_no_preview:
             return dataset.read('dataset',id)
