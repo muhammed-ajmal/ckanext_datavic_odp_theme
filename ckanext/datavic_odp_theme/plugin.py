@@ -55,8 +55,9 @@ class DatavicODPTheme(plugins.SingletonPlugin):
     def get_blueprint(self):
         # Check feature preview is enabled or not
         # If enabled add the redirect view for read pkg
-        preview_redirect_enabled = bool(config.get(
-            'ckan.dataset.preview_redirect', None))
+        preview_redirect_enabled = toolkit.asbool(
+            config.get('ckan.dataset.preview_redirect', None)
+            )
         if preview_redirect_enabled:
             vic_odp.add_url_rule( u'/dataset/<id>', view_func=redirect_read)
         return [vic_odp]
