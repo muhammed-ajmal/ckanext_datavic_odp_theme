@@ -1,0 +1,22 @@
+{# Featured Resource Preview
+    pkg: the package dict    
+#}
+
+<section class="datapreview">
+  <h3>{{ _('Data preview') }}</h3>
+  <div class="resource-view">
+      {% set resource_view = h.featured_resource_preview(pkg.resources) %}
+      {% if resource_view %}
+        {% snippet 'package/snippets/resource_view.html',
+            resource_view=resource_view['preview'],
+            resource=resource_view['resource'],
+            package=pkg
+            %}
+      {% else %}
+        {# Views not nominated #}
+        <div class="data-viewer-info">
+          <p>{{ _("There is no data preview available yet for this Dataset.") }}</p>
+        </div>
+      {% endif %}
+  </div>
+</section>
