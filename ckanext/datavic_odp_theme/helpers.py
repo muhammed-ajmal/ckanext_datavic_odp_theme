@@ -101,10 +101,10 @@ def get_gtm_code():
 def featured_resource_preview(package):
     # To get a featured preview for the dataset
     featured_preview = None
-    if package.get('nominated_view_id',None):
+    if package.get('nominated_view_resource',None):
         try:
-            resource_view = toolkit.get_action('resource_view_show')(
-                {}, {'id': package['nominated_view_id']})
+            resource_view = toolkit.get_action('resource_view_list')(
+                {}, {'id': package['nominated_view_resource']})[0]
             resource = toolkit.get_action('resource_show')(
                 {}, {'id': resource_view['resource_id']})
             featured_preview = {
