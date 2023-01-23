@@ -40,6 +40,8 @@ class DatavicODPTheme(plugins.SingletonPlugin):
             'get_parent_site_url': helpers.get_parent_site_url,
             'release_date': helpers.release_date,
             'get_gtm_code': helpers.get_gtm_code,
+            'get_google_optimize_id': helpers.get_google_optimize_id,
+            'featured_resource_preview': helpers.featured_resource_preview
         }
 
     # IMiddleware
