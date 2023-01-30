@@ -16,7 +16,7 @@ def vic_groups_list(id):
     return h.redirect_to("dataset.read", id=id)
 
 
-def redirect_read(id):
+def redirect_read(id:str):
     """
     redirect randomly if no_preview not provided
     """
@@ -30,8 +30,10 @@ def redirect_read(id):
 
     if pkg_dict.get("nominated_view_resource") not in ["", None]:
 
-        if no_preview is None:
-            return toolkit.h.redirect_to(f"/dataset/{id}?no_preview={preview_enabled}")
+        if no_preview is None and preview_enabled:
+            return toolkit.h.redirect_to(
+                f"/dataset/{id}?no_preview={preview_enabled}")
+
     return dataset.read("dataset", id)
 
 
