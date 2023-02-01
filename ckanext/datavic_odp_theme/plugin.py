@@ -41,7 +41,9 @@ class DatavicODPTheme(plugins.SingletonPlugin):
             'release_date': helpers.release_date,
             'get_gtm_code': helpers.get_gtm_code,
             'get_google_optimize_id': helpers.get_google_optimize_id,
-            'featured_resource_preview': helpers.featured_resource_preview
+            'featured_resource_preview': helpers.featured_resource_preview,
+            'get_digital_twin_resources': helpers.get_digital_twin_resources,
+            'url_for_dtv_config': helpers.url_for_dtv_config,
         }
 
     # IMiddleware
@@ -52,7 +54,7 @@ class DatavicODPTheme(plugins.SingletonPlugin):
 
     def get_auth_functions(self):
         return auth_functions()
-    
+
     # IBlueprint
     def get_blueprint(self):
         # Check feature preview is enabled or not
