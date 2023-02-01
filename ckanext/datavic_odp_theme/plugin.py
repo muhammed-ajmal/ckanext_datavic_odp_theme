@@ -39,6 +39,8 @@ class DatavicODPTheme(plugins.SingletonPlugin):
             'get_parent_site_url': helpers.get_parent_site_url,
             'release_date': helpers.release_date,
             'get_gtm_code': helpers.get_gtm_code,
+            'get_digital_twin_resources': helpers.get_digital_twin_resources,
+            'url_for_dtv_config': helpers.url_for_dtv_config,
         }
 
     # IMiddleware
@@ -49,7 +51,7 @@ class DatavicODPTheme(plugins.SingletonPlugin):
 
     def get_auth_functions(self):
         return auth_functions()
-    
+
     # IBlueprint
     def get_blueprint(self):
         return [vic_odp]
