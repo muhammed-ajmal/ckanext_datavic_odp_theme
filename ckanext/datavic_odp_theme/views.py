@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 from flask import Blueprint, jsonify
+import json
+import base64
 
 import ckan.lib.helpers as h
+import ckan.plugins.toolkit as toolkit
 
 vic_odp = Blueprint('vic_odp', __name__)
 CONFIG_BASE_MAP = "ckanext.datavicmain.dtv.base_map_id"
@@ -13,9 +16,11 @@ def vic_groups_list(id):
     return h.redirect_to('dataset.read', id=id)
 
 
-def dtv_config():
-    embedded = toolkit.asbool(toolkit.request.args.get("embedded"))
-    ids: list[str] = toolkit.request.args.getlist("resource_id")
+def dtv_config(encoded: str, embedded: bool):
+    try:
+        ids: list[str] = json.loads(base64.urlsafe_b64decode(encoded))
+    except ValueError:
+        return toolkit.abort(409)
     base_url: str = (
         toolkit.config.get("ckanext.datavicmain.odp.public_url")
         or toolkit.config["ckan.site_url"]
@@ -49,34 +54,32 @@ def dtv_config():
         })
 
     return jsonify({
-        "version": "8.0.0",
-        "initSources": [{
-            "baseMaps": {
-                "defaultBaseMapId": toolkit.config.get(
-                    CONFIG_BASE_MAP, DEFAULT_BASE_MAP
-                )
+        "baseMaps": {
+            "defaultBaseMapId": toolkit.config.get(
+                CONFIG_BASE_MAP, DEFAULT_BASE_MAP
+            )
+        },
+        "catalog": catalog,
+        "workbench": [item["id"] for item in catalog],
+        "elements": {
+            "map-navigation": {
+                "disabled": embedded
             },
-            "catalog": catalog,
-            "workbench": [item["id"] for item in catalog],
-            "elements": {
-                "map-navigation": {
-                    "disabled": embedded
-                },
-                "menu-bar": {
-                    "disabled": embedded
-                },
-                "bottom-dock": {
-                    "disabled": embedded
-                },
-                "map-data-count": {
-                    "disabled": embedded
-                },
-                "show-workbench": {
-                    "disabled": embedded
-                }
+            "menu-bar": {
+                "disabled": embedded
+            },
+            "bottom-dock": {
+                "disabled": embedded
+            },
+            "map-data-count": {
+                "disabled": embedded
+            },
+            "show-workbench": {
+                "disabled": embedded
             }
-        }]
+        }
     })
 
 vic_odp.add_url_rule( u'/dataset/groups/<id>', view_func=vic_groups_list)
-vic_odp.add_url_rule('/dtv_config', view_func=dtv_config)
+vic_odp.add_url_rule('/dtv_config/<encoded>/config.json', view_func=dtv_config, defaults={"embedded": False})
+vic_odp.add_url_rule('/dtv_config/<encoded>/embedded/config.json', view_func=dtv_config, defaults={"embedded": True})
