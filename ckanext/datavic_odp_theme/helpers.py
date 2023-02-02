@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import json
+import base64
+
 from typing import Any
 import ckan.plugins.toolkit as toolkit
 import ckan.logic           as logic
@@ -185,8 +188,9 @@ def url_for_dtv_config(ids: list[str], embedded: bool = True) -> str:
 
     """
 
+    encoded = base64.urlsafe_b64encode(bytes(json.dumps(ids), "utf8"))
     return toolkit.url_for(
         "vic_odp.dtv_config",
-        resource_id=ids, embedded=embedded,
+        encoded=encoded, embedded=embedded,
         _external=True
     )
