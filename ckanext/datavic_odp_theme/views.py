@@ -9,7 +9,7 @@ import ckan.plugins.toolkit as toolkit
 
 vic_odp = Blueprint('vic_odp', __name__)
 CONFIG_BASE_MAP = "ckanext.datavicmain.dtv.base_map_id"
-DEFAULT_BASE_MAP = "vic-topographic"
+DEFAULT_BASE_MAP = "vic-cartographic"
 
 
 def vic_groups_list(id):
