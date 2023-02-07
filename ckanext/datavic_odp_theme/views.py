@@ -21,7 +21,7 @@ NotFound = toolkit.ObjectNotFound
 vic_odp = Blueprint("vic_odp", __name__)
 PERCENTAGE_OF_CHANCE = 0.5
 CONFIG_BASE_MAP = "ckanext.datavicmain.dtv.base_map_id"
-DEFAULT_BASE_MAP = "vic-cartographic"
+DEFAULT_BASE_MAP = "VIC Cartographic"
 
 
 
@@ -101,15 +101,22 @@ def dtv_config(encoded: str, embedded: bool):
             "resourceId": id_
         })
 
-    return jsonify({
+    base_map = toolkit.config.get(
+        CONFIG_BASE_MAP, DEFAULT_BASE_MAP
+    )
+    base_map = toolkit.request.args.get("__dtv_base_map", base_map)
+
+    config = {
         "baseMaps": {
-            "defaultBaseMapId": toolkit.config.get(
-                CONFIG_BASE_MAP, DEFAULT_BASE_MAP
-            )
+            "defaultBaseMapId": base_map,
+            "previewBaseMapId": base_map
         },
         "catalog": catalog,
         "workbench": [item["id"] for item in catalog],
-        "elements": {
+    }
+
+    if embedded:
+        config.update({"elements": {
             "map-navigation": {
                 "disabled": embedded
             },
@@ -125,8 +132,8 @@ def dtv_config(encoded: str, embedded: bool):
             "show-workbench": {
                 "disabled": embedded
             }
-        }
-    })
+        }})
+    return jsonify(config)
 
 vic_odp.add_url_rule("/dataset/groups/<id>", view_func=vic_groups_list)
 vic_odp.add_url_rule('/dtv_config/<encoded>/config.json', view_func=dtv_config, defaults={"embedded": False})
