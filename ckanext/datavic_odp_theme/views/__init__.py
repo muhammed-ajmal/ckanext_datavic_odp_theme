@@ -14,7 +14,7 @@ import ckan.views.dataset as dataset
 from ckanext.datavic_odp_theme import helpers
 from ckanext.datavic_odp_theme.views.historical import odp_historical
 from ckanext.datavic_odp_theme.views.sitemap import odp_sitemap
-
+from ckanext.datavic_odp_theme.views.group import odp_group
 
 NotFound = tk.ObjectNotFound
 PERCENTAGE_OF_CHANCE = 0.5
@@ -130,4 +130,4 @@ def get_blueprints():
     if preview_redirect_enabled:
         vic_odp.add_url_rule( u'/dataset/<id>', view_func=redirect_read)
 
-    return [odp_historical, odp_sitemap, vic_odp]
+    return [odp_historical, odp_sitemap, odp_group, vic_odp]
