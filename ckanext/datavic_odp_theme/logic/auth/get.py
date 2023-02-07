@@ -1,3 +1,6 @@
+from __future__ import annotations
+from typing import Any
+
 import ckan.authz as authz
 import ckan.plugins.toolkit as toolkit
 
@@ -41,11 +44,7 @@ def vic_package_activity_list(context, data_dict):
     data_dict['object_type'] = 'package'
     return vic_activity_list(context, data_dict)
 
-def vic_organization_activity_list(context:dict, group_dict:dict) -> bool:
-    """
-    Check and show organization activity stream for auth and no auth users
-    :param group_dict: includes the id or name of the object (e.g. organization name)
-    :return status: Authorized or not
-    """
+def vic_organization_activity_list(context:dict[str, Any], 
+                                   group_dict:dict[str, str]) -> dict[bool,bool]:
     group_dict['object_type'] = 'organization'
     return vic_activity_list(context, group_dict)
