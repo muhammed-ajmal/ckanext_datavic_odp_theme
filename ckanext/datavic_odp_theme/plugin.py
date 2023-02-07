@@ -5,6 +5,9 @@ from ckan.common import config
 from ckanext.datavic_odp_theme import helpers
 from ckanext.datavic_odp_theme.logic import auth_functions, actions
 from ckanext.datavic_odp_theme.views import vic_odp, redirect_read
+from ckanext.datavic_odp_theme.logic import auth_functions
+from ckanext.datavic_odp_theme.views import get_blueprints
+from ckanext.datavic_odp_theme.cli import get_commands
 
 
 class DatavicODPTheme(plugins.SingletonPlugin):
@@ -14,20 +17,18 @@ class DatavicODPTheme(plugins.SingletonPlugin):
     plugins.implements(plugins.IAuthFunctions)
     plugins.implements(plugins.IActions)
     plugins.implements(plugins.IBlueprint)
+    plugins.implements(plugins.IClick)
 
     # IConfigurer
 
     def update_config(self, config_):
-        toolkit.add_template_directory(config_, 'templates')
-        toolkit.add_public_directory(config_, 'public')
-        toolkit.add_resource('webassets', 'datavic_odp_theme')
+        toolkit.add_template_directory(config_, "templates")
+        toolkit.add_public_directory(config_, "public")
+        toolkit.add_resource("webassets", "datavic_odp_theme")
 
     # ITemplateHelpers
 
     def get_helpers(self):
-        ''' Return a dict of named helper functions (as defined in the ITemplateHelpers interface).
-        These helpers will be available under the 'h' thread-local global object.
-        '''
         return {
             'organization_list': helpers.organization_list,
             'group_list': helpers.group_list,
@@ -45,6 +46,10 @@ class DatavicODPTheme(plugins.SingletonPlugin):
             'featured_resource_preview': helpers.featured_resource_preview,
             'get_digital_twin_resources': helpers.get_digital_twin_resources,
             'url_for_dtv_config': helpers.url_for_dtv_config,
+            "historical_resources_list": helpers.historical_resources_list,
+            "historical_resources_range": helpers.historical_resources_range,
+            "is_historical": helpers.is_historical,
+            "is_other_license": helpers.is_other_license,
         }
 
     # IMiddleware
@@ -62,15 +67,14 @@ class DatavicODPTheme(plugins.SingletonPlugin):
         return actions()
 
     # IBlueprint
+
     def get_blueprint(self):
-        # Check feature preview is enabled or not
-        # If enabled add the redirect view for read pkg
-        preview_redirect_enabled = toolkit.asbool(
-            config.get('ckan.dataset.preview_redirect', None)
-            )
-        if preview_redirect_enabled:
-            vic_odp.add_url_rule( u'/dataset/<id>', view_func=redirect_read)
-        return [vic_odp]
+        return get_blueprints()
+
+    # IClick
+
+    def get_commands(self):
+        return get_commands()
 
 
 class AuthMiddleware(object):
@@ -79,9 +83,9 @@ class AuthMiddleware(object):
 
     def __call__(self, environ, start_response):
         # Redirect homepage (/) to /dataset
-        if environ['PATH_INFO'] == '/':
-            location = toolkit.h.url_for('dataset.search')
-            headers = [('Location', location)]
+        if environ["PATH_INFO"] == "/":
+            location = toolkit.h.url_for("dataset.search")
+            headers = [("Location", location)]
             status = "301 Moved Permanently"
             start_response(status, headers)
             return []
