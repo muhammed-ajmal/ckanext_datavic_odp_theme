@@ -41,6 +41,11 @@ def vic_package_activity_list(context, data_dict):
     data_dict['object_type'] = 'package'
     return vic_activity_list(context, data_dict)
 
-def vic_organization_activity_list(context, data_dict):
-    data_dict['object_type'] = 'organization'
-    return vic_activity_list(context, data_dict)
+def vic_organization_activity_list(context:dict, group_dict:dict) -> bool:
+    """
+    Check and show organization activity stream for auth and no auth users
+    :param group_dict: includes the id or name of the object (e.g. organization name)
+    :return status: Authorized or not
+    """
+    group_dict['object_type'] = 'organization'
+    return vic_activity_list(context, group_dict)

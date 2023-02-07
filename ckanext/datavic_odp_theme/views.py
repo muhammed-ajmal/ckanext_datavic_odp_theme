@@ -7,19 +7,35 @@ import json
 import base64
 
 import ckan.lib.helpers as h
-from ckan.common import request
 import ckan.plugins.toolkit as toolkit
 import ckan.views.dataset as dataset
+import ckan.views.group as group
+from ckan.common import request
 
+_ = toolkit._
+abort = toolkit.abort
+NotAuthorized = toolkit.NotAuthorized
 NotFound = toolkit.ObjectNotFound
 vic_odp = Blueprint("vic_odp", __name__)
 PERCENTAGE_OF_CHANCE = 0.5
 CONFIG_BASE_MAP = "ckanext.datavicmain.dtv.base_map_id"
 DEFAULT_BASE_MAP = "vic-cartographic"
+FORBIDDEN_ACCESS = 403
 
 
 def vic_groups_list(id):
     return h.redirect_to("dataset.read", id=id)
+
+def vic_activity(id:str, offset:int=0):
+    """ Raise and redirect to 403 if unauthorized
+    :param id: organization name or id
+    :param offset: offset
+    :returns: redirect to 403 if not allowed view activity streams
+    """
+    try:
+        return group.activity(id, offset=offset, group_type="organization", is_organization=True)
+    except NotAuthorized:
+        abort(FORBIDDEN_ACCESS, _('Unauthorized Access'))
 
 
 def redirect_read(id:str):
@@ -110,3 +126,5 @@ def dtv_config(encoded: str, embedded: bool):
 vic_odp.add_url_rule("/dataset/groups/<id>", view_func=vic_groups_list)
 vic_odp.add_url_rule('/dtv_config/<encoded>/config.json', view_func=dtv_config, defaults={"embedded": False})
 vic_odp.add_url_rule('/dtv_config/<encoded>/embedded/config.json', view_func=dtv_config, defaults={"embedded": True})
+vic_odp.add_url_rule('/organization/activity/<id>/<int:offset>',
+                     methods=['GET'], view_func=vic_activity)
