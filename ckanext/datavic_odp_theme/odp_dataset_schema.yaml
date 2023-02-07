@@ -19,14 +19,14 @@ dataset_fields:
 - field_name: notes
   label: Description
   form_snippet: markdown.html
-  form_placeholder: Keywords
+  form_placeholder: Description
   required: true
 
 - field_name: tag_string
   label: Keywords
   preset: tag_string_autocomplete
   form_snippet: tags.html
-  form_placeholder: eg. economy, mental health, government
+  form_placeholder: Keywords
   required: true
 
 - field_name: license_id
@@ -51,6 +51,7 @@ dataset_fields:
 
 - field_name: full_metadata_url
   label: Full Metadata URL
+  form_placeholder: Full Metadata URL
   display_group: General
   form_placeholder: Full Metadata URL
   form_snippet: text.html
