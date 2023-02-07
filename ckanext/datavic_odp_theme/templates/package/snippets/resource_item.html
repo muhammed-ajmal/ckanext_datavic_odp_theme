@@ -9,17 +9,17 @@
     <div class="resource-summary">
         <p>
             {% if url_is_edit %}
-                Edit "<a href="{{ url }}">{{ h.resource_display_name(res) }} </a>"<br/>
+                {{ _('Edit') }} "<a href="{{ url }}">{{ h.resource_display_name(res) }} </a>"<br/>
             {% else %}
               {{ h.resource_display_name(res)}}<br/>
             {% endif %}
             {% if h.is_historical() or url_is_edit %}
             <small>
                 {% if res.release_date and res.release_date != '' %}
-                    Release Date: {{ h.render_datetime(res.release_date, date_format='%d/%m/%Y') }} &nbsp;
+                    {{ _('Release Date:') }} {{ h.render_datetime(res.release_date, date_format='%d/%m/%Y') }} &nbsp;
                 {% endif %}
                 {% if res.period_start and res.period_start != '' %}
-                    Period: {{ h.render_datetime(res.period_start, date_format='%d/%m/%Y') }} &raquo; {{ h.render_datetime(res.period_end, date_format='%d/%m/%Y') }}
+                    {{ _('Period:') }} {{ h.render_datetime(res.period_start, date_format='%d/%m/%Y') }} &raquo; {{ h.render_datetime(res.period_end, date_format='%d/%m/%Y') }}
                 {% endif %}
             </small>
             {% endif %}
