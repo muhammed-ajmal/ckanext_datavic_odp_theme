@@ -13,6 +13,7 @@ from sqlalchemy import and_ as _and_
 from sqlalchemy.sql import func
 from ckan.common import config, request
 
+NotFound = toolkit.ObjectNotFound
 log = logging.getLogger(__name__)
 
 CONFIG_DTV_FQ = "ckanext.datavicmain.dtv.supported_formats"
