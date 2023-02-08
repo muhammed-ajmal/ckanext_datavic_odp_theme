@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+import json
+import base64
 import random
 
 from flask import Blueprint, jsonify
-import json
-import base64
 
 import ckan.lib.helpers as h
 import ckan.plugins.toolkit as toolkit
@@ -22,7 +22,6 @@ vic_odp = Blueprint("vic_odp", __name__)
 PERCENTAGE_OF_CHANCE = 0.5
 CONFIG_BASE_MAP = "ckanext.datavicmain.dtv.base_map_id"
 DEFAULT_BASE_MAP = "VIC Cartographic"
-
 
 
 def vic_groups_list(id):
@@ -52,14 +51,16 @@ def redirect_read(id:str):
     except (NotFound):
         return dataset.read("dataset", id)
 
-    preview_enabled = int(random.random() < PERCENTAGE_OF_CHANCE)
+    should_redirect = int(random.random() < PERCENTAGE_OF_CHANCE)
+    has_dtv_resources = toolkit.h.get_digital_twin_resources(id)
+    has_nominated_view = pkg_dict.get("nominated_view_resource") not in ["", None]
+
     no_preview = request.params.get("no_preview")
 
-    if pkg_dict.get("nominated_view_resource") not in ["", None]:
-
-        if no_preview is None and preview_enabled:
+    if has_dtv_resources or has_nominated_view:
+        if no_preview is None and should_redirect:
             return toolkit.h.redirect_to(
-                f"/dataset/{id}?no_preview={preview_enabled}")
+                f"/dataset/{id}?no_preview={should_redirect}")
 
     return dataset.read("dataset", id)
 
@@ -136,6 +137,7 @@ def dtv_config(encoded: str, embedded: bool):
     return jsonify(config)
 
 vic_odp.add_url_rule("/dataset/groups/<id>", view_func=vic_groups_list)
+vic_odp.add_url_rule( u'/dataset/groups/<id>', view_func=vic_groups_list)
 vic_odp.add_url_rule('/dtv_config/<encoded>/config.json', view_func=dtv_config, defaults={"embedded": False})
 vic_odp.add_url_rule('/dtv_config/<encoded>/embedded/config.json', view_func=dtv_config, defaults={"embedded": True})
 vic_odp.add_url_rule(

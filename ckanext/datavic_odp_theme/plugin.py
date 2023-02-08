@@ -45,6 +45,8 @@ class DatavicODPTheme(plugins.SingletonPlugin):
             'featured_resource_preview': helpers.featured_resource_preview,
             'get_digital_twin_resources': helpers.get_digital_twin_resources,
             'url_for_dtv_config': helpers.url_for_dtv_config,
+            'get_google_optimize_id': helpers.get_google_optimize_id,
+            'featured_resource_preview': helpers.featured_resource_preview,
         }
 
     # IMiddleware
