@@ -14,7 +14,7 @@ from ckan.common import request
 vic_odp = Blueprint('vic_odp', __name__)
 
 CONFIG_BASE_MAP = "ckanext.datavicmain.dtv.base_map_id"
-DEFAULT_BASE_MAP = "VIC Cartographic"
+DEFAULT_BASE_MAP = "basemap-vic-topographic"
 
 NotFound = toolkit.ObjectNotFound
 PERCENTAGE_OF_CHANCE = 0.5
