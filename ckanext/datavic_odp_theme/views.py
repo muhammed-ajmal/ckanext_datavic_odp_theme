@@ -21,7 +21,7 @@ NotFound = toolkit.ObjectNotFound
 vic_odp = Blueprint("vic_odp", __name__)
 PERCENTAGE_OF_CHANCE = 0.5
 CONFIG_BASE_MAP = "ckanext.datavicmain.dtv.base_map_id"
-DEFAULT_BASE_MAP = "VIC Cartographic"
+DEFAULT_BASE_MAP = "basemap-vic-topographic"
 
 
 def vic_groups_list(id):
