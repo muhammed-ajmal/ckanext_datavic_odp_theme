@@ -7,10 +7,16 @@
   {{ super() }}
 {% endblock %}
 
-{%- block content %}
+{% block header %}
+  <header>
+    {{ super() }}
+  </header>
+{% endblock %}
 
+{%- block content %}
+  <main>
     {% if self.breadcrumb_content() | trim %}
-    <div class="rpl-breadcrumbs">
+    <div id="breadcrumbs" class="rpl-breadcrumbs" role="breadcrumbs">
         <nav aria-label="breadcrumbs">
             <ul class="rpl-breadcrumbs__items">
                 <li class="rpl-breadcrumbs__item"><a href="https://www.data.vic.gov.au" class="rpl-link rpl-breadcrumbs__link">Home</a></li>
@@ -20,7 +26,7 @@
     </div>
     {% endif %}
 
-    {% block maintag %}<div role="main">{% endblock %}
+    {% block maintag %}<div id="main-content" role="main">{% endblock %}
       <div id="content" class="container">
         {% block main_content %}
           {% block flash %}
@@ -72,5 +78,6 @@
         {% endblock %}
       </div>
     </div>
-  {% endblock -%}
+  </main>
+{% endblock -%}
 
