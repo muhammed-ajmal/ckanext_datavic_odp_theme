@@ -10,7 +10,6 @@ from ckanext.datavic_odp_theme.views import vic_odp, redirect_read
 class DatavicODPTheme(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
-    plugins.implements(plugins.IMiddleware, inherit=True)
     plugins.implements(plugins.IAuthFunctions)
     plugins.implements(plugins.IActions)
     plugins.implements(plugins.IBlueprint)
@@ -49,10 +48,6 @@ class DatavicODPTheme(plugins.SingletonPlugin):
             'featured_resource_preview': helpers.featured_resource_preview,
         }
 
-    # IMiddleware
-    def make_middleware(self, app, config):
-        return AuthMiddleware(app, config)
-
     # IAuthFunctions
 
     def get_auth_functions(self):
@@ -73,18 +68,3 @@ class DatavicODPTheme(plugins.SingletonPlugin):
         if preview_redirect_enabled:
             vic_odp.add_url_rule( u'/dataset/<id>', view_func=redirect_read)
         return [vic_odp]
-
-
-class AuthMiddleware(object):
-    def __init__(self, app, app_conf):
-        self.app = app
-
-    def __call__(self, environ, start_response):
-        # Redirect homepage (/) to /dataset
-        if environ['PATH_INFO'] == '/':
-            location = toolkit.h.url_for('dataset.search')
-            headers = [('Location', location)]
-            status = "301 Moved Permanently"
-            start_response(status, headers)
-            return []
-        return self.app(environ, start_response)
