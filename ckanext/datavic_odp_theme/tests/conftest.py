@@ -27,3 +27,10 @@ class OrganizationFactory(factories.Organization):
 
 
 register(OrganizationFactory, "organization")
+
+
+class SysadminFactory(factories.Sysadmin):
+    pass
+
+
+register(SysadminFactory, "sysadmin")

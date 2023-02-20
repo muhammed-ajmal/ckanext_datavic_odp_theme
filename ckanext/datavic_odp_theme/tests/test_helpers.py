@@ -55,5 +55,30 @@ class TestHelpers:
         for res_format in NOT_DOWNLOADABLE_FORMATS:
             assert not tk.h.is_resource_downloadable(resource_data(format=res_format))
 
-    def test_organization_list(self):
+    def test_organization_list_no_orgs(self):
         assert not tk.h.organization_list()
+
+    @pytest.mark.usefixtures("clean_db")
+    def test_organization_list_with_org(self, organization):
+        org_list = tk.h.organization_list()
+
+        assert org_list
+        assert isinstance(org_list, list)
+        assert isinstance(org_list[0], dict)
+        assert len(org_list) == 1
+
+    def test_organization_list_no_groups(self):
+        assert not tk.h.group_list()
+
+    @pytest.mark.usefixtures("clean_db")
+    def test_organization_list_no_groups_org(self, organization):
+        assert not tk.h.group_list()
+
+    @pytest.mark.usefixtures("clean_db")
+    def test_organization_list_with_group(self, group):
+        group_list = tk.h.group_list()
+
+        assert group_list
+        assert isinstance(group_list, list)
+        assert isinstance(group_list[0], dict)
+        assert len(group_list) == 1

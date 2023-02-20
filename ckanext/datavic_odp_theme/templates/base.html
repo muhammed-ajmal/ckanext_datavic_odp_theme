@@ -15,7 +15,9 @@
     {% snippet "snippets/monsido.html" %}
   {% endif %}
 
-  {% snippet "snippets/google_optimize.html" %}
+  {% if h.get_google_optimize_id() %}
+    {% snippet "snippets/google_optimize.html" %}
+  {% endif %}
 {% endblock %}
 
 {% block styles %}

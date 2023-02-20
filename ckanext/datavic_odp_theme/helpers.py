@@ -51,61 +51,58 @@ def format_list() -> list[str]:
 
 @helper
 def hotjar_tracking_enabled() -> bool:
-    return tk.asbool(tk.config.get("ckan.tracking.hotjar_enabled", False))
+    return conf.hotjar_tracking_enabled()
 
 
 @helper
 def monsido_tracking_enabled() -> bool:
-    return tk.asbool(tk.config.get("ckan.tracking.monsido_enabled", False))
+    return conf.monsido_tracking_enabled()
 
 
 @helper
 def get_hotjar_hsid() -> Optional[str]:
-    return tk.config.get("ckan.tracking.hotjar.hjid")
+    return conf.get_hotjar_hsid()
 
 
 @helper
 def get_hotjar_hjsv() -> Optional[str]:
-    return tk.config.get("ckan.tracking.hotjar.hjsv")
+    return conf.get_hotjar_hjsv()
 
 
 @helper
 def get_monsido_domain_token() -> Optional[str]:
-    return tk.config.get("ckan.tracking.monsido.domain_token")
-
-
-@helper
-def get_parent_site_url() -> str:
-    return tk.config.get("ckan.parent_site_url", "https://www.data.vic.gov.au/")
-
-
-@helper
-def release_date(pkg_dict):
-    """
-    Copied from https://github.com/salsadigitalauorg/datavic_ckan_2.2/blob/develop/iar/src/ckanext-datavic/ckanext/datavic/plugin.py#L296
-    :param pkg_dict:
-    :return:
-    """
-    dates = []
-    dates.append(pkg_dict["metadata_created"])
-    for resource in pkg_dict["resources"]:
-        if (
-            "release_date" in resource
-            and resource["release_date"] != ""
-            and resource["release_date"] != "1970-01-01"
-        ):
-            dates.append(resource["release_date"])
-    dates.sort()
-    return dates[0].split("T")[0]
+    return conf.get_monsido_domain_token()
 
 
 @helper
 def get_gtm_container_id() -> Optional[str]:
-    return tk.config.get("ckan.google_tag_manager.gtm_container_id")
+    return conf.get_gtm_container_id()
 
 
 @helper
-def featured_resource_preview(package) -> Optional[dict[str, Any]]:
+def get_google_optimize_id() -> Optional[str]:
+    return conf.get_google_optimize_id()
+
+
+@helper
+def get_parent_site_url() -> str:
+    return conf.get_parent_site_url()
+
+
+@helper
+def get_package_release_date(pkg_dict: dict[str, Any]) -> str:
+    """Get release_date from resource or use metadata_created as a default"""
+    dates: list[str] = [pkg_dict["metadata_created"]]
+
+    for resource in pkg_dict["resources"]:
+        if resource.get("release_date") and resource["release_date"] != "1970-01-01":
+            dates.append(resource["release_date"])
+
+    return sorted(dates)[0].split("T")[0]
+
+
+@helper
+def featured_resource_preview(package: dict[str, Any]) -> Optional[dict[str, Any]]:
     """Return a featured resource preview if exists for a specific dataset"""
     featured_preview = None
     if package.get("nominated_view_resource"):
@@ -120,11 +117,6 @@ def featured_resource_preview(package) -> Optional[dict[str, Any]]:
         except tk.ObjectNotFound:
             pass
     return featured_preview
-
-
-@helper
-def get_google_optimize_id() -> Optional[str]:
-    return tk.config.get("ckan.google_optimize.id")
 
 
 @helper
