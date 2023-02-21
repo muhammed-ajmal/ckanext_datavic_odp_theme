@@ -20,4 +20,4 @@ datavic_recline_patch_css:
   filter: cssrewrite
   output: datavic_odp_theme/%(version)s-datavic-recline.css
   contents:
-    - datavic_recline.css
+    - css/datavic_recline.css
