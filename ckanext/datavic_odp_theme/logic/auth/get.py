@@ -1,3 +1,6 @@
+from __future__ import annotations
+from typing import Any
+
 import ckan.authz as authz
 import ckan.plugins.toolkit as toolkit
 
@@ -30,7 +33,7 @@ def vic_activity_list(context, data_dict):
         data_dict['object_type'], show_or_update)  # e.g. 'package_update'
 
     # DataVIC modification
-    if data_dict['object_type'] == 'package' and not authz.auth_is_loggedin_user():
+    if data_dict['object_type'] in ['package', 'organization'] and not authz.auth_is_loggedin_user():
         return {'success': False}
         
     return authz.is_authorized(action_on_which_to_base_auth, context,
@@ -40,3 +43,8 @@ def vic_activity_list(context, data_dict):
 def vic_package_activity_list(context, data_dict):
     data_dict['object_type'] = 'package'
     return vic_activity_list(context, data_dict)
+
+def vic_organization_activity_list(context:dict[str, Any], 
+                                   group_dict:dict[str, str]) -> dict[bool,bool]:
+    group_dict['object_type'] = 'organization'
+    return vic_activity_list(context, group_dict)
