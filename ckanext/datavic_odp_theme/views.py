@@ -40,6 +40,9 @@ def redirect_read(id: str):
     """
     redirect randomly if no_preview not provided
     """
+    if id == "new":
+        return dataset.CreateView.as_view("new")("dataset")
+
     try:
         pkg_dict = tk.get_action("package_show")({}, {"id": id})
     except tk.ObjectNotFound:
