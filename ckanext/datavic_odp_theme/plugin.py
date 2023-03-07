@@ -3,7 +3,7 @@ import ckan.plugins.toolkit as toolkit
 from ckan.common import config
 
 from ckanext.datavic_odp_theme import helpers
-from ckanext.datavic_odp_theme.logic import auth_functions
+from ckanext.datavic_odp_theme.logic import auth_functions, actions
 from ckanext.datavic_odp_theme.views import vic_odp, redirect_read
 
 
@@ -12,6 +12,7 @@ class DatavicODPTheme(plugins.SingletonPlugin):
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IMiddleware, inherit=True)
     plugins.implements(plugins.IAuthFunctions)
+    plugins.implements(plugins.IActions)
     plugins.implements(plugins.IBlueprint)
 
     # IConfigurer
@@ -52,7 +53,12 @@ class DatavicODPTheme(plugins.SingletonPlugin):
 
     def get_auth_functions(self):
         return auth_functions()
-    
+
+    # IActions
+
+    def get_actions(self):
+        return actions()
+
     # IBlueprint
     def get_blueprint(self):
         # Check feature preview is enabled or not
