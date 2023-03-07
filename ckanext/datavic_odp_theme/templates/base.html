@@ -11,6 +11,8 @@
   {% if h.monsido_tracking_enabled() == true %}
     {% snippet "snippets/monsido.html" %}
   {% endif %}
+
+  {% snippet "snippets/google_optimize.html" %}
 {% endblock %}
 
 {% block styles %}
@@ -22,13 +24,3 @@
   {{ super() }}
   {% asset 'datavic_odp_theme/datavic_odp_theme-js' %}
 {% endblock %}
-
-{%- block htmltag -%}
-  {% set lang = h.lang() %}
-
-  {% if lang == 'en_AU' %}
-    {% set lang = 'en-au' %}
-  {% endif %}
-  <!--[if IE 9]> <html lang="{{ lang }}" class="ie9"> <![endif]-->
-  <!--[if gt IE 8]><!--> <html lang="{{ lang }}"> <!--<![endif]-->
-{%- endblock -%}

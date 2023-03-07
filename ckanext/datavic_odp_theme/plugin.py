@@ -1,9 +1,10 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+from ckan.common import config
 
 from ckanext.datavic_odp_theme import helpers
 from ckanext.datavic_odp_theme.logic import auth_functions, actions
-from ckanext.datavic_odp_theme.views import vic_odp
+from ckanext.datavic_odp_theme.views import vic_odp, redirect_read
 
 
 class DatavicODPTheme(plugins.SingletonPlugin):
@@ -40,6 +41,8 @@ class DatavicODPTheme(plugins.SingletonPlugin):
             'get_parent_site_url': helpers.get_parent_site_url,
             'release_date': helpers.release_date,
             'get_gtm_code': helpers.get_gtm_code,
+            'get_google_optimize_id': helpers.get_google_optimize_id,
+            'featured_resource_preview': helpers.featured_resource_preview
         }
 
     # IMiddleware
@@ -58,6 +61,13 @@ class DatavicODPTheme(plugins.SingletonPlugin):
 
     # IBlueprint
     def get_blueprint(self):
+        # Check feature preview is enabled or not
+        # If enabled add the redirect view for read pkg
+        preview_redirect_enabled = toolkit.asbool(
+            config.get('ckan.dataset.preview_redirect', None)
+            )
+        if preview_redirect_enabled:
+            vic_odp.add_url_rule( u'/dataset/<id>', view_func=redirect_read)
         return [vic_odp]
 
 
