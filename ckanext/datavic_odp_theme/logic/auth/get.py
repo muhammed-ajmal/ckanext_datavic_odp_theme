@@ -5,6 +5,7 @@ import ckan.authz as authz
 import ckan.plugins.toolkit as tk
 
 
+@tk.chained_auth_function
 @tk.auth_allow_anonymous_access
 def vic_activity_list(context, data_dict):
     """
@@ -45,11 +46,12 @@ def vic_activity_list(context, data_dict):
     )
 
 
+@tk.chained_auth_function
 def vic_package_activity_list(context, data_dict):
     data_dict["object_type"] = "package"
     return vic_activity_list(context, data_dict)
 
-
+@tk.chained_auth_function
 def vic_organization_activity_list(
     context: dict[str, Any], group_dict: dict[str, str]
 ) -> dict[bool, bool]:
