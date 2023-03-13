@@ -14,6 +14,7 @@ import ckan.views.group as group
 
 from ckanext.datavic_odp_theme import config as conf, const
 
+PERCENTAGE_OF_CHANCE = 0.5
 
 vic_odp = Blueprint("vic_odp", __name__)
 
@@ -124,20 +125,6 @@ vic_odp.add_url_rule(u"/dataset/groups/<id>", view_func=vic_groups_list)
 vic_odp.add_url_rule(
     "/organization/activity/<id>/<int:offset>", view_func=vic_organization_activity
 )
-vic_odp.add_url_rule(
-    "/dtv_config/<encoded>/config.json",
-    view_func=dtv_config,
-    defaults={"embedded": False},
-)
-vic_odp.add_url_rule(
-    "/dtv_config/<encoded>/embedded/config.json",
-    view_func=dtv_config,
-    defaults={"embedded": True},
-)
-vic_odp.add_url_rule(
-    "/organization/activity/<id>/<int:offset>", view_func=vic_organization_activity
-)
-
 
 def get_blueprints():
     # Check feature preview is enabled or not
