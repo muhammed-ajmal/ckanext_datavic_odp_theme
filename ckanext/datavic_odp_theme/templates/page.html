@@ -53,7 +53,7 @@
             {% endblock %}
 
             {% block primary %}
-              {% set span = 9 if g.blueprint in ['user', 'admin', 'ckanext.harvest.controllers.view:ViewController'] else 12 %}
+              {% set span = 9 if g.blueprint in ['user', 'admin', 'activity', 'ckanext.harvest.controllers.view:ViewController'] else 12 %}
               <div class="primary span{{ span }}">
                 {% block primary_content %}
                   {{ super() }}
@@ -62,7 +62,7 @@
             {% endblock %}
 
             {% block secondary %}
-              {% set span = 9 if g.blueprint in ['user', 'admin', 'ckanext.harvest.controllers.view:ViewController'] else 12 %}
+              {% set span = 9 if g.blueprint in ['user', 'admin', 'activity', 'ckanext.harvest.controllers.view:ViewController'] else 12 %}
               {% if span != 12 %}
                   <aside class="secondary span3">
                     {% block secondary_content %}{% endblock %}

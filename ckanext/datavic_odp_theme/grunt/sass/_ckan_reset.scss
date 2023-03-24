@@ -214,27 +214,34 @@ hr {
     margin-right: 2px;
 }
 
-.fa {
-    &.fa-building-o:before {
-        content: "\f1ad";
-    }
-    &.fa-group:before {
-        content: "\f0c0";
-    }
-    &.fa-trash-o:before {
-        content: "\f1f8";
-    }
-    &.fa-check-square-o:before {
-        content: "\f14a";
-    }
-    &.fa-arrow-circle-o-down:before {
-        content: "\f0ab";
-    }
-    &.fa-pencil-square-o:before {
-        content: "\f14b";
+.table > :not(:first-child) {
+    border-top: 1px solid #ddd;
+}
+.table > thead {
+    border-bottom: 2px solid #ddd;
+}
+
+.table.table-striped {
+    table-layout: fixed;
+
+    th, td {
+        width: 50%;
+        word-wrap: break-word;
     }
 }
 
-.table > :not(:first-child) {
-    border-top: 2px solid #dee2e6;
+.table-condensed > :not(caption) > * > * {
+    padding: 0.25rem 0.25rem;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    --bs-table-accent-bg: transparent;
+}
+
+.table-striped tbody tr:nth-child(even) td, .table-striped tbody tr:nth-child(even) th {
+    background-color: #f2f2f2;
 }
