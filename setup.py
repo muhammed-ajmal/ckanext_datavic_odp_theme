@@ -63,6 +63,7 @@ setup(
         [ckan.plugins]
         datavic_odp_theme=ckanext.datavic_odp_theme.plugin:DatavicODPTheme
         datavic_odp_theme_auth=ckanext.datavic_odp_theme.plugin:DatavicODPThemeAuth
+        datavic_odp_xloader=ckanext.datavic_odp_theme.plugin:DatavicXLoaderPlugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan
