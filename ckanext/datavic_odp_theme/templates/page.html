@@ -33,7 +33,7 @@
             <div class="flash-messages">
               {% block flash_inner %}
                 {% for message in h.get_flashed_messages() %}
-                  <div class="alert fade in {{ message.category }}">
+                  <div class="alert fade show in {{ message.category }}">
                     {{ h.literal(message) }}
                   </div>
                 {% endfor %}
